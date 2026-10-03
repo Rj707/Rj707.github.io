@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DecibelPro — Sound Level Meter Support & Privacy</title>
+    <style>
+        :root {
+            --primary: #00e5ff;
+            --accent: #7c4dff;
+            --bg: #0b0e14;
+            --card: #151922;
+            --text: #f0f4f8;
+            --text-sec: #94a3b8;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            color: var(--text-sec);
+            font-size: 1.05rem;
+        }
+        .card {
+            background-color: var(--card);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 24px;
+            border: 1px solid var(--border);
+        }
+        h2 {
+            color: var(--primary);
+            font-size: 1.35rem;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        ul {
+            padding-left: 20px;
+            color: var(--text-sec);
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        li strong {
+            color: var(--text);
+        }
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #0b0e14;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 10px;
+            margin-top: 12px;
+            text-decoration: none;
+        }
+        footer {
+            text-align: center;
+            color: var(--text-sec);
+            font-size: 0.85rem;
+            margin-top: 50px;
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>DecibelPro: Sound Level Meter</h1>
+            <p class="subtitle">Precision Sound Pressure (dB SPL) Meter & Acoustic Frequency Generator for iOS</p>
+        </header>
+
+        <!-- PRIVACY POLICY -->
+        <div class="card" id="privacy">
+            <h2>🔒 Privacy Policy</h2>
+            <p><strong>Effective Date:</strong> October 2026</p>
+            <p>Your privacy is our highest priority. DecibelPro is designed from the ground up to be private, transparent, and secure:</p>
+            <ul>
+                <li><strong>Microphone Audio (100% On-Device):</strong> DecibelPro analyzes sound pressure levels strictly in real time directly on your device. We <strong>never</strong> record, store, upload, or transmit any audio data to any server.</li>
+                <li><strong>Zero Personal Data:</strong> DecibelPro does not require account creation, logins, emails, names, or personal identities to use.</li>
+                <li><strong>Advertisements:</strong> We use Google AdMob to deliver advertisements. Google AdMob may process device identifiers (such as IDFA) in full compliance with Apple's App Tracking Transparency framework to display relevant ads.</li>
+                <li><strong>Session History:</strong> All sound level history records are stored exclusively inside your device's local storage.</li>
+            </ul>
+        </div>
+
+        <!-- SUPPORT & CONTACT -->
+        <div class="card" id="support">
+            <h2>💬 Support & Feedback</h2>
+            <p>Have questions, encountered a bug, or have a suggestion? We're here to help:</p>
+            <p>📧 <strong>Support Email:</strong> <a href="mailto:hmsu1989@gmail.com?subject=DecibelPro%20Support">hmsu1989@gmail.com</a></p>
+            <a class="btn" href="mailto:hmsu1989@gmail.com?subject=DecibelPro%20Support%20Request">Contact Support</a>
+        </div>
+
+        <!-- AD REPORTING -->
+        <div class="card" id="report">
+            <h2>🛡️ Inappropriate Ad Reporting</h2>
+            <p>We hold our advertising partners to high family-friendly standards. If you encounter an ad that is misleading or inappropriate, please let us know immediately so we can block it from our ad inventory:</p>
+            <p>📧 Email: <a href="mailto:hmsu1989@gmail.com?subject=DecibelPro%20Inappropriate%20Ad%20Report">hmsu1989@gmail.com</a></p>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Hafiz Saad. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
