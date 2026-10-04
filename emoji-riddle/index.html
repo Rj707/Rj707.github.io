@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji Riddle & Brain Teaser — Support, Privacy Policy & Terms</title>
+    <meta name="description" content="Support, Privacy Policy, and Terms of Service for Emoji Riddle & Brain Teaser iOS App.">
+    <style>
+        :root {
+            --primary: #FF9F0A;
+            --primary-gradient: linear-gradient(135deg, #FF9F0A 0%, #FF375F 100%);
+            --accent: #FF375F;
+            --bg: #0B0E14;
+            --card-bg: #151922;
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-main: #F0F4F8;
+            --text-secondary: #94A3B8;
+            --text-muted: #64748B;
+            --badge-bg: rgba(255, 159, 10, 0.15);
+            --badge-border: rgba(255, 159, 10, 0.3);
+            --code-bg: #0A0D12;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.65;
+            padding: 40px 20px 80px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .app-icon {
+            font-size: 56px;
+            display: inline-block;
+            margin-bottom: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            width: 96px;
+            height: 96px;
+            line-height: 96px;
+            border-radius: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 16px;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-pill {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-main);
+            padding: 8px 18px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid var(--card-border);
+            transition: all 0.2s ease;
+        }
+
+        .nav-pill:hover {
+            background: var(--badge-bg);
+            border-color: var(--badge-border);
+            color: var(--primary);
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+        }
+
+        h2 {
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: -0.3px;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 24px 0 10px;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            font-size: 0.98rem;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+
+        li {
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 26px;
+            font-size: 0.96rem;
+        }
+
+        li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        strong {
+            color: var(--text-main);
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-box {
+            background: rgba(255, 159, 10, 0.08);
+            border: 1px solid rgba(255, 159, 10, 0.25);
+            border-radius: 14px;
+            padding: 20px;
+            margin-top: 16px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-gradient);
+            color: #FFFFFF !important;
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none !important;
+            margin-top: 12px;
+            box-shadow: 0 4px 16px rgba(255, 159, 10, 0.3);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(255, 159, 10, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--badge-bg);
+            border: 1px solid var(--badge-border);
+            color: var(--primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="app-icon">🧩</div>
+        <h1>Emoji Riddle & Brain Teaser</h1>
+        <p class="subtitle">Official Support, Privacy Policy & Terms of Service</p>
+        <div class="nav-links">
+            <a href="#support" class="nav-pill">Support & Help</a>
+            <a href="#privacy" class="nav-pill">Privacy Policy</a>
+            <a href="#terms" class="nav-pill">Terms of Service</a>
+        </div>
+    </header>
+
+    <!-- SUPPORT SECTION -->
+    <section id="support" class="card">
+        <h2>💬 Support & Feedback</h2>
+        <p>Welcome to the official support hub for <strong>Emoji Riddle & Brain Teaser</strong> for iOS. We are committed to providing a fun, seamless, and high-quality puzzle-solving experience.</p>
+        
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li><strong>How do I restore my VIP Pass?</strong> Open in-game Settings (⚙️ in the top left) and tap <strong>"Restore Purchases"</strong>. As long as you are logged in with your original Apple ID, your Lifetime VIP Pass will be restored immediately at zero cost.</li>
+            <li><strong>How does the Lifetime VIP Pass work?</strong> It is a one-time non-consumable purchase ($2.99) that permanently removes all ads, grants +1,000 bonus coins instantly, provides 2× coins on every solved puzzle, and refreshes 3 free VIP hints every single day.</li>
+            <li><strong>Lost progress or stuck on a level?</strong> Use the "Reveal Letter" or "Remove 3" lifelines. Game progress is automatically saved to your device's local storage.</li>
+        </ul>
+
+        <div class="contact-box">
+            <p><strong>Need direct assistance or want to report an issue?</strong></p>
+            <p>Email our developer support team directly. We typically reply within 24 hours.</p>
+            <p>📧 <strong>Email:</strong> <a href="mailto:hmsu1989@gmail.com?subject=Emoji%20Riddle%20Support">hmsu1989@gmail.com</a></p>
+            <a class="btn" href="mailto:hmsu1989@gmail.com?subject=Emoji%20Riddle%20Support%20Request">Contact Developer Support</a>
+        </div>
+    </section>
+
+    <!-- PRIVACY POLICY SECTION -->
+    <section id="privacy" class="card">
+        <h2>🔒 Privacy Policy <span class="badge">GDPR & CCPA Compliant</span></h2>
+        <p><strong>Last Updated: October 4, 2026</strong></p>
+        <p>Your privacy is paramount. This Privacy Policy discloses how <strong>Emoji Riddle & Brain Teaser</strong> ("we", "our", or "the App") collects, handles, and protects your information.</p>
+
+        <h3>1. Zero Personal Data Collection</h3>
+        <p>We do <strong>NOT</strong> collect, require, transmit, or store personally identifiable information (PII) such as your name, email address, phone number, physical address, or contacts. You do not need to create an account or provide any login credentials to play the game.</p>
+
+        <h3>2. On-Device Game Data</h3>
+        <p>All game state information—including your coin balance, completed puzzles, streak count, theme preferences, and daily VIP hint resets—is stored <strong>strictly on your local device</strong> via Apple's standard local storage (UserDefaults). This data is never sent to external servers and can be cleared at any time by uninstalling the application.</p>
+
+        <h3>3. In-App Purchases (Apple StoreKit 2)</h3>
+        <p>All in-app purchases (such as the Lifetime VIP Pass) are processed exclusively by Apple via <strong>StoreKit 2</strong>. We do not have access to, nor do we collect or store, your credit card details, payment instruments, or Apple ID credentials. Apple handles all billing and receipt validation under the <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple Privacy Policy</a>.</p>
+
+        <h3>4. Advertising & Telemetry (Google AdMob)</h3>
+        <p>To keep the base game free to play, the App integrates <strong>Google AdMob</strong> (Google Mobile Ads SDK) to display banner ads, level completion interstitials, and opt-in rewarded video hints:</p>
+        <ul>
+            <li>Google AdMob may process non-sensitive device identifiers (such as IDFA if tracking authorization is granted via Apple's App Tracking Transparency framework, or vendor ID), general IP address for regional ad delivery, and crash/diagnostic metrics.</li>
+            <li>Users can opt out of personalized tracking via iOS Settings > Privacy & Security > Tracking.</li>
+            <li><strong>Ad-Free Option:</strong> Purchasing the Lifetime VIP Pass completely disables all ad network initializations and eliminates 100% of banner, interstitial, and video advertisements.</li>
+            <li>For more details on Google's data practices, please consult the <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google Privacy & Terms for Advertising</a>.</li>
+        </ul>
+
+        <h3>5. Children's Privacy (COPPA Compliance)</h3>
+        <p>Emoji Riddle & Brain Teaser is family-friendly and suitable for all ages. We comply with the Children's Online Privacy Protection Act (COPPA). We do not knowingly collect personal information from children under the age of 13.</p>
+
+        <h3>6. Changes to This Privacy Policy</h3>
+        <p>We may update our Privacy Policy periodically. Any revisions will be reflected on this page with an updated "Last Updated" timestamp.</p>
+    </section>
+
+    <!-- TERMS OF SERVICE SECTION -->
+    <section id="terms" class="card">
+        <h2>📄 Terms of Service <span class="badge">EULA</span></h2>
+        <p><strong>Last Updated: October 4, 2026</strong></p>
+        <p>By downloading, installing, or using <strong>Emoji Riddle & Brain Teaser</strong>, you agree to be bound by these Terms of Service and Apple's Standard Licensed Application End User License Agreement (EULA).</p>
+
+        <h3>1. License Grant</h3>
+        <p>We grant you a personal, revocable, non-exclusive, non-transferable license to use the App on any Apple-branded devices that you own or control, in accordance with the Apple Media Services Terms and Conditions.</p>
+
+        <h3>2. In-App Purchases & Virtual Currency</h3>
+        <ul>
+            <li><strong>Coins & Virtual Currency:</strong> Coins are in-game tokens used solely for unlocking hints and lifelines. Virtual coins have no monetary value outside the game, cannot be redeemed for fiat currency, and are non-transferable.</li>
+            <li><strong>Lifetime VIP Pass:</strong> The Lifetime VIP Pass ($2.99 USD or local currency equivalent) is a non-consumable digital purchase. It remains associated with your Apple ID and can be restored anytime via the "Restore Purchases" button. All transactions are governed by Apple's App Store payment terms and refund policies.</li>
+        </ul>
+
+        <h3>3. Intellectual Property</h3>
+        <p>All emoji riddle designs, logic equations, puzzle formulations, graphics, UI assets, and software code are the intellectual property of the developer. You may not reverse engineer, decompile, redistribute, or create derivative works from the App without explicit prior written authorization.</p>
+
+        <h3>4. Disclaimer & Limitation of Liability</h3>
+        <p>The App is provided on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind, whether express or implied. Under no circumstances shall the developer be liable for any direct, indirect, incidental, or consequential damages arising from your access to or inability to use the App.</p>
+
+        <h3>5. Contact Information</h3>
+        <p>If you have any questions regarding these Terms or the Privacy Policy, please reach out to: <a href="mailto:hmsu1989@gmail.com?subject=Emoji%20Riddle%20Terms%20Inquiry">hmsu1989@gmail.com</a>.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Emoji Riddle & Brain Teaser. All rights reserved.</p>
+        <p style="margin-top: 8px; font-size: 0.8rem;">Designed for iOS 17+ • Apple App Store & Google AdMob Compliant</p>
+    </footer>
+</div>
+
+</body>
+</html>
