@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pocket Sort — Terms of Service</title>
+    <meta name="description" content="Official Terms of Service and End User License Agreement for Pocket Sort color puzzle game.">
+    <link rel="icon" type="image/png" href="app-icon.png">
+    <style>
+        :root {
+            --primary: #4E95FF;
+            --primary-gradient: linear-gradient(135deg, #4E95FF 0%, #9D4EDD 100%);
+            --accent: #FFB020;
+            --bg: #0B0E14;
+            --card-bg: #151922;
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-main: #F0F4F8;
+            --text-secondary: #94A3B8;
+            --text-muted: #64748B;
+            --badge-bg: rgba(78, 149, 255, 0.15);
+            --badge-border: rgba(78, 149, 255, 0.3);
+            --code-bg: #0A0D12;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.65;
+            padding: 40px 20px 80px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .app-icon {
+            display: inline-block;
+            margin-bottom: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            width: 96px;
+            height: 96px;
+            border-radius: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+        }
+
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 16px;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-pill {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-main);
+            padding: 8px 18px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid var(--card-border);
+            transition: all 0.2s ease;
+        }
+
+        .nav-pill:hover, .nav-pill.active {
+            background: var(--badge-bg);
+            border-color: var(--badge-border);
+            color: var(--primary);
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+            scroll-margin-top: 24px;
+        }
+
+        h2 {
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: -0.3px;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 24px 0 10px;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            font-size: 0.98rem;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+
+        li {
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 26px;
+            font-size: 0.96rem;
+        }
+
+        li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        strong {
+            color: var(--text-main);
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-box {
+            background: rgba(78, 149, 255, 0.08);
+            border: 1px solid rgba(78, 149, 255, 0.25);
+            border-radius: 14px;
+            padding: 20px;
+            margin-top: 16px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-gradient);
+            color: #FFFFFF !important;
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none !important;
+            margin-top: 12px;
+            box-shadow: 0 4px 16px rgba(78, 149, 255, 0.3);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(78, 149, 255, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--badge-bg);
+            border: 1px solid var(--badge-border);
+            color: var(--primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="app-icon">
+            <img src="app-icon.png" alt="Pocket Sort Icon">
+        </div>
+        <h1>Pocket Sort</h1>
+        <p class="subtitle">Official Support, Privacy Policy & Terms of Service</p>
+        <div class="nav-links">
+            <a href="index.html#support" class="nav-pill">Support & Help</a>
+            <a href="index.html#privacy" class="nav-pill">Privacy Policy</a>
+            <a href="terms.html" class="nav-pill active">Terms of Service</a>
+        </div>
+    </header>
+
+    <!-- TERMS OF SERVICE SECTION -->
+    <section id="terms" class="card">
+        <h2>📄 Terms of Service <span class="badge">EULA</span></h2>
+        <p><strong>Last Updated: October 15, 2026</strong></p>
+        <p>By downloading, installing, or playing <strong>Pocket Sort</strong>, you agree to be bound by these Terms of Service and Apple's Standard Licensed Application End User License Agreement (EULA) or Google Play Terms of Service.</p>
+
+        <h3>1. License Grant</h3>
+        <p>We grant you a personal, non-exclusive, revocable, non-transferable license to play Pocket Sort on compatible iOS and Android devices that you own or control, strictly for personal, non-commercial entertainment.</p>
+
+        <h3>2. In-App Purchases & Virtual Entitlements</h3>
+        <ul>
+            <li><strong>Remove Ads:</strong> The "Remove Ads" pass ($1.99 USD or regional equivalent) is a non-consumable digital purchase that permanently suppresses banner, interstitial, and app open ads. It remains linked to your store account and can be restored at any time via "Restore Purchases".</li>
+            <li><strong>In-Game Boosts & Helpers:</strong> Buffer tubes and solver hints are provided for gameplay convenience, have no cash value, and cannot be redeemed for fiat currency.</li>
+        </ul>
+
+        <h3>3. Intellectual Property</h3>
+        <p>All puzzle configurations, visual assets, game designs, sound effects, algorithms, and software code are the intellectual property of the developer. You may not reverse engineer, decompile, redistribute, or create derivative works from the application without prior written consent.</p>
+
+        <h3>4. Disclaimer & Limitation of Liability</h3>
+        <p>Pocket Sort is provided on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind. To the maximum extent permitted by applicable law, the developer shall not be liable for any indirect, incidental, or consequential damages resulting from your use of the application.</p>
+
+        <h3>5. Contact Information</h3>
+        <p>If you have any questions regarding these Terms or the Privacy Policy, please reach out directly: <a href="mailto:rajasaad707@gmail.com?subject=Pocket%20Sort%20Terms%20Inquiry">rajasaad707@gmail.com</a>.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Pocket Sort. All rights reserved.</p>
+        <p style="margin-top: 8px; font-size: 0.8rem;">Designed for iOS 14+ &amp; Android 8+ • Apple App Store &amp; Google Play Compliant</p>
+    </footer>
+</div>
+
+</body>
+</html>
