@@ -7,3 +7,4 @@ Official support, documentation, and privacy policies for iOS apps by Hafiz Saad
 - **Fluid Glow**: [fluid-glow/](fluid-glow/)
 - **Pocket Sort**: [pocket-sort/](pocket-sort/)
 - **Reader Lab**: [reader-lab/](reader-lab/)
+- **Slide Routes**: [slide-routes/](slide-routes/)

@@ -1,0 +1,2 @@
+# Google AdMob app-ads.txt verification
+google.com, pub-3940256099942544, DIRECT, f08c47fec0942fa0
