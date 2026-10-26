@@ -9,3 +9,4 @@ Official support, documentation, and privacy policies for iOS apps by Hafiz Saad
 - **Reader Lab**: [reader-lab/](reader-lab/)
 - **Slide Routes**: [slide-routes/](slide-routes/)
 - **TinySteps**: [tinysteps/](tinysteps/)
+- **Zen Focus**: [zen-focus/](zen-focus/)
