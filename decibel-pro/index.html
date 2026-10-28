@@ -3,136 +3,698 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DecibelPro — Sound Level Meter Support & Privacy</title>
+    <title>DecibelPro — Precision Sound Meter & Acoustic Frequency Generator</title>
+    <meta name="description" content="DecibelPro turns your iPhone, iPad, or Android phone into an accurate sound pressure meter (dBA), multi-frequency sine wave generator, and 165Hz speaker pulse cleaner.">
+    <link rel="icon" type="image/png" href="assets/icon.png">
     <style>
         :root {
-            --primary: #00e5ff;
-            --accent: #7c4dff;
-            --bg: #0b0e14;
-            --card: #151922;
-            --text: #f0f4f8;
-            --text-sec: #94a3b8;
+            --bg: #07090e;
+            --surface: #0f131c;
+            --surface-elevated: #151b27;
             --border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(59, 130, 246, 0.4);
+            --primary: #3b82f6;
+            --primary-glow: rgba(59, 130, 246, 0.25);
+            --cyan: #06b6d4;
+            --text: #f3f4f6;
+            --text-sec: #9ca3af;
+            --text-muted: #6b7280;
+            --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font);
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Ambient Glow Background */
+        .ambient-bg {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+            background: 
+                radial-gradient(circle at 50% 10%, rgba(59, 130, 246, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 80% 40%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 20% 70%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+        }
+
         .container {
-            max-width: 800px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
         }
-        header {
+
+        /* Navbar */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(7, 9, 14, 0.75);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+
+        .logo img {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-sec);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-cta {
+            background: var(--primary);
+            color: #fff !important;
+            padding: 8px 18px;
+            border-radius: 999px;
+            transition: all 0.2s !important;
+        }
+
+        .nav-cta:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 90px 0 60px;
             text-align: center;
-            margin-bottom: 40px;
         }
+
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--cyan);
+            margin-bottom: 24px;
+        }
+
+        .hero-icon {
+            width: 96px;
+            height: 96px;
+            border-radius: 24px;
+            margin: 0 auto 24px;
+            box-shadow: 0 12px 36px rgba(59, 130, 246, 0.35);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            display: block;
+        }
+
         h1 {
-            font-size: 2.2rem;
-            margin-bottom: 8px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 30%, #93c5fd 70%, #06b6d4 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .subtitle {
+
+        .hero-desc {
+            max-width: 680px;
+            margin: 0 auto 36px;
+            font-size: clamp(1.05rem, 2vw, 1.25rem);
             color: var(--text-sec);
-            font-size: 1.05rem;
+            font-weight: 400;
         }
-        .card {
-            background-color: var(--card);
-            border-radius: 16px;
-            padding: 28px;
-            margin-bottom: 24px;
-            border: 1px solid var(--border);
-        }
-        h2 {
-            color: var(--primary);
-            font-size: 1.35rem;
-            margin-top: 0;
+
+        /* Download Store Badges */
+        .store-buttons {
             display: flex;
             align-items: center;
-            gap: 8px;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
         }
-        ul {
+
+        .store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            background: #000000;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 14px;
+            padding: 10px 22px;
+            text-decoration: none;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            min-width: 205px;
+            text-align: left;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+        }
+
+        .store-btn:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.45);
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.25);
+        }
+
+        .store-btn svg {
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+        }
+
+        .store-btn-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.15;
+        }
+
+        .store-btn-small {
+            font-size: 0.72rem;
+            font-weight: 400;
+            color: #d1d5db;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .store-btn-large {
+            font-size: 1.22rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: #ffffff;
+        }
+
+        /* Smart Recommended Badge Highlight */
+        .store-btn.is-recommended {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px var(--primary), 0 8px 28px rgba(59, 130, 246, 0.4);
+        }
+
+        .recommended-badge {
+            display: none;
+            position: absolute;
+            top: -11px;
+            right: 12px;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            color: #ffffff;
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 999px;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        .store-btn.is-recommended .recommended-badge {
+            display: block;
+        }
+
+        .hero-disclaimer {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 10px;
+        }
+
+        /* Feature Cards */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .section-desc {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 48px;
+            color: var(--text-sec);
+            font-size: 1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 90px;
+        }
+
+        .feature-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px 28px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-hover);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+        }
+
+        .feature-icon-wrapper {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .feature-card:nth-child(1) .feature-icon-wrapper {
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .feature-card:nth-child(2) .feature-icon-wrapper {
+            background: rgba(168, 85, 247, 0.15);
+            color: #c084fc;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .feature-card:nth-child(3) .feature-icon-wrapper {
+            background: rgba(6, 182, 212, 0.15);
+            color: #22d3ee;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+
+        .feature-card:nth-child(4) .feature-icon-wrapper {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .feature-text {
+            color: var(--text-sec);
+            font-size: 0.95rem;
+            line-height: 1.55;
+        }
+
+        /* Screenshots Carousel */
+        .screenshots-section {
+            padding: 30px 0 90px;
+        }
+
+        .screenshots-scroll {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 20px 0 30px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .screenshots-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .screenshots-scroll::-webkit-scrollbar-track {
+            background: var(--surface);
+            border-radius: 999px;
+        }
+
+        .screenshots-scroll::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.18);
+            border-radius: 999px;
+        }
+
+        .screenshot-item {
+            flex: 0 0 auto;
+            width: 260px;
+            scroll-snap-align: center;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border);
+            transition: transform 0.3s;
+        }
+
+        .screenshot-item:hover {
+            transform: scale(1.02);
+            border-color: var(--border-hover);
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Policy & Support Cards */
+        .info-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 36px;
+            margin-bottom: 40px;
+        }
+
+        .info-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 14px;
+            color: #ffffff;
+        }
+
+        .info-card p {
+            color: var(--text-sec);
+            margin-bottom: 14px;
+            font-size: 0.95rem;
+        }
+
+        .info-card ul {
             padding-left: 20px;
             color: var(--text-sec);
+            margin-bottom: 20px;
         }
-        li {
+
+        .info-card li {
             margin-bottom: 10px;
+            font-size: 0.95rem;
         }
-        li strong {
+
+        .info-card li strong {
             color: var(--text);
         }
-        a {
-            color: var(--primary);
+
+        .info-card a {
+            color: var(--cyan);
             text-decoration: none;
         }
-        a:hover {
+
+        .info-card a:hover {
             text-decoration: underline;
         }
-        .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: #0b0e14;
-            font-weight: 600;
-            padding: 12px 24px;
-            border-radius: 10px;
-            margin-top: 12px;
-            text-decoration: none;
-        }
+
+        /* Footer */
         footer {
-            text-align: center;
-            color: var(--text-sec);
-            font-size: 0.85rem;
-            margin-top: 50px;
             border-top: 1px solid var(--border);
-            padding-top: 20px;
+            padding: 50px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 18px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--text-sec);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text);
+        }
+
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+            }
+            .hero {
+                padding: 60px 0 40px;
+            }
+            .store-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .screenshot-item {
+                width: 220px;
+            }
+            .info-card {
+                padding: 24px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>DecibelPro: Sound Level Meter</h1>
-            <p class="subtitle">Precision Sound Pressure (dB SPL) Meter & Acoustic Frequency Generator for iOS</p>
-        </header>
+    <div class="ambient-bg"></div>
 
-        <!-- PRIVACY POLICY -->
-        <div class="card" id="privacy">
-            <h2>🔒 Privacy Policy</h2>
-            <p><strong>Effective Date:</strong> October 2026</p>
-            <p>Microphone audio is measured on your device and is not recorded or sent anywhere. The app can send crash reports and simple counts, such as when you start the meter, save a session, or play a tone. It also shows ads.</p>
-            <ul>
-                <li><strong>Microphone audio:</strong> Sound is measured in real time on your device. DecibelPro does not record, save, or send microphone audio.</li>
-                <li><strong>Crash reports and usage counts:</strong> The app can send a crash report if it closes unexpectedly, and a simple count when you start the meter, save a session, or play a tone. Those reports do not include microphone audio, decibel readings, or your notes.</li>
-                <li><strong>No account:</strong> DecibelPro does not ask you to create an account or enter your name or email.</li>
-                <li><strong>Advertisements:</strong> We use Google AdMob to show ads. AdMob may use a device advertising identifier, such as the iPhone IDFA, if you allow tracking.</li>
-                <li><strong>Session history:</strong> Saved measurements and notes stay on your device.</li>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-content">
+            <a href="#" class="logo">
+                <img src="assets/icon.png" alt="DecibelPro App Icon">
+                <span>DecibelPro</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#screenshots">Screenshots</a></li>
+                <li><a href="#privacy">Privacy</a></li>
+                <li><a href="#support">Support</a></li>
+                <li><a href="#download" class="nav-cta">Download</a></li>
             </ul>
         </div>
+    </nav>
 
-        <!-- SUPPORT & CONTACT -->
-        <div class="card" id="support">
-            <h2>💬 Support & Feedback</h2>
-            <p>Have questions, encountered a bug, or have a suggestion? We're here to help:</p>
-            <p>📧 <strong>Support Email:</strong> <a href="mailto:rajasaad707@gmail.com?subject=DecibelPro%20Support">rajasaad707@gmail.com</a></p>
-            <a class="btn" href="mailto:rajasaad707@gmail.com?subject=DecibelPro%20Support%20Request">Contact Support</a>
+    <!-- Hero Section -->
+    <main class="container">
+        <section class="hero" id="download">
+            <div class="badge-pill">
+                <span>✨</span> Available on Apple iOS & Android
+            </div>
+
+            <img src="assets/icon.png" alt="DecibelPro Icon" class="hero-icon">
+
+            <h1>Precision Sound Meter<br>& Frequency Generator</h1>
+            <p class="hero-desc">
+                Real-time acoustic sound pressure level monitoring (dBA), multi-frequency sine tone synthesis (20Hz–20kHz), and 165Hz speaker pulse cleaner — 100% on-device and private.
+            </p>
+
+            <!-- Store Badges -->
+            <div class="store-buttons">
+                <!-- Apple App Store -->
+                <a href="https://apps.apple.com/app/id6820814636" class="store-btn" id="btn-ios" target="_blank" rel="noopener">
+                    <span class="recommended-badge">For iPhone</span>
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 0.92-2.87-.93.04-2.02.63-2.67 1.38-.56.65-.96 1.71-.83 2.74 1.03.08 2.05-.53 2.58-1.25z"/>
+                    </svg>
+                    <div class="store-btn-text">
+                        <span class="store-btn-small">Download on the</span>
+                        <span class="store-btn-large">App Store</span>
+                    </div>
+                </a>
+
+                <!-- Google Play Store -->
+                <a href="https://play.google.com/store/apps/details?id=com.saadapps.decibelpro" class="store-btn" id="btn-android" target="_blank" rel="noopener">
+                    <span class="recommended-badge">For Android</span>
+                    <svg viewBox="0 0 24 24">
+                        <path fill="#4285F4" d="M3.6 2.5l9.2 9.2-9.2 9.2c-.3-.4-.5-.9-.5-1.5V4c0-.6.2-1.1.5-1.5z"/>
+                        <path fill="#FBBC04" d="M16.6 9.3l-3.8 3.8 3.8 3.8 4.3-2.5c1.2-.7 1.2-1.9 0-2.6l-4.3-2.5z"/>
+                        <path fill="#34A853" d="M3.6 21l9.2-9.2 3.8 3.8-10.8 6.2c-.8.5-1.7.3-2.2-.8z"/>
+                        <path fill="#EA4335" d="M3.6 2.5c.5-1.1 1.4-1.3 2.2-.8L16.6 8 12.8 11.7 3.6 2.5z"/>
+                    </svg>
+                    <div class="store-btn-text">
+                        <span class="store-btn-small">GET IT ON</span>
+                        <span class="store-btn-large">Google Play</span>
+                    </div>
+                </a>
+            </div>
+
+            <p class="hero-disclaimer">
+                Works on iPhone, iPad, and Android devices. No account registration required.
+            </p>
+        </section>
+
+        <!-- Feature Grid -->
+        <section id="features" style="padding-top: 40px;">
+            <h2 class="section-title">Built for Precision & Reliability</h2>
+            <p class="section-desc">Everything you need to measure ambient noise, calibrate equipment, and clear device speakers.</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">📊</div>
+                    <h3 class="feature-title">Accurate dBA Sound Meter</h3>
+                    <p class="feature-text">
+                        Real-time sound pressure level (SPL) with standard A-weighting. Instant Peak Hold, Average dB, Min/Max metrics, and color-coded environmental safety tiers.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">🎵</div>
+                    <h3 class="feature-title">Sine Tone Generator</h3>
+                    <p class="feature-text">
+                        Continuous 20Hz to 20,000Hz frequency synthesizer for sound staging, audio tests, and instrument tuning, featuring quick presets from Sub-Bass to Mosquito tone.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">💧</div>
+                    <h3 class="feature-title">165Hz Speaker Cleaner</h3>
+                    <p class="feature-text">
+                        Acoustic pulse waveform engineered to dislodge trapped water, moisture, and dust particles from your device speaker grills using resonant sound waves.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">🔒</div>
+                    <h3 class="feature-title">100% Private & On-Device</h3>
+                    <p class="feature-text">
+                        Microphone audio is computed exclusively in real-time RAM to measure amplitude. Zero recordings stored, zero audio transmitted, and no user accounts required.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- App Screenshots Showcase -->
+        <section class="screenshots-section" id="screenshots">
+            <h2 class="section-title">Clean, Focused Interface</h2>
+            <p class="section-desc">Designed with high-visibility gauges, zero-scroll dashboards, and customizable color themes.</p>
+
+            <div class="screenshots-scroll">
+                <div class="screenshot-item">
+                    <img src="screenshots/01_decibel_meter.png" alt="Decibel Meter Screen" loading="lazy">
+                </div>
+                <div class="screenshot-item">
+                    <img src="screenshots/02_safety_zones.png" alt="Safety Zones Screen" loading="lazy">
+                </div>
+                <div class="screenshot-item">
+                    <img src="screenshots/03_speaker_cleaner.png" alt="Speaker Cleaner Screen" loading="lazy">
+                </div>
+                <div class="screenshot-item">
+                    <img src="screenshots/04_noise_history.png" alt="Noise History Screen" loading="lazy">
+                </div>
+                <div class="screenshot-item">
+                    <img src="screenshots/05_settings_themes.png" alt="Settings & Themes Screen" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- Privacy Policy Section -->
+        <section id="privacy">
+            <div class="info-card">
+                <h3>Privacy Policy</h3>
+                <p><strong>Effective Date:</strong> October 2026</p>
+                <p>Your privacy is fundamental to our product. DecibelPro is designed to be completely safe, transparent, and respectful of your data:</p>
+                <ul>
+                    <li><strong>Microphone Audio:</strong> DecibelPro processes microphone sound levels <em>strictly in real-time on your device</em> to compute amplitude and decibel measurements. We do <strong>not</strong> record, save, store, or transmit your audio anywhere.</li>
+                    <li><strong>Personal Information:</strong> DecibelPro does <strong>not</strong> require user registration, login accounts, emails, phone numbers, or identity collection.</li>
+                    <li><strong>Advertisements:</strong> We use Google AdMob to serve non-intrusive sponsor ads for the free tier. AdMob may process device advertising identifiers (such as IDFA under Apple's AppTrackingTransparency on iOS and Google Advertising ID on Android) in full compliance with store privacy guidelines.</li>
+                    <li><strong>Local Storage:</strong> Your measurement history, calibration offsets, and theme preferences are stored exclusively on your device using local storage.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Support Section -->
+        <section id="support">
+            <div class="info-card">
+                <h3>Support, Feedback & Ad Reporting</h3>
+                <p>If you have questions, bug reports, feature suggestions, or need assistance with DecibelPro, please reach out to our team:</p>
+                <p>📧 Email: <a href="mailto:support@rj707.github.io?subject=DecibelPro%20Support">support@rj707.github.io</a></p>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 10px;">
+                    When reporting an inappropriate advertisement served by Google AdMob, please provide a screenshot or advertiser brand name so we can immediately investigate and block the creative from our ad inventory.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="#download">Download</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#privacy">Privacy Policy</a></li>
+                <li><a href="#support">Support</a></li>
+                <li><a href="app-ads.txt" target="_blank">app-ads.txt</a></li>
+            </ul>
+            <p>© 2026 DecibelPro. All rights reserved.</p>
         </div>
+    </footer>
 
-        <!-- AD REPORTING -->
-        <div class="card" id="report">
-            <h2>🛡️ Inappropriate Ad Reporting</h2>
-            <p>We hold our advertising partners to high family-friendly standards. If you encounter an ad that is misleading or inappropriate, please let us know immediately so we can block it from our ad inventory:</p>
-            <p>📧 Email: <a href="mailto:rajasaad707@gmail.com?subject=DecibelPro%20Inappropriate%20Ad%20Report">rajasaad707@gmail.com</a></p>
-        </div>
+    <!-- Smart Device Detection Script -->
+    <script>
+        (function() {
+            const ua = navigator.userAgent || navigator.vendor || window.opera;
+            const isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+            const isAndroid = /android/i.test(ua);
 
-        <footer>
-            <p>&copy; 2026 Hafiz Saad. All rights reserved.</p>
-        </footer>
-    </div>
+            const iosBtn = document.getElementById('btn-ios');
+            const androidBtn = document.getElementById('btn-android');
+
+            if (isIOS && iosBtn) {
+                iosBtn.classList.add('is-recommended');
+            } else if (isAndroid && androidBtn) {
+                androidBtn.classList.add('is-recommended');
+            }
+        })();
+    </script>
 </body>
 </html>
