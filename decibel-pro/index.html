@@ -502,6 +502,56 @@
                 padding: 24px;
             }
         }
+
+        /* Support Box & Buttons */
+        .support-cta-box {
+            background: rgba(6, 182, 212, 0.08);
+            border: 1px solid rgba(6, 182, 212, 0.25);
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .btn-support {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+            color: #ffffff !important;
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 13px 26px;
+            border-radius: 12px;
+            text-decoration: none !important;
+            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.35);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-support:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 26px rgba(6, 182, 212, 0.55);
+        }
+
+        .btn-copy-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text) !important;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 10px 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-copy-email:hover {
+            background: rgba(255, 255, 255, 0.16);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -657,10 +707,26 @@
         <section id="support">
             <div class="info-card">
                 <h3>Support, Feedback & Ad Reporting</h3>
-                <p>If you have questions, bug reports, feature suggestions, or need assistance with DecibelPro, please reach out to our team:</p>
-                <p>📧 Email: <a href="mailto:rajasaad707+decibelpro@gmail.com?subject=DecibelPro%20Support">rajasaad707+decibelpro@gmail.com</a></p>
-                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 10px;">
-                    When reporting an inappropriate advertisement served by Google AdMob, please provide a screenshot or advertiser brand name so we can immediately investigate and block the creative from our ad inventory.
+                <p>Have questions, need assistance with microphone calibration, or want to report a technical issue or inappropriate advertisement? Our developer team is here to assist.</p>
+                
+                <div class="support-cta-box">
+                    <p style="font-weight: 700; color: var(--text); font-size: 1.05rem;">Direct Developer Support Desk</p>
+                    <p style="color: var(--text-sec); font-size: 0.95rem; margin-top: 4px;">
+                        Tap below to email our engineering team directly:
+                    </p>
+                    <div style="margin-top: 16px; display: flex; align-items: center; flex-wrap: wrap; gap: 12px;">
+                        <a class="btn-support" href="mailto:rajasaad707+decibelpro@gmail.com?subject=DecibelPro%20Support%20Request">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            Contact Developer Support
+                        </a>
+                        <button type="button" class="btn-copy-email" id="copyEmailBtn" onclick="copyDecibelProEmail()">
+                            <span>📋</span> Copy Email Address
+                        </button>
+                    </div>
+                </div>
+
+                <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 16px;">
+                    <strong>Inappropriate Ad Reporting:</strong> When reporting an ad served by Google AdMob, please provide a screenshot or advertiser name so we can immediately investigate and blacklist the creative from our ad network inventory.
                 </p>
             </div>
         </section>
@@ -680,7 +746,7 @@
         </div>
     </footer>
 
-    <!-- Smart Device Detection Script -->
+    <!-- Smart Device Detection & Copy Email Scripts -->
     <script>
         (function() {
             const ua = navigator.userAgent || navigator.vendor || window.opera;
@@ -696,6 +762,24 @@
                 androidBtn.classList.add('is-recommended');
             }
         })();
+
+        function copyDecibelProEmail() {
+            const email = 'rajasaad707+decibelpro@gmail.com';
+            const btn = document.getElementById('copyEmailBtn');
+            navigator.clipboard.writeText(email).then(() => {
+                const orig = btn.innerHTML;
+                btn.innerHTML = '✓ Copied!';
+                btn.style.borderColor = '#06b6d4';
+                btn.style.color = '#06b6d4';
+                setTimeout(() => {
+                    btn.innerHTML = orig;
+                    btn.style.borderColor = '';
+                    btn.style.color = '';
+                }, 2500);
+            }).catch(() => {
+                prompt('Copy DecibelPro Support Email:', email);
+            });
+        }
     </script>
 </body>
 </html>
