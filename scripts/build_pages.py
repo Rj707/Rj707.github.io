@@ -19,7 +19,7 @@ APPS = {
         "primary_color": "#F59E0B",
         "accent_color": "#10B981",
         "glow_color": "rgba(245, 158, 11, 0.22)",
-        "email": "rajasaad707+zenfocus@gmail.com",
+        "email": "rajasaad707@gmail.com",
         "features": [
             {
                 "icon": "⏱️",
@@ -76,7 +76,7 @@ APPS = {
         "primary_color": "#00E5FF",
         "accent_color": "#FF375F",
         "glow_color": "rgba(0, 229, 255, 0.22)",
-        "email": "rajasaad707+fluidglow@gmail.com",
+        "email": "rajasaad707@gmail.com",
         "features": [
             {
                 "icon": "🌊",
@@ -134,7 +134,7 @@ APPS = {
         "primary_color": "#FB7185",
         "accent_color": "#FBBF24",
         "glow_color": "rgba(251, 113, 133, 0.22)",
-        "email": "rajasaad707+tinysteps@gmail.com",
+        "email": "rajasaad707@gmail.com",
         "features": [
             {
                 "icon": "🍼",
@@ -193,7 +193,7 @@ APPS = {
         "primary_color": "#6366F1",
         "accent_color": "#8B5CF6",
         "glow_color": "rgba(99, 102, 241, 0.22)",
-        "email": "rajasaad707+readerlab@gmail.com",
+        "email": "rajasaad707@gmail.com",
         "features": [
             {
                 "icon": "👁️",
@@ -251,7 +251,7 @@ APPS = {
         "primary_color": "#10B981",
         "accent_color": "#14B8A6",
         "glow_color": "rgba(16, 185, 129, 0.22)",
-        "email": "rajasaad707+slideroutes@gmail.com",
+        "email": "rajasaad707@gmail.com",
         "features": [
             {
                 "icon": "🧩",
@@ -309,7 +309,7 @@ APPS = {
         "primary_color": "#4E95FF",
         "accent_color": "#9D4EDD",
         "glow_color": "rgba(78, 149, 255, 0.22)",
-        "email": "rajasaad707+pocketsort@gmail.com",
+        "email": "rajasaad707@gmail.com",
         "features": [
             {
                 "icon": "🧪",
@@ -361,7 +361,7 @@ APPS = {
         "primary_color": "#FACC15",
         "accent_color": "#FB923C",
         "glow_color": "rgba(250, 204, 21, 0.22)",
-        "email": "rajasaad707+numbers123@gmail.com",
+        "email": "rajasaad707@gmail.com",
         "features": [
             {
                 "icon": "✏️",
@@ -413,7 +413,7 @@ APPS = {
         "primary_color": "#A855F7",
         "accent_color": "#EC4899",
         "glow_color": "rgba(168, 85, 247, 0.22)",
-        "email": "rajasaad707+ardrawing@gmail.com",
+        "email": "rajasaad707@gmail.com",
         "features": [
             {
                 "icon": "📷",
@@ -1324,9 +1324,14 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                 <div class="support-left">
                     <h3>💬 Dedicated Support</h3>
                     <p>Have an inquiry, feedback, or a feature request? Our development team personally reviews every message.</p>
-                    <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
-                        <a href="mailto:{email}?subject={name}%20Inquiry" class="btn-support">✉️ Contact Developer</a>
-                        <button class="btn-copy" onclick="copySupportEmail('{email}')" id="copyBtn">📋 Copy Email</button>
+                    <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+                        <a href="mailto:{email}?subject={name}%20Support%20Request" class="btn-support">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            Contact Developer Support
+                        </a>
+                        <button type="button" class="btn-copy" onclick="copySupportEmail('{email}')" id="copyBtn">
+                            <span>📋</span> Copy Email Address
+                        </button>
                     </div>
                 </div>
                 <div class="faq-list">
@@ -1355,7 +1360,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                 <p>We are firmly committed to safeguarding the privacy of young users. {name} does not knowingly collect personally identifiable information from children under 13. Any features tailored for younger audiences strictly respect international child protection regulations.</p>
 
                 <h4>5. Contact Us</h4>
-                <p>For any privacy or data protection inquiries, email our privacy team directly at: <a href="mailto:{email}">{email}</a>.</p>
+                <p>For any privacy or data protection inquiries, reach out to our privacy officer directly: <a href="mailto:{email}?subject={name}%20Privacy%20Inquiry">Contact Privacy Officer &rarr;</a></p>
             </div>
 
             <div class="info-card" id="terms">
@@ -1376,7 +1381,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                 <p>{name} is provided on an "as-is" and "as-available" basis. While we strive for uncompromising stability and precision, the developer disclaims all warranties to the maximum extent permitted by applicable law.</p>
 
                 <h4>5. Governing Law & Support</h4>
-                <p>For questions regarding these Terms or legal support, contact: <a href="mailto:{email}">{email}</a>.</p>
+                <p>For questions regarding these Terms or legal support, reach out directly: <a href="mailto:{email}?subject={name}%20Terms%20Inquiry">Contact Legal & Support &rarr;</a></p>
             </div>
         </section>
     </main>
