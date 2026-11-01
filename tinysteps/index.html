@@ -3,252 +3,1088 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TinySteps — Toddler ABC & 123 Tracing Support & Privacy</title>
-    <link rel="icon" type="image/png" href="app-icon.png">
+    <title>TinySteps — Baby Milestones & Daily Tracker</title>
+    <meta name="description" content="Private, secure baby growth, feeding, sleep, diaper, and developmental milestone tracker designed specifically for sleep-deprived parents. Effortless one-handed logging, WHO growth percentiles, and zero third-party data tracking.">
+    <link rel="icon" type="image/png" href="assets/icon.png">
+    
     <style>
         :root {
-            --primary: #6C5CE7;
-            --primary-light: #A29BFE;
-            --accent: #00B894;
-            --coral: #FF7675;
-            --yellow: #FDCB6E;
-            --bg: #0F121E;
-            --card: #181C2E;
-            --card-subtle: #20263C;
-            --text: #F1F4F9;
-            --text-sec: #9CA3AF;
+            --bg: #07090e;
+            --surface: #0f131d;
+            --surface-elevated: #151b28;
             --border: rgba(255, 255, 255, 0.08);
+            --border-hover: #FB7185;
+            --primary: #FB7185;
+            --primary-glow: rgba(251, 113, 133, 0.22);
+            --accent: #FBBF24;
+            --text: #f8fafc;
+            --text-sec: #94a3b8;
+            --text-muted: #64748b;
+            --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
-        * { box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.65;
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font);
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Ambient Glow Background */
+        .ambient-bg {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+            background: 
+                radial-gradient(circle at 50% 8%, rgba(251, 113, 133, 0.22) 0%, transparent 55%),
+                radial-gradient(circle at 82% 35%, rgba(255, 55, 95, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 18% 65%, rgba(168, 85, 247, 0.07) 0%, transparent 50%);
+        }
+
         .container {
-            max-width: 820px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
         }
-        header {
-            text-align: center;
-            margin-bottom: 40px;
+
+        /* Sticky Glass Navbar */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(7, 9, 14, 0.85);
+            border-bottom: 1px solid var(--border);
         }
-        .app-icon {
-            width: 100px;
-            height: 100px;
-            border-radius: 22px;
-            box-shadow: 0 12px 30px rgba(108, 92, 231, 0.35);
-            margin-bottom: 16px;
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
         }
-        h1 {
-            font-size: 2.4rem;
-            margin: 0 0 8px 0;
-            background: linear-gradient(135deg, #A29BFE, #74B9FF, #55EFC4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 900;
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 700;
+            font-size: 1.22rem;
+            letter-spacing: -0.02em;
         }
-        .subtitle {
-            color: var(--text-sec);
-            font-size: 1.1rem;
-            margin-bottom: 20px;
+
+        .logo img {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            box-shadow: 0 4px 14px var(--primary-glow);
+            object-fit: cover;
         }
+
         .nav-links {
             display: flex;
+            align-items: center;
+            gap: 26px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-sec);
+            text-decoration: none;
+            font-size: 0.94rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: #ffffff !important;
+            padding: 9px 20px;
+            border-radius: 999px;
+            font-weight: 600 !important;
+            box-shadow: 0 4px 14px var(--primary-glow);
+            transition: transform 0.2s, box-shadow 0.2s !important;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            cursor: pointer;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--primary-glow) !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 70px 0 60px;
+        }
+
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 18px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            color: var(--primary);
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-bottom: 26px;
+        }
+
+        .hero-icon {
+            width: 110px;
+            height: 110px;
+            border-radius: 26px;
+            margin: 0 auto 24px;
+            box-shadow: 0 16px 40px var(--primary-glow), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            display: block;
+            object-fit: cover;
+        }
+
+        .hero-tagline {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            line-height: 1.15;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 18px;
+            background: linear-gradient(180deg, #ffffff 30%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-desc {
+            font-size: 1.15rem;
+            color: var(--text-sec);
+            max-width: 660px;
+            margin: 0 auto 36px;
+            line-height: 1.6;
+        }
+
+        /* Store Badges (Approach B: Launching Soon) */
+        .store-buttons {
+            display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 16px;
+            gap: 18px;
             flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .store-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            padding: 13px 26px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+        }
+
+        .store-btn:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px var(--primary-glow);
+        }
+
+        .store-btn svg {
+            width: 28px;
+            height: 28px;
+            flex-shrink: 0;
+        }
+
+        .store-btn-text {
+            text-align: left;
+            line-height: 1.2;
+        }
+
+        .store-btn-small {
+            display: block;
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-sec);
+            font-weight: 600;
+        }
+
+        .store-btn-large {
+            display: block;
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .status-badge {
+            position: absolute;
+            top: -10px;
+            right: 12px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #ffffff;
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 999px;
+            letter-spacing: 0.04em;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-subnote {
+            font-size: 0.86rem;
+            color: var(--text-muted);
+            margin-top: 14px;
+        }
+
+        .hero-subnote a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .hero-subnote a:hover {
+            text-decoration: underline;
+        }
+
+        /* Section Headers */
+        .section-title {
+            text-align: center;
+            font-size: 2.1rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .section-desc {
+            text-align: center;
+            max-width: 620px;
+            margin: 0 auto 46px;
+            color: var(--text-sec);
+            font-size: 1rem;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 22px;
+            margin-bottom: 85px;
+        }
+
+        .feature-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 30px 26px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-hover);
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+        }
+
+        .feature-icon-wrapper {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+            font-size: 1.6rem;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border);
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .feature-text {
+            color: var(--text-sec);
+            font-size: 0.94rem;
+            line-height: 1.55;
+        }
+
+        /* Screenshots Carousel */
+        .screenshots-section {
+            padding: 20px 0 85px;
+        }
+
+        .screenshots-scroll {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 18px 4px 28px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .screenshots-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .screenshots-scroll::-webkit-scrollbar-track {
+            background: var(--surface);
+            border-radius: 999px;
+        }
+
+        .screenshots-scroll::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 999px;
+        }
+
+        .screenshot-item {
+            flex: 0 0 auto;
+            width: 250px;
+            scroll-snap-align: center;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55);
+            border: 1px solid var(--border);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .screenshot-item:hover {
+            transform: scale(1.02);
+            border-color: var(--border-hover);
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Support & Contact Section */
+        .support-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 42px 36px;
+            margin-bottom: 85px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .support-box {
+                grid-template-columns: 1fr;
+                gap: 28px;
+                padding: 30px 22px;
+            }
+        }
+
+        .support-left h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .support-left p {
+            color: var(--text-sec);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .btn-support {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #ffffff;
+            padding: 12px 26px;
+            border-radius: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 6px 18px var(--primary-glow);
+            transition: transform 0.2s;
+        }
+
+        .btn-support:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-copy {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 12px 20px;
+            border-radius: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-left: 12px;
+            transition: all 0.2s;
+        }
+
+        .btn-copy:hover {
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* FAQ Accordion */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .faq-item {
+            background: var(--surface-elevated);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 18px 22px;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .faq-answer {
+            color: var(--text-sec);
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+
+        /* Legal / Privacy / Terms Cards */
+        .legal-section {
+            margin-bottom: 90px;
+        }
+
+        .info-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 36px 32px;
             margin-bottom: 30px;
         }
-        .nav-link {
-            background: var(--card);
-            border: 1px solid var(--border);
-            padding: 8px 16px;
-            border-radius: 20px;
-            color: var(--primary-light);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
-        .nav-link:hover {
-            border-color: var(--primary-light);
-            background: var(--card-subtle);
-        }
-        .card {
-            background-color: var(--card);
-            border-radius: 20px;
-            padding: 32px;
-            margin-bottom: 28px;
-            border: 1px solid var(--border);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-        }
-        h2 {
-            color: var(--primary-light);
-            font-size: 1.45rem;
-            margin-top: 0;
+
+        .info-card h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
             margin-bottom: 16px;
+            color: #ffffff;
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        h3 {
-            color: #FFFFFF;
+
+        .badge-inline {
+            font-size: 0.72rem;
+            padding: 3px 10px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .info-card h4 {
             font-size: 1.15rem;
-            margin-top: 24px;
-            margin-bottom: 8px;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 22px 0 8px;
         }
-        p, li {
+
+        .info-card p {
             color: var(--text-sec);
-            font-size: 0.98rem;
+            font-size: 0.95rem;
+            line-height: 1.65;
+            margin-bottom: 12px;
         }
-        ul {
+
+        .info-card ul {
             padding-left: 22px;
+            color: var(--text-sec);
+            font-size: 0.95rem;
+            line-height: 1.65;
             margin-bottom: 16px;
         }
-        li {
-            margin-bottom: 10px;
+
+        .info-card li {
+            margin-bottom: 8px;
         }
-        strong {
-            color: var(--text);
-        }
-        a {
-            color: var(--primary-light);
+
+        .info-card a {
+            color: var(--primary);
             text-decoration: none;
+            font-weight: 600;
         }
-        a:hover {
+
+        .info-card a:hover {
             text-decoration: underline;
         }
-        .badge {
-            display: inline-block;
-            background: rgba(0, 184, 148, 0.15);
-            color: #00B894;
-            border: 1px solid rgba(0, 184, 148, 0.3);
-            padding: 4px 12px;
-            border-radius: 12px;
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 0;
+            text-align: center;
+            background: rgba(7, 9, 14, 0.95);
+        }
+
+        .footer-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 22px;
+            list-style: none;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-sec);
+            text-decoration: none;
+            font-size: 0.92rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text);
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+
+        /* Interactive Early Access Modal (Approach B) */
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(3, 5, 8, 0.82);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-backdrop.is-active {
+            display: flex;
+        }
+
+        .modal-card {
+            background: #0f131d;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            max-width: 540px;
+            width: 100%;
+            padding: 36px 32px;
+            position: relative;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+            animation: modalFadeIn 0.25s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.95) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.08);
+            border: none;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            color: #ffffff;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.16);
+        }
+
+        .modal-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             font-size: 0.82rem;
             font-weight: 700;
+            color: var(--primary);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border);
+            padding: 5px 14px;
+            border-radius: 999px;
             margin-bottom: 14px;
         }
-        .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary), #0984E3);
-            color: #FFFFFF;
-            font-weight: 700;
-            padding: 12px 26px;
-            border-radius: 12px;
-            margin-top: 14px;
-            text-decoration: none;
-            box-shadow: 0 4px 14px rgba(108, 92, 231, 0.4);
-            transition: transform 0.2s ease;
+
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
         }
-        .btn:hover {
+
+        .modal-subtitle {
+            color: var(--text-sec);
+            font-size: 0.95rem;
+            line-height: 1.55;
+            margin-bottom: 26px;
+        }
+
+        .modal-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .step-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.92rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px var(--primary-glow);
+        }
+
+        .step-content h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .step-content p {
+            color: var(--text-sec);
+            font-size: 0.9rem;
+            line-height: 1.45;
+            margin-bottom: 14px;
+        }
+
+        .btn-step {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #ffffff;
+            padding: 9px 18px;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-weight: 600;
             text-decoration: none;
+            box-shadow: 0 4px 12px var(--primary-glow);
+            transition: transform 0.2s;
+        }
+
+        .btn-step:hover {
             transform: translateY(-2px);
         }
-        footer {
-            text-align: center;
-            color: var(--text-sec);
-            font-size: 0.88rem;
-            margin-top: 50px;
-            border-top: 1px solid var(--border);
-            padding-top: 24px;
+
+        .btn-step-sec {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border);
+            box-shadow: none;
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        .btn-step-sec:hover {
+            background: rgba(255, 255, 255, 0.14);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <img class="app-icon" src="app-icon.png" alt="TinySteps Logo">
-            <h1>TinySteps: Toddler ABC & 123 Tracing</h1>
-            <p class="subtitle">Sensory Alphabet, Number & Phonics Learning for Ages 5 and Under</p>
-            <div class="nav-links">
-                <a class="nav-link" href="#about">About App</a>
-                <a class="nav-link" href="#privacy">Privacy & COPPA</a>
-                <a class="nav-link" href="#support">Support & FAQ</a>
-                <a class="nav-link" href="#terms">Terms of Use</a>
+    <div class="ambient-bg"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-content">
+            <a href="#" class="logo">
+                <img src="assets/icon.png" alt="TinySteps Icon">
+                <span>TinySteps</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#screenshots">Screenshots</a></li>
+                <li><a href="#support">Support</a></li>
+                <li><a href="#privacy">Privacy</a></li>
+                <li><a href="#terms">Terms</a></li>
+                <li><a href="#early-access" class="nav-cta" onclick="openEarlyAccessModal(event)">Get Early Access</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero" id="download">
+            <div class="badge-pill">
+                <span>✨ In Active Development • Coming Soon to iOS & Android</span>
             </div>
-        </header>
 
-        <!-- ABOUT APP -->
-        <div class="card" id="about">
-            <h2>✨ About TinySteps</h2>
-            <p><strong>TinySteps</strong> is a sensory-focused handwriting and phonics learning application designed specifically for toddlers, preschoolers, and early kindergarteners (Ages 2–5). Featuring Montessori stroke rhymes, tactile multisensory haptics, sparkling completion animations, and progressive visual scaffolding (Full Guidance, Ghost Faded, and Freehand), TinySteps guides early learners from their first touch to confident independent writing.</p>
-            <ul>
-                <li><strong>All 26 Uppercase & Lowercase Letters:</strong> True pedagogical stroke directions with numbered start circles and rhythmic cues.</li>
-                <li><strong>Numbers 1–9 & Star Counting:</strong> Dynamic quantity recognition and interactive tactile counters.</li>
-                <li><strong>Visual Guidance Scaffolding:</strong> Easily switch between Full Guide, Faded (Ghost Track), and Freehand from memory.</li>
-                <li><strong>Certified Parental Gate:</strong> Adult-only access to all settings, external links, and store purchases.</li>
-            </ul>
-        </div>
+            <img src="assets/icon.png" alt="TinySteps App Icon" class="hero-icon">
 
-        <!-- PRIVACY POLICY (COPPA & APPLE KIDS CATEGORY 1.3 / 5.1.1 COMPLIANT) -->
-        <div class="card" id="privacy">
-            <span class="badge">🔒 Apple Kids Category & COPPA Certified</span>
-            <h2>Privacy Policy</h2>
-            <p><strong>Effective Date:</strong> October 2026</p>
-            <p>At <strong>TinySteps</strong>, child privacy, safety, and security are our highest priorities. TinySteps is built in strict compliance with the <strong>Children's Online Privacy Protection Act (COPPA)</strong>, the <strong>General Data Protection Regulation (GDPR-K)</strong>, and <strong>Apple App Store Guideline 1.3 (Kids Category) & 5.1.1 (Data Collection)</strong>.</p>
+            <span class="hero-tagline">Track • Cherish • Remember</span>
+            <h1>TinySteps</h1>
+            <p class="hero-desc">Private, secure baby growth, feeding, sleep, diaper, and developmental milestone tracker designed specifically for sleep-deprived parents. Effortless one-handed logging, WHO growth percentiles, and zero third-party data tracking.</p>
 
-            <h3>1. Zero Collection of Personal Information</h3>
-            <p>We do not collect, request, transmit, harvest, or store any Personally Identifiable Information (PII) from children or parents. You do not need to create an account, log in, or provide any names, email addresses, phone numbers, or location data to use TinySteps.</p>
+            <!-- Store Badges (Approach B: Launching Soon) -->
+            <div class="store-buttons">
+                <!-- Apple App Store (Coming Soon) -->
+                <a href="#early-access" class="store-btn" id="btn-ios" onclick="openEarlyAccessModal(event)">
+                    <span class="status-badge">Launching Soon</span>
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 0.92-2.87-.93.04-2.02.63-2.67 1.38-.56.65-.96 1.71-.83 2.74 1.03.08 2.05-.53 2.58-1.25z"/>
+                    </svg>
+                    <div class="store-btn-text">
+                        <span class="store-btn-small">COMING SOON TO</span>
+                        <span class="store-btn-large">App Store</span>
+                    </div>
+                </a>
 
-            <h3>2. On-Device Local Progress Storage</h3>
-            <p>All learning progress, completed letters, collected stars, and difficulty preferences are stored exclusively on your local device (using local sandboxed storage). This data never leaves your device and is never uploaded to any remote server or cloud service.</p>
+                <!-- Google Play Store (Coming Soon) -->
+                <a href="#early-access" class="store-btn" id="btn-android" onclick="openEarlyAccessModal(event)">
+                    <span class="status-badge">Launching Soon</span>
+                    <svg viewBox="0 0 24 24">
+                        <path fill="#4285F4" d="M3.6 2.5l9.2 9.2-9.2 9.2c-.3-.4-.5-.9-.5-1.5V4c0-.6.2-1.1.5-1.5z"/>
+                        <path fill="#FBBC04" d="M16.6 9.3l-3.8 3.8 3.8 3.8 4.3-2.5c1.2-.7 1.2-1.9 0-2.6l-4.3-2.5z"/>
+                        <path fill="#34A853" d="M3.6 21l9.2-9.2 3.8 3.8-10.8 6.2c-.8.5-1.7.3-2.2-.8z"/>
+                        <path fill="#EA4335" d="M3.6 2.5c.5-1.1 1.4-1.3 2.2-.8L16.6 8 12.8 11.7 3.6 2.5z"/>
+                    </svg>
+                    <div class="store-btn-text">
+                        <span class="store-btn-small">COMING SOON TO</span>
+                        <span class="store-btn-large">Google Play</span>
+                    </div>
+                </a>
+            </div>
 
-            <h3>3. No Behavioral Tracking or Analytics SDKs</h3>
-            <p>TinySteps contains <strong>zero third-party behavioral analytics, profiling, or tracking software</strong>. We do not use the IDFA (Identifier for Advertisers) or request App Tracking Transparency (ATT) permission, because our app does not track users across other companies' apps or websites.</p>
-
-            <h3>4. Child-Directed Contextual Advertising</h3>
-            <p>The free trial tier of TinySteps utilizes Google AdMob configured in strict <strong>Child-Directed Treatment mode (tagForChildDirectedTreatment = true)</strong> and Under Age of Consent mode. All ads served are strictly non-personalized, family-safe, and contextual. No behavioral profiling or retargeting is permitted. Families who upgrade to the Lifetime VIP Pass enjoy a permanent, 100% ad-free experience.</p>
-
-            <h3>5. In-App Purchases (StoreKit 2 & Google Play)</h3>
-            <p>All in-app purchases (such as the one-time Lifetime VIP unlock) are processed directly by Apple through StoreKit 2 or Google Play Billing. TinySteps does not collect, receive, or store any payment or financial information.</p>
-
-            <h3>6. Protected Parental Gate</h3>
-            <p>In full accordance with Apple Kids Category rules, all external links, support email triggers, settings menus, and store purchase buttons are secured behind a certified adult Parental Gate (randomized multiplication/addition mathematical challenge) to prevent accidental taps by young children.</p>
-
-            <h3>7. Contact Developer Privacy Officer</h3>
-            <p>If you have any questions or concerns regarding our privacy practices or your child's safety, please contact developer support directly at <a href="mailto:rajasaad707@gmail.com">rajasaad707@gmail.com</a>.</p>
-        </div>
-
-        <!-- SUPPORT & FAQ -->
-        <div class="card" id="support">
-            <h2>💬 Support & Frequently Asked Questions</h2>
-            <p>Need help or have a suggestion? We're dedicated to making TinySteps the best early learning experience for your family.</p>
-            
-            <h3>Frequently Asked Questions:</h3>
-            <ul>
-                <li><strong>How do I restore my Lifetime VIP Purchase?</strong><br>
-                Open the Parents Zone (tap the gear icon on the Home screen and solve the adult math gate). Tap <em>"Restore Purchases"</em>. Your Apple ID or Google Play account will verify your entitlement instantly without recharging you.</li>
-                <li><strong>How do I turn on Freehand or Faded lines?</strong><br>
-                While practicing any letter or number, tap the quick toggle badge in the top right corner of the screen (<code>✍️ Guide: Full</code> ➔ <code>🌫️ Guide: Faded</code> ➔ <code>🧠 Freehand</code>), or adjust it inside the Parents Zone.</li>
-                <li><strong>Does the app work offline?</strong><br>
-                Yes! All letter models, handwriting animations, phonics audio, and number games are bundled inside the app and function 100% offline without requiring internet access.</li>
-            </ul>
-
-            <p>📧 <strong>Direct Developer Email:</strong> <a href="mailto:rajasaad707@gmail.com?subject=TinySteps%20Support">rajasaad707@gmail.com</a></p>
-            <a class="btn" href="mailto:rajasaad707@gmail.com?subject=TinySteps%20Support%20Request">Contact Support</a>
-        </div>
-
-        <!-- TERMS OF USE -->
-        <div class="card" id="terms">
-            <h2>📜 Terms of Use & EULA</h2>
-            <p><strong>Last Updated:</strong> October 2026</p>
-            <p>By downloading or using TinySteps, you agree to these Terms of Use and Apple's Standard End User License Agreement (EULA). TinySteps is provided for personal, non-commercial early educational purposes. One-time In-App Purchases grant non-transferable access for your family account via Apple Family Sharing and Google Play Family Library.</p>
-        </div>
-
-        <footer>
-            <p>&copy; 2026 Hafiz Saad. All rights reserved.</p>
-            <p>
-                <a href="privacy.html">Privacy Policy</a> &bull; 
-                <a href="terms.html">Terms of Service</a> &bull; 
-                <a href="support.html">Customer Support</a>
+            <p class="hero-subnote">
+                Want early beta access? <a href="#early-access" onclick="openEarlyAccessModal(event)">Request an invitation &rarr;</a>
             </p>
-        </footer>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features">
+            <h2 class="section-title">Engineered for Excellence</h2>
+            <p class="section-desc">Key highlights that make TinySteps special, focused, and intuitive.</p>
+
+            <div class="features-grid">
+                
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">🍼</div>
+                    <h3 class="feature-title">1-Tap Quick Logging</h3>
+                    <p class="feature-text">Log nursing, bottle feeding, pumping, sleep intervals, and diaper changes with one-handed ease during late-night feeds.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">📈</div>
+                    <h3 class="feature-title">Official WHO Growth Charts</h3>
+                    <p class="feature-text">Track weight, height, and head circumference against World Health Organization growth curves and percentile calculations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">🌟</div>
+                    <h3 class="feature-title">Developmental Milestones</h3>
+                    <p class="feature-text">Celebrate first smiles, rolling over, babbling, and first steps with pediatrician-aligned milestone checklists.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">📸</div>
+                    <h3 class="feature-title">Private Photo Journal</h3>
+                    <p class="feature-text">Attach milestone photos and memories to a secure, private baby timeline that stays on your device.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">⏰</div>
+                    <h3 class="feature-title">Smart Reminders & Schedules</h3>
+                    <p class="feature-text">Predict nap times and diaper intervals with gentle, customizable notifications that fit your baby's rhythm.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">🛡️</div>
+                    <h3 class="feature-title">100% Child Data Privacy</h3>
+                    <p class="feature-text">Zero third-party data sharing. Your baby's intimate growth data and photos are never sold or used for ad targeting.</p>
+                </div>
+            </div>
+        </section>
+
+        
+        <!-- Screenshots Showcase -->
+        <section class="screenshots-section" id="screenshots">
+            <h2 class="section-title">Visual Showcase</h2>
+            <p class="section-desc">Swipe through high-resolution captures of TinySteps in action.</p>
+
+            <div class="screenshots-scroll">
+                
+                <div class="screenshot-item">
+                    <img src="screenshots/01_hero.png" alt="Daily Dashboard" loading="lazy">
+                </div>
+                <div class="screenshot-item">
+                    <img src="screenshots/02_tracking.png" alt="1-Tap Logging" loading="lazy">
+                </div>
+                <div class="screenshot-item">
+                    <img src="screenshots/03_milestones.png" alt="Developmental Milestones" loading="lazy">
+                </div>
+                <div class="screenshot-item">
+                    <img src="screenshots/04_charts.png" alt="WHO Growth Charts" loading="lazy">
+                </div>
+                <div class="screenshot-item">
+                    <img src="screenshots/05_journal.png" alt="Precious Moments Journal" loading="lazy">
+                </div>
+                <div class="screenshot-item">
+                    <img src="screenshots/06_vip.png" alt="Family Lifetime Access" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- Support Section -->
+        <section id="support">
+            <div class="support-box">
+                <div class="support-left">
+                    <h3>💬 Dedicated Support</h3>
+                    <p>Have an inquiry, feedback, or a feature request? Our development team personally reviews every message.</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
+                        <a href="mailto:rajasaad707+tinysteps@gmail.com?subject=TinySteps%20Inquiry" class="btn-support">✉️ Contact Developer</a>
+                        <button class="btn-copy" onclick="copySupportEmail('rajasaad707+tinysteps@gmail.com')" id="copyBtn">📋 Copy Email</button>
+                    </div>
+                </div>
+                <div class="faq-list">
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">❓ Is my baby's health data kept private?</div>
+                        <div class="faq-answer">Yes, 100%. TinySteps is built on a strict privacy-first foundation. All logs, health notes, and photos stay on your device and are never monetized.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">❓ Can both parents sync data between devices?</div>
+                        <div class="faq-answer">Yes, private family synchronization via Apple iCloud / Google Cloud allows both parents to log and see updates in real-time.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">❓ Does TinySteps work offline?</div>
+                        <div class="faq-answer">Yes, all tracking features work seamlessly offline. Logs automatically synchronize whenever your network becomes available.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Privacy & Terms Legal Section -->
+        <section class="legal-section" id="privacy">
+            <div class="info-card">
+                <h3>🔒 Privacy Policy <span class="badge-inline">GDPR • COPPA • CalOPPA</span></h3>
+                <p><strong>Last Updated: October 2026</strong></p>
+                <p>Your privacy is paramount. <strong>TinySteps</strong> is built strictly around local-first privacy principles. We believe your personal tools should never monitor, track, or commercialize your identity.</p>
+
+                <h4>1. Information Collection & Use</h4>
+                <p>We treat your family's personal milestones with sacred trust. TinySteps never sells, rents, or commercializes baby growth measurements, diaper logs, feeding times, or personal photos.</p>
+
+                <h4>2. On-Device Storage & Local Operation</h4>
+                <p>All core settings, user progress, customized preferences, and app states are stored strictly within sandboxed storage on your local device. We run zero remote database synchronization services that profile individual user habits.</p>
+
+                <h4>3. Third-Party Services & Analytics</h4>
+                <p>Data synchronization between authorized family members uses encrypted, direct platform services (Apple iCloud / Google Cloud) and is never accessible to third-party data brokers.</p>
+
+                <h4>4. Children’s Privacy (COPPA Compliance)</h4>
+                <p>We are firmly committed to safeguarding the privacy of young users. TinySteps does not knowingly collect personally identifiable information from children under 13. Any features tailored for younger audiences strictly respect international child protection regulations.</p>
+
+                <h4>5. Contact Us</h4>
+                <p>For any privacy or data protection inquiries, email our privacy team directly at: <a href="mailto:rajasaad707+tinysteps@gmail.com">rajasaad707+tinysteps@gmail.com</a>.</p>
+            </div>
+
+            <div class="info-card" id="terms">
+                <h3>📄 Terms of Service <span class="badge-inline">EULA</span></h3>
+                <p><strong>Last Updated: October 2026</strong></p>
+                <p>By downloading, previewing, or using <strong>TinySteps</strong>, you agree to these Terms of Service in conjunction with standard Apple Media Services and Google Play Terms.</p>
+
+                <h4>1. License Grant</h4>
+                <p>We grant you a personal, revocable, non-exclusive, non-transferable license to install and use TinySteps on any authorized iOS or Android device you own or control.</p>
+
+                <h4>2. Intellectual Property</h4>
+                <p>All trademarks, user interface designs, visual layouts, soundscapes, source code, and assets associated with TinySteps remain the exclusive property of the developer. You may not decompile, reverse-engineer, or redistribute the application without express written consent.</p>
+
+                <h4>3. In-App Purchases (If Applicable)</h4>
+                <p>Any digital unlocks (such as a Lifetime Pass) are billed through official Apple App Store or Google Play Console in-app billing engines. All transactions, refunds, and family sharing are governed by the respective platform terms.</p>
+
+                <h4>4. Disclaimer of Warranties</h4>
+                <p>TinySteps is provided on an "as-is" and "as-available" basis. While we strive for uncompromising stability and precision, the developer disclaims all warranties to the maximum extent permitted by applicable law.</p>
+
+                <h4>5. Governing Law & Support</h4>
+                <p>For questions regarding these Terms or legal support, contact: <a href="mailto:rajasaad707+tinysteps@gmail.com">rajasaad707+tinysteps@gmail.com</a>.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="#download">Early Access</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#screenshots">Screenshots</a></li>
+                <li><a href="#support">Support</a></li>
+                <li><a href="#privacy">Privacy Policy</a></li>
+                <li><a href="#terms">Terms</a></li>
+                <li><a href="app-ads.txt" target="_blank">app-ads.txt</a></li>
+            </ul>
+            <p>&copy; 2026 TinySteps. All rights reserved.</p>
+            <p style="margin-top: 6px; font-size: 0.8rem; color: var(--text-muted);">Coming Soon to Apple App Store & Google Play • Privacy-First Architecture</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Early Access Modal (Approach B) -->
+    <div id="earlyAccessModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeEarlyAccessModal()" aria-label="Close modal">&times;</button>
+            <div class="modal-header">
+                <div class="modal-badge">
+                    <span>🚀 Pre-Launch Early Access</span>
+                </div>
+                <h3 id="modalTitle" class="modal-title">Get Early Access to TinySteps</h3>
+                <p class="modal-subtitle">TinySteps is currently in active development for Apple iOS and Android. Request a closed beta invitation or get notified the exact hour we launch on the App Store and Google Play.</p>
+            </div>
+
+            <div class="modal-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Request Closed Beta Invitation</h4>
+                        <p>Join our private Apple TestFlight or Google Play closed testing track to try TinySteps before the general public.</p>
+                        <a href="mailto:rajasaad707+tinysteps@gmail.com?subject=Early%20Access%20Request%20-%20TinySteps&body=Hi%20Saad,%0D%0A%0D%0AI%20would%20like%20to%20request%20early%20beta%20access%20to%20TinySteps.%0D%0A%0D%0APlatform:%20(iOS%20/%20Android)%0D%0AEmail:%20" class="btn-step" target="_blank">✉️ Request Beta Invite</a>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Direct Developer Inquiries</h4>
+                        <p>Have custom questions or partnership inquiries? Feel free to copy our direct developer email.</p>
+                        <button type="button" class="btn-step btn-step-sec" onclick="copySupportEmail('rajasaad707+tinysteps@gmail.com')">📋 Copy Support Email</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- Interactive Scripts -->
+    <script>
+        function openEarlyAccessModal(e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            const modal = document.getElementById('earlyAccessModal');
+            if (modal) {
+                modal.classList.add('is-active');
+                document.body.style.overflow = 'hidden';
+            }
+            return false;
+        }
+
+        function closeEarlyAccessModal() {
+            const modal = document.getElementById('earlyAccessModal');
+            if (modal) {
+                modal.classList.remove('is-active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        window.addEventListener('click', function(e) {
+            const modal = document.getElementById('earlyAccessModal');
+            if (modal && e.target === modal) {
+                closeEarlyAccessModal();
+            }
+        });
+
+        window.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeEarlyAccessModal();
+            }
+        });
+
+        function copySupportEmail(email) {
+            navigator.clipboard.writeText(email).then(() => {
+                const btns = document.querySelectorAll('#copyBtn, .btn-step-sec');
+                btns.forEach(btn => {
+                    const orig = btn.innerText;
+                    btn.innerText = '✓ Email Copied!';
+                    setTimeout(() => { btn.innerText = orig; }, 2500);
+                });
+            }).catch(() => {
+                prompt('Copy Developer Email:', email);
+            });
+        }
+    </script>
 </body>
 </html>
