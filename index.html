@@ -438,6 +438,85 @@
             margin-bottom: 90px;
         }
 
+        
+        /* Live & Coming Soon Card Styling */
+        .badge-live-pulse {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 999px;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            color: #34d399;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-left: 8px;
+        }
+
+        .pulse-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: #10b981;
+            box-shadow: 0 0 8px #10b981;
+            animation: pulse-live 2s infinite;
+        }
+
+        @keyframes pulse-live {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.3); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+
+        .app-card.coming-soon {
+            opacity: 0.45;
+            filter: grayscale(30%) blur(0.5px);
+            pointer-events: none;
+            user-select: none;
+            cursor: not-allowed;
+            border-style: dashed;
+            border-color: rgba(255, 255, 255, 0.12);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-card.coming-soon:hover {
+            transform: none;
+            box-shadow: none;
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .ribbon-wrapper {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 140px;
+            height: 140px;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .ribbon-diagonal {
+            position: absolute;
+            top: 26px;
+            right: -36px;
+            width: 160px;
+            transform: rotate(45deg);
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #07090e;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-align: center;
+            padding: 6px 0;
+            text-transform: uppercase;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+        }
+
         .app-card {
             background: var(--surface-card);
             border: 1px solid var(--border);
@@ -877,14 +956,17 @@
                 <button class="filter-btn" onclick="filterApps('education')">Kids &amp; Learning</button>
             </div>
 
-            <div class="apps-grid">
+                        <div class="apps-grid">
 
-                <!-- 1. DecibelPro -->
+                <!-- 1. DecibelPro (LIVE) -->
                 <article class="app-card" data-category="utility">
                     <div class="app-card-top">
                         <img src="decibel-pro/assets/icon.png" alt="DecibelPro Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/2563eb/ffffff?text=dB'">
                         <div class="app-title-group">
-                            <h3>DecibelPro</h3>
+                            <div style="display:flex;align-items:center;">
+                                <h3>DecibelPro</h3>
+                                <span class="badge-live-pulse"><span class="pulse-dot"></span> Live</span>
+                            </div>
                             <span class="app-badge-category">Audio &amp; Utility</span>
                         </div>
                     </div>
@@ -899,17 +981,20 @@
                     </div>
                     <div class="app-actions">
                         <a href="https://play.google.com/store/apps/details?id=com.saadapps.decibelpro" target="_blank" class="btn-view" style="background:rgba(16,185,129,0.15);border-color:rgba(16,185,129,0.4);color:#34d399;">Google Play &rarr;</a>
-                        <a href="decibel-pro/" class="btn-view">Overview</a>
+                        <a href="https://apps.apple.com/us/app/decibelpro-sound-db-meter/id6820814636" target="_blank" class="btn-view">App Store &rarr;</a>
                         <a href="decibel-pro/#privacy" class="link-legal">Privacy</a>
                     </div>
                 </article>
 
-                <!-- 2. Emoji Riddle -->
+                <!-- 2. Emoji Riddle (LIVE) -->
                 <article class="app-card" data-category="puzzle">
                     <div class="app-card-top">
                         <img src="emoji-riddle/assets/icon.png" alt="Emoji Riddle Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/ec4899/ffffff?text=🧩'">
                         <div class="app-title-group">
-                            <h3>Emoji Riddle</h3>
+                            <div style="display:flex;align-items:center;">
+                                <h3>Emoji Riddle</h3>
+                                <span class="badge-live-pulse"><span class="pulse-dot"></span> Live</span>
+                            </div>
                             <span class="app-badge-category">Brain Puzzle</span>
                         </div>
                     </div>
@@ -923,14 +1008,15 @@
                         <span class="feature-chip">Family Safe</span>
                     </div>
                     <div class="app-actions">
-                        <a href="emoji-riddle/" class="btn-view">App Overview &rarr;</a>
-                        <span class="feature-chip" style="color:#f59e0b;border-color:rgba(245,158,11,0.3);">Testing Track</span>
+                        <a href="https://apps.apple.com/us/app/emoji-riddle-brain-teaser/id6822172363" target="_blank" class="btn-view" style="background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.4);color:#60a5fa;">App Store &rarr;</a>
+                        <a href="emoji-riddle/" class="btn-view">Overview</a>
                         <a href="emoji-riddle/#privacy" class="link-legal">Privacy</a>
                     </div>
                 </article>
 
-                <!-- 3. Fluid Glow -->
-                <article class="app-card" data-category="utility">
+                <!-- 3. Fluid Glow (COMING SOON) -->
+                <article class="app-card coming-soon" data-category="utility">
+                    <div class="ribbon-wrapper"><div class="ribbon-diagonal">Coming Soon</div></div>
                     <div class="app-card-top">
                         <img src="fluid-glow/assets/icon.png" alt="Fluid Glow Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/06b6d4/ffffff?text=✨'">
                         <div class="app-title-group">
@@ -947,13 +1033,13 @@
                         <span class="feature-chip">Stress Relief</span>
                     </div>
                     <div class="app-actions">
-                        <a href="fluid-glow/" class="btn-view">App Website &rarr;</a>
-                        <a href="fluid-glow/#privacy" class="link-legal">Privacy Policy</a>
+                        <span class="btn-view" style="background:rgba(255,255,255,0.03);color:var(--text-muted);border-color:rgba(255,255,255,0.06);cursor:not-allowed;">🔒 In Development</span>
                     </div>
                 </article>
 
-                <!-- 4. TinySteps -->
-                <article class="app-card" data-category="education">
+                <!-- 4. TinySteps (COMING SOON) -->
+                <article class="app-card coming-soon" data-category="education">
+                    <div class="ribbon-wrapper"><div class="ribbon-diagonal">Coming Soon</div></div>
                     <div class="app-card-top">
                         <img src="tinysteps/assets/icon.png" alt="TinySteps Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/10b981/ffffff?text=👶'">
                         <div class="app-title-group">
@@ -971,13 +1057,13 @@
                         <span class="feature-chip">COPPA Safe</span>
                     </div>
                     <div class="app-actions">
-                        <a href="tinysteps/" class="btn-view">App Website &rarr;</a>
-                        <a href="tinysteps/#privacy" class="link-legal">Privacy Policy</a>
+                        <span class="btn-view" style="background:rgba(255,255,255,0.03);color:var(--text-muted);border-color:rgba(255,255,255,0.06);cursor:not-allowed;">🔒 In Development</span>
                     </div>
                 </article>
 
-                <!-- 5. Pocket Sort -->
-                <article class="app-card" data-category="puzzle">
+                <!-- 5. Pocket Sort (COMING SOON) -->
+                <article class="app-card coming-soon" data-category="puzzle">
+                    <div class="ribbon-wrapper"><div class="ribbon-diagonal">Coming Soon</div></div>
                     <div class="app-card-top">
                         <img src="pocket-sort/assets/icon.png" alt="Pocket Sort Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/f59e0b/ffffff?text=🧪'">
                         <div class="app-title-group">
@@ -994,13 +1080,13 @@
                         <span class="feature-chip">No Time Pressure</span>
                     </div>
                     <div class="app-actions">
-                        <a href="pocket-sort/" class="btn-view">App Website &rarr;</a>
-                        <a href="pocket-sort/#privacy" class="link-legal">Privacy Policy</a>
+                        <span class="btn-view" style="background:rgba(255,255,255,0.03);color:var(--text-muted);border-color:rgba(255,255,255,0.06);cursor:not-allowed;">🔒 In Development</span>
                     </div>
                 </article>
 
-                <!-- 6. Reader Lab -->
-                <article class="app-card" data-category="utility">
+                <!-- 6. Reader Lab (COMING SOON) -->
+                <article class="app-card coming-soon" data-category="utility">
+                    <div class="ribbon-wrapper"><div class="ribbon-diagonal">Coming Soon</div></div>
                     <div class="app-card-top">
                         <img src="reader-lab/assets/icon.png" alt="Reader Lab Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/6366f1/ffffff?text=📖'">
                         <div class="app-title-group">
@@ -1017,13 +1103,13 @@
                         <span class="feature-chip">Document Reader</span>
                     </div>
                     <div class="app-actions">
-                        <a href="reader-lab/" class="btn-view">App Website &rarr;</a>
-                        <a href="reader-lab/#privacy" class="link-legal">Privacy Policy</a>
+                        <span class="btn-view" style="background:rgba(255,255,255,0.03);color:var(--text-muted);border-color:rgba(255,255,255,0.06);cursor:not-allowed;">🔒 In Development</span>
                     </div>
                 </article>
 
-                <!-- 7. AR Drawing -->
-                <article class="app-card" data-category="education">
+                <!-- 7. AR Drawing (COMING SOON) -->
+                <article class="app-card coming-soon" data-category="education">
+                    <div class="ribbon-wrapper"><div class="ribbon-diagonal">Coming Soon</div></div>
                     <div class="app-card-top">
                         <img src="ar-drawing/assets/icon.png" alt="AR Drawing Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/ec4899/ffffff?text=🎨'">
                         <div class="app-title-group">
@@ -1040,13 +1126,13 @@
                         <span class="feature-chip">Step-by-Step</span>
                     </div>
                     <div class="app-actions">
-                        <a href="ar-drawing/" class="btn-view">App Website &rarr;</a>
-                        <a href="ar-drawing/#privacy" class="link-legal">Privacy Policy</a>
+                        <span class="btn-view" style="background:rgba(255,255,255,0.03);color:var(--text-muted);border-color:rgba(255,255,255,0.06);cursor:not-allowed;">🔒 In Development</span>
                     </div>
                 </article>
 
-                <!-- 8. Zen Focus -->
-                <article class="app-card" data-category="utility">
+                <!-- 8. Zen Focus (COMING SOON) -->
+                <article class="app-card coming-soon" data-category="utility">
+                    <div class="ribbon-wrapper"><div class="ribbon-diagonal">Coming Soon</div></div>
                     <div class="app-card-top">
                         <img src="zen-focus/assets/icon.png" alt="Zen Focus Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/14b8a6/ffffff?text=🧘'">
                         <div class="app-title-group">
@@ -1063,13 +1149,13 @@
                         <span class="feature-chip">Zero Distraction</span>
                     </div>
                     <div class="app-actions">
-                        <a href="zen-focus/" class="btn-view">App Website &rarr;</a>
-                        <a href="zen-focus/#privacy" class="link-legal">Privacy Policy</a>
+                        <span class="btn-view" style="background:rgba(255,255,255,0.03);color:var(--text-muted);border-color:rgba(255,255,255,0.06);cursor:not-allowed;">🔒 In Development</span>
                     </div>
                 </article>
 
-                <!-- 9. Numbers 123 -->
-                <article class="app-card" data-category="education">
+                <!-- 9. Numbers 123 (COMING SOON) -->
+                <article class="app-card coming-soon" data-category="education">
+                    <div class="ribbon-wrapper"><div class="ribbon-diagonal">Coming Soon</div></div>
                     <div class="app-card-top">
                         <img src="numbers123/assets/icon.png" alt="Numbers 123 Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/f97316/ffffff?text=123'">
                         <div class="app-title-group">
@@ -1086,8 +1172,7 @@
                         <span class="feature-chip">Safe for Kids</span>
                     </div>
                     <div class="app-actions">
-                        <a href="numbers123/" class="btn-view">App Website &rarr;</a>
-                        <a href="numbers123/#privacy" class="link-legal">Privacy Policy</a>
+                        <span class="btn-view" style="background:rgba(255,255,255,0.03);color:var(--text-muted);border-color:rgba(255,255,255,0.06);cursor:not-allowed;">🔒 In Development</span>
                     </div>
                 </article>
 
