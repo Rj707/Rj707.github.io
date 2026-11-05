@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hafiz Saad Digital — Mobile Apps & Digital Innovation Studio</title>
+    <meta name="description" content="Official developer portfolio of Hafiz Saad Digital. Crafting precision mobile utilities, brain puzzle games, and educational experiences for Google Play and the App Store.">
+    <meta name="author" content="Hafiz Saad Digital">
+    <link rel="canonical" href="https://rj707.github.io/">
+
+    <!-- Open Graph / Facebook / Google Play crawler -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rj707.github.io/">
+    <meta property="og:title" content="Hafiz Saad Digital — Mobile Developer Studio">
+    <meta property="og:description" content="Explore published mobile apps, acoustic utilities, brain games, and educational tools by Hafiz Saad Digital.">
+    <meta property="og:site_name" content="Hafiz Saad Digital">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hafiz Saad Digital — Mobile Apps">
+    <meta name="twitter:description" content="Precision utilities, logic puzzles, and high-performance mobile applications.">
+
+    <link rel="icon" type="image/png" href="decibel-pro/assets/icon.png">
+
+    <!-- Schema.org Organization Metadata -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Hafiz Saad Digital",
+      "url": "https://rj707.github.io/",
+      "logo": "https://rj707.github.io/decibel-pro/assets/icon.png",
+      "founder": "Hafiz Muhammad Saad Ullah",
+      "email": "rajasaad707@gmail.com",
+      "sameAs": [
+        "https://play.google.com/store/apps/developer?id=Hafiz+Saad+Digital"
+      ],
+      "description": "Mobile application development studio specializing in sound measurement utilities, cognitive brain games, and modern mobile software."
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg: #07090e;
+            --surface: #0f131c;
+            --surface-elevated: #161c29;
+            --surface-card: rgba(18, 24, 38, 0.7);
+            --border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(59, 130, 246, 0.45);
+            --primary: #3b82f6;
+            --primary-glow: rgba(59, 130, 246, 0.25);
+            --cyan: #06b6d4;
+            --emerald: #10b981;
+            --purple: #8b5cf6;
+            --amber: #f59e0b;
+            --text: #f3f4f6;
+            --text-sec: #9ca3af;
+            --text-muted: #6b7280;
+            --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font);
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Ambient Glow Background */
+        .ambient-bg {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+            background: 
+                radial-gradient(circle at 50% 12%, rgba(59, 130, 246, 0.16) 0%, transparent 55%),
+                radial-gradient(circle at 85% 35%, rgba(6, 182, 212, 0.10) 0%, transparent 45%),
+                radial-gradient(circle at 15% 65%, rgba(139, 92, 246, 0.10) 0%, transparent 50%),
+                radial-gradient(circle at 75% 85%, rgba(16, 185, 129, 0.08) 0%, transparent 45%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header / Navbar */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(7, 9, 14, 0.82);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+
+        .logo-badge {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #2563eb, #06b6d4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #fff;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+        }
+
+        .logo-text-sub {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--text-sec);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            color: var(--text-sec);
+            text-decoration: none;
+            font-size: 0.94rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white !important;
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.15s, box-shadow 0.15s;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.45);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 90px 0 60px;
+            text-align: center;
+        }
+
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border-radius: 999px;
+            background: rgba(59, 130, 246, 0.12);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #60a5fa;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            letter-spacing: 0.02em;
+        }
+
+        .verified-badge svg {
+            width: 15px;
+            height: 15px;
+            fill: #60a5fa;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #60a5fa 20%, #38bdf8 50%, #a78bfa 90%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: 0 auto 36px;
+            font-size: 1.15rem;
+            color: var(--text-sec);
+            font-weight: 400;
+            line-height: 1.65;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #2563eb, #0284c7);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.5);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--surface-elevated);
+            color: var(--text);
+            border: 1px solid var(--border);
+            padding: 14px 24px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Stats / Highlights Banner */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 80px;
+        }
+
+        .stat-card {
+            background: var(--surface-card);
+            border: 1px solid var(--border);
+            padding: 24px;
+            border-radius: 16px;
+            text-align: center;
+            backdrop-filter: blur(12px);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 4px;
+            letter-spacing: -0.02em;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-sec);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        /* Section Headings */
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .section-desc {
+            font-size: 1.05rem;
+            color: var(--text-sec);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Filter Controls */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            background: var(--surface-elevated);
+            color: var(--text-sec);
+            border: 1px solid var(--border);
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px var(--primary-glow);
+        }
+
+        /* Apps Grid */
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 24px;
+            margin-bottom: 90px;
+        }
+
+        .app-card {
+            background: var(--surface-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            backdrop-filter: blur(14px);
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s, box-shadow 0.25s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-hover);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4), 0 0 24px var(--primary-glow);
+        }
+
+        .app-card-top {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+
+        .app-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 16px;
+            object-fit: cover;
+            background: var(--surface-elevated);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            flex-shrink: 0;
+        }
+
+        .app-title-group h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 4px;
+            letter-spacing: -0.01em;
+        }
+
+        .app-badge-category {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .app-desc {
+            color: var(--text-sec);
+            font-size: 0.95rem;
+            line-height: 1.55;
+            margin-bottom: 22px;
+            flex-grow: 1;
+        }
+
+        .app-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 24px;
+        }
+
+        .feature-chip {
+            font-size: 0.75rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: var(--text-sec);
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .app-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-top: 1px solid var(--border);
+            padding-top: 18px;
+        }
+
+        .btn-view {
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background: var(--surface-elevated);
+            color: var(--text);
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            transition: background 0.15s, border-color 0.15s;
+        }
+
+        .btn-view:hover {
+            background: rgba(59, 130, 246, 0.15);
+            border-color: var(--primary);
+            color: #93c5fd;
+        }
+
+        .link-legal {
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+
+        .link-legal:hover {
+            color: var(--text);
+        }
+
+        /* Trust & Compliance Section */
+        .trust-section {
+            background: var(--surface-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 48px;
+            margin-bottom: 80px;
+            backdrop-filter: blur(14px);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 36px;
+        }
+
+        .trust-item {
+            display: flex;
+            gap: 16px;
+        }
+
+        .trust-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(59, 130, 246, 0.12);
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .trust-text h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .trust-text p {
+            font-size: 0.9rem;
+            color: var(--text-sec);
+            line-height: 1.5;
+        }
+
+        /* Support & Contact Section */
+        .contact-box {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(6, 182, 212, 0.05));
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            border-radius: 24px;
+            padding: 48px 36px;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .contact-box h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .contact-box p {
+            color: var(--text-sec);
+            max-width: 580px;
+            margin: 0 auto 28px;
+            font-size: 1rem;
+        }
+
+        .email-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 12px 24px;
+            border-radius: 999px;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .email-pill:hover {
+            border-color: var(--primary);
+            color: #60a5fa;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px var(--primary-glow);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 0;
+            background: rgba(7, 9, 14, 0.9);
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: var(--text-sec);
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text);
+        }
+
+        /* Mobile tweaks */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero {
+                padding: 60px 0 40px;
+            }
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
+            .trust-section {
+                padding: 32px 20px;
+            }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-bg"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-content">
+            <a href="#" class="logo">
+                <div class="logo-badge">H</div>
+                <div>
+                    <div>Hafiz Saad Digital</div>
+                    <span class="logo-text-sub">Mobile Software Studio</span>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="#apps">Our Apps</a>
+                <a href="#compliance">Data Safety</a>
+                <a href="#contact">Contact Support</a>
+                <a href="app-ads.txt" target="_blank">app-ads.txt</a>
+                <a href="mailto:rajasaad707@gmail.com" class="nav-btn">Get in Touch</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="verified-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Official Google Play &amp; Apple Developer Studio
+            </div>
+            <h1>Crafting High-Performance <br><span>Mobile Apps &amp; Utilities</span></h1>
+            <p>
+                Welcome to the official developer home of <strong>Hafiz Saad Digital</strong>. We build precision acoustic meters, cognitive brain puzzle games, and intuitive daily productivity tools designed for privacy and speed.
+            </p>
+            <div class="hero-actions">
+                <a href="#apps" class="btn-primary">
+                    <span>📱 Explore Apps Portfolio</span>
+                </a>
+                <a href="#compliance" class="btn-secondary">
+                    <span>🛡️ Data Privacy &amp; Trust</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">10+</div>
+                <div class="stat-label">Published Applications</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">100%</div>
+                <div class="stat-label">Zero Personal Data Sold</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">iOS &amp; Android</div>
+                <div class="stat-label">Cross-Platform Standard</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">GDPR / COPPA</div>
+                <div class="stat-label">Compliant by Design</div>
+            </div>
+        </div>
+
+        <!-- Apps Section -->
+        <section id="apps">
+            <div class="section-header">
+                <div class="section-tag">Catalog</div>
+                <h2 class="section-title">Published Applications</h2>
+                <p class="section-desc">Discover our range of utility meters, creative visualizers, and interactive puzzle titles.</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="filter-tabs">
+                <button class="filter-btn active" onclick="filterApps('all')">All Applications</button>
+                <button class="filter-btn" onclick="filterApps('utility')">Utilities &amp; Audio</button>
+                <button class="filter-btn" onclick="filterApps('puzzle')">Puzzles &amp; Brain</button>
+                <button class="filter-btn" onclick="filterApps('education')">Kids &amp; Learning</button>
+            </div>
+
+            <div class="apps-grid">
+
+                <!-- 1. DecibelPro -->
+                <article class="app-card" data-category="utility">
+                    <div class="app-card-top">
+                        <img src="decibel-pro/assets/icon.png" alt="DecibelPro Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/2563eb/ffffff?text=dB'">
+                        <div class="app-title-group">
+                            <h3>DecibelPro</h3>
+                            <span class="app-badge-category">Audio &amp; Utility</span>
+                        </div>
+                    </div>
+                    <p class="app-desc">
+                        Precision sound level meter (dBA), real-time acoustic waveform visualizer, tone generator, and speaker pulse cleaner with zero cloud data storage.
+                    </p>
+                    <div class="app-features">
+                        <span class="feature-chip">dBA Meter</span>
+                        <span class="feature-chip">Tone Generator</span>
+                        <span class="feature-chip">165Hz Cleaner</span>
+                        <span class="feature-chip">Live Graph</span>
+                    </div>
+                    <div class="app-actions">
+                        <a href="decibel-pro/" class="btn-view">App Website &rarr;</a>
+                        <a href="decibel-pro/#privacy" class="link-legal">Privacy Policy</a>
+                    </div>
+                </article>
+
+                <!-- 2. Emoji Riddle -->
+                <article class="app-card" data-category="puzzle">
+                    <div class="app-card-top">
+                        <img src="emoji-riddle/assets/icon.png" alt="Emoji Riddle Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/ec4899/ffffff?text=🧩'">
+                        <div class="app-title-group">
+                            <h3>Emoji Riddle</h3>
+                            <span class="app-badge-category">Brain Puzzle</span>
+                        </div>
+                    </div>
+                    <p class="app-desc">
+                        Clever rebus puzzles and visual word riddles. Decipher creative emoji combinations to discover idioms, movie titles, and popular phrases.
+                    </p>
+                    <div class="app-features">
+                        <span class="feature-chip">Word Puzzles</span>
+                        <span class="feature-chip">Offline Play</span>
+                        <span class="feature-chip">500+ Levels</span>
+                        <span class="feature-chip">Family Safe</span>
+                    </div>
+                    <div class="app-actions">
+                        <a href="emoji-riddle/" class="btn-view">App Website &rarr;</a>
+                        <a href="emoji-riddle/#privacy" class="link-legal">Privacy Policy</a>
+                    </div>
+                </article>
+
+                <!-- 3. Fluid Glow -->
+                <article class="app-card" data-category="utility">
+                    <div class="app-card-top">
+                        <img src="fluid-glow/assets/icon.png" alt="Fluid Glow Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/06b6d4/ffffff?text=✨'">
+                        <div class="app-title-group">
+                            <h3>Fluid Glow</h3>
+                            <span class="app-badge-category">Visual Experience</span>
+                        </div>
+                    </div>
+                    <p class="app-desc">
+                        Interactive particle and fluid dynamic physics sandbox with dynamic neon glow effects for stress relief, creative visualization, and relaxation.
+                    </p>
+                    <div class="app-features">
+                        <span class="feature-chip">Fluid Physics</span>
+                        <span class="feature-chip">Haptic Touch</span>
+                        <span class="feature-chip">Stress Relief</span>
+                    </div>
+                    <div class="app-actions">
+                        <a href="fluid-glow/" class="btn-view">App Website &rarr;</a>
+                        <a href="fluid-glow/#privacy" class="link-legal">Privacy Policy</a>
+                    </div>
+                </article>
+
+                <!-- 4. TinySteps -->
+                <article class="app-card" data-category="education">
+                    <div class="app-card-top">
+                        <img src="tinysteps/assets/icon.png" alt="TinySteps Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/10b981/ffffff?text=👶'">
+                        <div class="app-title-group">
+                            <h3>TinySteps</h3>
+                            <span class="app-badge-category">Kids &amp; Learning</span>
+                        </div>
+                    </div>
+                    <p class="app-desc">
+                        Montessori-inspired handwriting and alphabet tracing app for toddlers and preschoolers. Certified COPPA compliant with zero behavioral tracking.
+                    </p>
+                    <div class="app-features">
+                        <span class="feature-chip">Alphabet Tracing</span>
+                        <span class="feature-chip">Montessori</span>
+                        <span class="feature-chip">Parent Gate</span>
+                        <span class="feature-chip">COPPA Safe</span>
+                    </div>
+                    <div class="app-actions">
+                        <a href="tinysteps/" class="btn-view">App Website &rarr;</a>
+                        <a href="tinysteps/#privacy" class="link-legal">Privacy Policy</a>
+                    </div>
+                </article>
+
+                <!-- 5. Pocket Sort -->
+                <article class="app-card" data-category="puzzle">
+                    <div class="app-card-top">
+                        <img src="pocket-sort/assets/icon.png" alt="Pocket Sort Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/f59e0b/ffffff?text=🧪'">
+                        <div class="app-title-group">
+                            <h3>Pocket Sort</h3>
+                            <span class="app-badge-category">Casual Strategy</span>
+                        </div>
+                    </div>
+                    <p class="app-desc">
+                        Satisfying color-sorting puzzle challenge. Plan moves carefully to sort colored liquids and items into their matching vials with relaxing haptic cues.
+                    </p>
+                    <div class="app-features">
+                        <span class="feature-chip">Logic Sorting</span>
+                        <span class="feature-chip">Smooth Haptics</span>
+                        <span class="feature-chip">No Time Pressure</span>
+                    </div>
+                    <div class="app-actions">
+                        <a href="pocket-sort/" class="btn-view">App Website &rarr;</a>
+                        <a href="pocket-sort/#privacy" class="link-legal">Privacy Policy</a>
+                    </div>
+                </article>
+
+                <!-- 6. Reader Lab -->
+                <article class="app-card" data-category="utility">
+                    <div class="app-card-top">
+                        <img src="reader-lab/assets/icon.png" alt="Reader Lab Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/6366f1/ffffff?text=📖'">
+                        <div class="app-title-group">
+                            <h3>Reader Lab</h3>
+                            <span class="app-badge-category">Productivity</span>
+                        </div>
+                    </div>
+                    <p class="app-desc">
+                        Smart speed-reading and document intelligence assistant. Enhances reading comprehension and focus using RSVP visual pacing techniques.
+                    </p>
+                    <div class="app-features">
+                        <span class="feature-chip">Speed Reading</span>
+                        <span class="feature-chip">Focus Mode</span>
+                        <span class="feature-chip">Document Reader</span>
+                    </div>
+                    <div class="app-actions">
+                        <a href="reader-lab/" class="btn-view">App Website &rarr;</a>
+                        <a href="reader-lab/#privacy" class="link-legal">Privacy Policy</a>
+                    </div>
+                </article>
+
+                <!-- 7. AR Drawing -->
+                <article class="app-card" data-category="education">
+                    <div class="app-card-top">
+                        <img src="ar-drawing/assets/icon.png" alt="AR Drawing Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/ec4899/ffffff?text=🎨'">
+                        <div class="app-title-group">
+                            <h3>AR Drawing</h3>
+                            <span class="app-badge-category">Creative Art</span>
+                        </div>
+                    </div>
+                    <p class="app-desc">
+                        Augmented reality tracing and sketching assistant. Project outlines directly onto paper through your mobile camera to learn drawing easily.
+                    </p>
+                    <div class="app-features">
+                        <span class="feature-chip">AR Camera Trace</span>
+                        <span class="feature-chip">Sketch Library</span>
+                        <span class="feature-chip">Step-by-Step</span>
+                    </div>
+                    <div class="app-actions">
+                        <a href="ar-drawing/" class="btn-view">App Website &rarr;</a>
+                        <a href="ar-drawing/#privacy" class="link-legal">Privacy Policy</a>
+                    </div>
+                </article>
+
+                <!-- 8. Zen Focus -->
+                <article class="app-card" data-category="utility">
+                    <div class="app-card-top">
+                        <img src="zen-focus/assets/icon.png" alt="Zen Focus Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/14b8a6/ffffff?text=🧘'">
+                        <div class="app-title-group">
+                            <h3>Zen Focus</h3>
+                            <span class="app-badge-category">Productivity</span>
+                        </div>
+                    </div>
+                    <p class="app-desc">
+                        Minimalist deep-work timer, ambient soundscapes, and digital calm engine designed to reduce screen fatigue and boost productivity.
+                    </p>
+                    <div class="app-features">
+                        <span class="feature-chip">Pomodoro Timer</span>
+                        <span class="feature-chip">White Noise</span>
+                        <span class="feature-chip">Zero Distraction</span>
+                    </div>
+                    <div class="app-actions">
+                        <a href="zen-focus/" class="btn-view">App Website &rarr;</a>
+                        <a href="zen-focus/#privacy" class="link-legal">Privacy Policy</a>
+                    </div>
+                </article>
+
+                <!-- 9. Numbers 123 -->
+                <article class="app-card" data-category="education">
+                    <div class="app-card-top">
+                        <img src="numbers123/assets/icon.png" alt="Numbers 123 Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/f97316/ffffff?text=123'">
+                        <div class="app-title-group">
+                            <h3>Numbers 123</h3>
+                            <span class="app-badge-category">Early Math</span>
+                        </div>
+                    </div>
+                    <p class="app-desc">
+                        Interactive counting, number formation, and foundational math puzzles crafted specifically for early childhood development.
+                    </p>
+                    <div class="app-features">
+                        <span class="feature-chip">Number Tracing</span>
+                        <span class="feature-chip">Counting Games</span>
+                        <span class="feature-chip">Safe for Kids</span>
+                    </div>
+                    <div class="app-actions">
+                        <a href="numbers123/" class="btn-view">App Website &rarr;</a>
+                        <a href="numbers123/#privacy" class="link-legal">Privacy Policy</a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Trust & Compliance Section -->
+        <section id="compliance" class="trust-section">
+            <div class="section-header" style="margin-bottom: 24px;">
+                <div class="section-tag">Standards &amp; Trust</div>
+                <h2 class="section-title">Developer Safety &amp; Privacy Pledge</h2>
+                <p class="section-desc">Hafiz Saad Digital operates with strict compliance towards Google Play and App Store developer requirements.</p>
+            </div>
+
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon">🔒</div>
+                    <div class="trust-text">
+                        <h4>On-Device Processing</h4>
+                        <p>Utilities such as DecibelPro compute real-time audio measurements entirely on the device. No audio samples are ever recorded or uploaded.</p>
+                    </div>
+                </div>
+
+                <div class="trust-item">
+                    <div class="trust-icon">🛡️</div>
+                    <div class="trust-text">
+                        <h4>GDPR &amp; UMP Compliance</h4>
+                        <p>All ad-supported applications utilize Google-certified Consent Management Platforms (CMP) respecting user consent across the EEA and UK.</p>
+                    </div>
+                </div>
+
+                <div class="trust-item">
+                    <div class="trust-icon">👶</div>
+                    <div class="trust-text">
+                        <h4>COPPA Compliant Kids Policy</h4>
+                        <p>Our educational apps adhere to strict family safety standards: no behavioral profiling, no tracking, and adult-gated settings.</p>
+                    </div>
+                </div>
+
+                <div class="trust-item">
+                    <div class="trust-icon">📋</div>
+                    <div class="trust-text">
+                        <h4>Authorized Ads (app-ads.txt)</h4>
+                        <p>We maintain an officially verified <a href="app-ads.txt" style="color:#60a5fa;text-decoration:none;">app-ads.txt</a> file ensuring brand protection and transparent ad serving.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-box">
+            <h3>Developer Support &amp; Inquiries</h3>
+            <p>
+                Have questions, bug reports, feature suggestions, or business inquiries regarding any of our applications? Reach out directly:
+            </p>
+            <a href="mailto:rajasaad707@gmail.com?subject=Hafiz%20Saad%20Digital%20Inquiry" class="email-pill">
+                ✉️ rajasaad707@gmail.com
+            </a>
+            <div style="margin-top: 18px; font-size: 0.88rem; color: var(--text-muted);">
+                Typical response time: Within 24-48 business hours
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div>
+                <strong>Hafiz Saad Digital</strong> &copy; 2026. All rights reserved.
+                <div style="font-size: 0.8rem; margin-top: 4px; color: var(--text-muted);">
+                    Registered Developer on Google Play Console &amp; Apple Developer Program
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="#apps">Apps</a>
+                <a href="#compliance">Privacy &amp; Safety</a>
+                <a href="app-ads.txt">app-ads.txt</a>
+                <a href="mailto:rajasaad707@gmail.com">Developer Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Filtering Script -->
+    <script>
+        function filterApps(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const cards = document.querySelectorAll('.app-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
