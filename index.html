@@ -39,6 +39,56 @@
     }
     </script>
 
+    <!-- Schema.org FAQPage Metadata for SEO & Google Rich Snippets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does DecibelPro record, save, or transmit my audio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. DecibelPro computes acoustic decibel levels (dBA) in real-time entirely on your device. Audio samples are never saved, recorded, or transmitted to any remote server or cloud service."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I request data deletion under Google Play policies?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our apps do not require personal account creation or collect personal identifiable information. If you have submitted feedback or support queries and wish to have them permanently deleted, contact us at rajasaad707@gmail.com with the subject 'Data Deletion Request'."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do your games and utility apps work offline?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. DecibelPro, Emoji Riddle, and our puzzle titles are fully playable offline without an active internet connection."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are your educational and kids apps COPPA compliant?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Titles such as TinySteps and Numbers 123 adhere strictly to COPPA and Google Play Families policy requirements: zero behavioral profiling, no tracking, and adult-gated parent settings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I report a bug or request a new feature?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can reach our engineering team directly at rajasaad707@gmail.com. We actively review all submissions and push regular maintenance updates."
+          }
+        }
+      ]
+    }
+    </script>
+
     <style>
         :root {
             --bg: #07090e;
@@ -560,6 +610,91 @@
             line-height: 1.5;
         }
 
+                /* FAQ Section */
+        .faq-section {
+            margin-bottom: 80px;
+        }
+
+        .faq-container {
+            max-width: 820px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .faq-item {
+            background: var(--surface-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            backdrop-filter: blur(14px);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .faq-item.active {
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 22px 24px;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.05rem;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            font-family: inherit;
+        }
+
+        .faq-question:hover {
+            color: #60a5fa;
+        }
+
+        .faq-icon {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--surface-elevated);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: transform 0.25s ease, background 0.2s;
+            font-size: 0.75rem;
+            color: var(--text-sec);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
+            padding: 0 24px;
+            color: var(--text-sec);
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 24px 22px;
+        }
+
         /* Support & Contact Section */
         .contact-box {
             background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(6, 182, 212, 0.05));
@@ -675,6 +810,7 @@
             <div class="nav-links">
                 <a href="#apps">Our Apps</a>
                 <a href="#compliance">Data Safety</a>
+                <a href="#faq">FAQ</a>
                 <a href="#contact">Contact Support</a>
                 <a href="app-ads.txt" target="_blank">app-ads.txt</a>
                 <a href="mailto:rajasaad707@gmail.com" class="nav-btn">Get in Touch</a>
@@ -1001,6 +1137,67 @@
             </div>
         </section>
 
+                <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <div class="section-header">
+                <div class="section-tag">Help &amp; Transparency</div>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-desc">Quick answers on data privacy, permissions, and application support.</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item active">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Does DecibelPro record, save, or transmit my audio?</span>
+                        <div class="faq-icon">&#9660;</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p><strong>No.</strong> DecibelPro computes sound pressure levels (dBA) in real time entirely on your device using transient memory buffers. Audio samples are never written to disk, never recorded, and never uploaded to any remote server or cloud system.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>How can I request data or account deletion?</span>
+                        <div class="faq-icon">&#9660;</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our applications are designed with privacy-first principles and do not require user account registration. As such, we do not store personal account profiles. If you have contacted support or submitted telemetry and want all associated correspondence permanently deleted, email <a href="mailto:rajasaad707@gmail.com?subject=Data%20Deletion%20Request" style="color:#60a5fa;text-decoration:none;">rajasaad707@gmail.com</a> with the subject <em>"Data Deletion Request"</em> and your request will be honored within 48 hours.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Do your games and utility apps work offline?</span>
+                        <div class="faq-icon">&#9660;</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p><strong>Yes.</strong> Core features across our apps—including DecibelPro's sound meter and acoustic tone generator, Emoji Riddle's rebus puzzle stages, and our sorting games—are fully functional offline without an active internet connection.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Are educational titles safe for children (COPPA compliant)?</span>
+                        <div class="faq-icon">&#9660;</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p><strong>Yes.</strong> Apps designed for children (such as TinySteps and Numbers 123) strictly adhere to COPPA (Children's Online Privacy Protection Act) and Google Play Families Policy guidelines. We never collect personal identifiers from children, do not serve interest-based ads, and protect sensitive parent settings behind a parental gate.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>How do I report a bug or suggest a new feature?</span>
+                        <div class="faq-icon">&#9660;</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We welcome community feedback! You can email our development team directly at <a href="mailto:rajasaad707@gmail.com?subject=Feature%20Suggestion%20or%20Bug%20Report" style="color:#60a5fa;text-decoration:none;">rajasaad707@gmail.com</a>. Please include your device model, OS version, and any relevant details so we can investigate and resolve issues quickly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
         <section id="contact" class="contact-box">
             <h3>Developer Support &amp; Inquiries</h3>
@@ -1029,6 +1226,7 @@
             <div class="footer-links">
                 <a href="#apps">Apps</a>
                 <a href="#compliance">Privacy &amp; Safety</a>
+                <a href="#faq">FAQ</a>
                 <a href="app-ads.txt">app-ads.txt</a>
                 <a href="mailto:rajasaad707@gmail.com">Developer Contact</a>
             </div>
@@ -1050,6 +1248,19 @@
                     card.style.display = 'none';
                 }
             });
+        }
+    
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Close all items
+            document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+            
+            // Toggle clicked item
+            if (!isActive) {
+                item.classList.add('active');
+            }
         }
     </script>
 </body>
