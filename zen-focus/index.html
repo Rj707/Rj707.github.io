@@ -355,6 +355,134 @@
             line-height: 1.55;
         }
 
+        /* Widgets Section */
+        .widgets-section {
+            padding: 30px 0 70px;
+        }
+
+        .widgets-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin-top: 36px;
+            margin-bottom: 32px;
+        }
+
+        @media (max-width: 840px) {
+            .widgets-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .widget-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .widget-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(245, 158, 11, 0.12);
+        }
+
+        .widget-image-container {
+            background: #000000;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .widget-image-container img {
+            max-width: 100%;
+            max-height: 260px;
+            border-radius: 14px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+            display: block;
+        }
+
+        .widget-card-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex-grow: 1;
+        }
+
+        .platform-tag {
+            align-self: flex-start;
+            font-size: 0.76rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .platform-tag.ios {
+            background: rgba(16, 185, 129, 0.15);
+            color: #10B981;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .platform-tag.android {
+            background: rgba(245, 158, 11, 0.15);
+            color: #F59E0B;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .widget-card-content h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .widget-card-content p {
+            color: var(--text-sec);
+            font-size: 0.94rem;
+            line-height: 1.55;
+        }
+
+        .widget-callout-box {
+            background: var(--surface-elevated);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 28px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .widget-benefit {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .benefit-icon {
+            font-size: 1.6rem;
+            line-height: 1;
+        }
+
+        .widget-benefit h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+
+        .widget-benefit p {
+            font-size: 0.88rem;
+            color: var(--text-sec);
+            line-height: 1.5;
+        }
+
         /* Screenshots Carousel */
         .screenshots-section {
             padding: 20px 0 85px;
@@ -784,6 +912,7 @@
             </a>
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
+                <li><a href="#widgets">Widgets</a></li>
                 <li><a href="#screenshots">Screenshots</a></li>
                 <li><a href="#support">Support</a></li>
                 <li><a href="#privacy">Privacy</a></li>
@@ -882,14 +1011,70 @@
             </div>
         </section>
 
-        
+        <!-- Widgets Section -->
+        <section id="widgets" class="widgets-section">
+            <div class="badge-pill" style="margin-bottom: 16px;">
+                <span>✨ New Feature</span>
+            </div>
+            <h2 class="section-title">Home Screen & Lock Screen Widgets</h2>
+            <p class="section-desc">Keep your deep work in sight. Glance at your session countdown, active mode, and daily progress right from your Home Screen or Lock Screen without opening the app.</p>
+
+            <div class="widgets-grid">
+                <div class="widget-card">
+                    <div class="widget-image-container">
+                        <img src="assets/widget_ios_preview.png" alt="Zen Focus iOS Home Screen Widgets" loading="lazy">
+                    </div>
+                    <div class="widget-card-content">
+                        <span class="platform-tag ios">iOS & iPadOS</span>
+                        <h3>Home & Lock Screen Parity</h3>
+                        <p>Three native widget styles: <strong>Focus Session</strong> (live countdown & timer status), <strong>Daily Progress</strong> (today's completed minutes & streak), and the combined <strong>Zen Focus Dashboard</strong>. Also supports Circular, Rectangular, and Above the Clock Lock Screen styles.</p>
+                    </div>
+                </div>
+
+                <div class="widget-card">
+                    <div class="widget-image-container">
+                        <img src="assets/widget_android_preview.png" alt="Zen Focus Android Home Screen Widgets" loading="lazy">
+                    </div>
+                    <div class="widget-card-content">
+                        <span class="platform-tag android">Android</span>
+                        <h3>Glanceable Android Widgets</h3>
+                        <p>Battery-friendly Home Screen widgets featuring high-contrast typography, current timer mode, target completion time, and 1-tap launcher pin shortcuts directly from the in-app guide.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Widget Benefits & Setup Callout -->
+            <div class="widget-callout-box">
+                <div class="widget-benefit">
+                    <span class="benefit-icon">🎁</span>
+                    <div>
+                        <h4>Included with Zen Focus</h4>
+                        <p>All widgets are fully included with the app at no extra cost and require no separate downloads. Adding them to your Home Screen is optional and done manually via your system's widget gallery.</p>
+                    </div>
+                </div>
+                <div class="widget-benefit">
+                    <span class="benefit-icon">⏱️</span>
+                    <div>
+                        <h4>Timer Status & Daily Progress</h4>
+                        <p>View your active session mode, timer status, and today's completed focus minutes directly from your Home Screen.</p>
+                    </div>
+                </div>
+                <div class="widget-benefit">
+                    <span class="benefit-icon">📖</span>
+                    <div>
+                        <h4>Step-by-Step Setup Guide</h4>
+                        <p>Need help placing a widget? Open Zen Focus &rarr; Settings &rarr; <strong>"Widgets — How to Add"</strong> for illustrated platform steps.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Screenshots Showcase -->
         <section class="screenshots-section" id="screenshots">
             <h2 class="section-title">Visual Showcase</h2>
             <p class="section-desc">Swipe through high-resolution captures of Zen Focus in action.</p>
 
             <div class="screenshots-scroll">
-                
                 <div class="screenshot-item">
                     <img src="screenshots/01_hero_dial.png" alt="Tactile Rotary Dial" loading="lazy">
                 </div>
@@ -901,6 +1086,9 @@
                 </div>
                 <div class="screenshot-item">
                     <img src="screenshots/04_lifetime_paywall.png" alt="Lifetime Unlock" loading="lazy">
+                </div>
+                <div class="screenshot-item">
+                    <img src="screenshots/05_home_widgets.png" alt="Home Screen Widgets" loading="lazy">
                 </div>
             </div>
         </section>
@@ -924,16 +1112,20 @@
                 <div class="faq-list">
                     
                     <div class="faq-item">
+                        <div class="faq-question">📱 Does Zen Focus include Home and Lock Screen widgets?</div>
+                        <div class="faq-answer">Yes! Zen Focus includes native Home Screen and Lock Screen widgets for iOS, iPadOS, and Android. You can monitor your live focus countdown, timer mode, and daily progress streak right from your home screen.</div>
+                    </div>
+                    <div class="faq-item">
                         <div class="faq-question">❓ Does Zen Focus require an internet connection?</div>
-                        <div class="faq-answer">No. Zen Focus is 100% offline-first. All soundscapes, timer engines, and focus analytics function perfectly in airplane mode.</div>
+                        <div class="faq-answer">No. All soundscapes, timer engines, and focus analytics function perfectly offline. An internet connection is only needed if you voluntarily choose to watch an optional rewarded ad to unlock temporary Pro access, or when restoring in-app purchases.</div>
                     </div>
                     <div class="faq-item">
                         <div class="faq-question">❓ Are there any monthly subscription fees?</div>
-                        <div class="faq-answer">Never. Zen Focus is built on a single, affordable one-time lifetime purchase. You own all current and future updates forever.</div>
+                        <div class="faq-answer">Never. Zen Focus offers a single one-time lifetime purchase. You own all features forever without recurring charges. Alternatively, you can watch an optional rewarded ad anytime to enjoy a 24-hour Zen Pro pass for free.</div>
                     </div>
                     <div class="faq-item">
                         <div class="faq-question">❓ How does Zen Focus protect my privacy?</div>
-                        <div class="faq-answer">Zen Focus collects zero personal data, creates no online profiles, and contains zero trackers. Your deep work history never leaves your device.</div>
+                        <div class="faq-answer">Zen Focus collects zero personal data, creates no online profiles, and performs zero cross-app tracking. Your deep work history and widget data never leave your device.</div>
                     </div>
                 </div>
             </div>
@@ -949,11 +1141,15 @@
                 <h4>1. Information Collection & Use</h4>
                 <p>Zen Focus does NOT collect, store, or transmit personally identifiable information (PII). All user-created timers, presets, soundscape mixes, and focus streaks remain 100% on-device.</p>
 
-                <h4>2. On-Device Storage & Local Operation</h4>
-                <p>All core settings, user progress, customized preferences, and app states are stored strictly within sandboxed storage on your local device. We run zero remote database synchronization services that profile individual user habits.</p>
+                <h4>2. On-Device Storage & Home/Lock Screen Widgets</h4>
+                <p>All core settings, user progress, customized preferences, and app states are stored strictly within sandboxed storage on your local device. Our Home Screen and Lock Screen widgets read active session status, remaining seconds, and daily stats strictly via local shared storage (iOS App Groups <code>group.com.saadapps.zenfocus</code> and Android Local Preferences). Widget data is never transmitted across the network.</p>
 
-                <h4>3. Third-Party Services & Analytics</h4>
-                <p>Any telemetry, if enabled, is strictly non-identifying crash reporting (e.g. Firebase Crashlytics) used exclusively to resolve bugs and device compatibility issues.</p>
+                <h4>3. Third-Party Services, Analytics & Optional Rewarded Ads</h4>
+                <p>Zen Focus integrates minimal third-party SDKs strictly to support core functionality:</p>
+                <ul>
+                    <li><strong>Google Mobile Ads (AdMob):</strong> Optional rewarded ads can be viewed voluntarily to unlock a 24-hour Zen Pro pass. AdMob uses non-identifying technical identifiers (such as Device IDs) and SKAdNetwork for ad delivery, fraud prevention, and frequency capping without cross-app tracking. User consent in eligible regions (EEA/UK/CH) is handled via Google User Messaging Platform (UMP), and users can adjust consent choices anytime in app Settings.</li>
+                    <li><strong>Firebase Crashlytics & Analytics:</strong> Strictly non-identifying diagnostic logs used exclusively to detect crashes and ensure device stability.</li>
+                </ul>
 
                 <h4>4. Children’s Privacy (COPPA Compliance)</h4>
                 <p>We are firmly committed to safeguarding the privacy of young users. Zen Focus does not knowingly collect personally identifiable information from children under 13. Any features tailored for younger audiences strictly respect international child protection regulations.</p>
