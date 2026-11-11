@@ -965,9 +965,9 @@
 
                 <div class="feature-card">
                     <div class="feature-icon-wrapper">🔒</div>
-                    <h3 class="feature-title">100% Private & Offline</h3>
+                    <h3 class="feature-title">No Account & Offline Play</h3>
                     <p class="feature-text">
-                        Zero user registration, zero tracking of your identity, and zero network required to play. Play in airplane mode, on commutes, or on road trips with total peace of mind.
+                        No user registration or account required, and core gameplay works completely offline. Play in airplane mode, on commutes, or on road trips anytime.
                     </p>
                 </div>
             </div>
@@ -1016,7 +1016,7 @@
                         Need direct assistance or want to report a bug? Tap below to email our developer team:
                     </p>
                     <div style="margin-top: 14px; display: flex; align-items: center; flex-wrap: wrap; gap: 12px;">
-                        <a class="btn-action" href="mailto:rajasaad707@gmail.com?subject=Emoji%20Riddle%20Support%20Request">
+                        <a class="btn-action" href="mailto:rajasaad707+emojiriddle@gmail.com?subject=Emoji%20Riddle%20Support%20Request">
                             Contact Developer Support
                         </a>
                         <button type="button" class="btn-copy-email" id="copyEmojiEmailBtn" onclick="copyEmojiEmail()">
@@ -1031,29 +1031,50 @@
         <section id="privacy">
             <div class="info-card">
                 <h3>🔒 Privacy Policy <span class="badge-pill-inline">GDPR & CCPA Compliant</span></h3>
-                <p><strong>Last Updated: October 2026</strong></p>
-                <p>Your privacy is fundamental. This Privacy Policy discloses how <strong>Emoji Riddle — Brain Teaser</strong> ("we", "our", or "the App") collects, handles, and protects your information.</p>
+                <p><strong>Last Updated: November 2026</strong></p>
+                <p>Your privacy is important to us. This Privacy Policy discloses how <strong>Emoji Riddle — Brain Teaser</strong> ("we", "our", or "the App") handles information across iOS and Android platforms.</p>
 
-                <h4>1. Zero Personal Data Collection</h4>
-                <p>We do <strong>NOT</strong> collect, require, transmit, or store personally identifiable information (PII) such as your name, email address, phone number, physical address, contacts, or photos. You do not need an account or login credentials to play.</p>
+                <h4>1. No Account Required</h4>
+                <p>The developer does not request, collect, transmit, or store personal information such as your name, email address, phone number, physical address, contacts, or photos. You do not need an account, profile, or login credentials to play the game.</p>
+                <p>While we do not collect personal contact or identity details directly, the App integrates third-party software development kits (SDKs) from Google to provide advertising, product analytics, and crash reporting as described below.</p>
 
                 <h4>2. On-Device Game Data</h4>
-                <p>All game progress—including your coin balance, completed puzzles, streak count, theme preferences, and daily VIP hint resets—is stored <strong>strictly on your local device</strong> via standard platform storage (UserDefaults on iOS, SharedPreferences on Android). This data never leaves your device.</p>
+                <p>All core gameplay progress—including your coin balance, solved puzzles, current streak, theme preferences, and daily VIP hint resets—is stored <strong>locally on your device</strong> via platform storage (UserDefaults on iOS, SharedPreferences on Android). This gameplay state remains on your device and is not synchronized to an external developer server.</p>
 
-                <h4>3. In-App Purchases</h4>
-                <p>All in-app purchases (such as the Lifetime VIP Pass) are processed exclusively by Apple via <strong>StoreKit 2</strong> on iOS and Google via <strong>Google Play Billing</strong> on Android. We never access, collect, or store your payment card numbers or banking information.</p>
-
-                <h4>4. Non-Intrusive Advertising (Google AdMob)</h4>
-                <p>To keep the base game free to play, the App integrates <strong>Google AdMob</strong> (Google Mobile Ads SDK) to display banner ads, level completion interstitials, and opt-in rewarded video hints:</p>
+                <h4>3. Product Analytics & Diagnostics (Google Firebase)</h4>
+                <p>The App integrates <strong>Google Firebase Analytics</strong> and <strong>Firebase Crashlytics</strong> to help us understand gameplay engagement and resolve app crashes:</p>
                 <ul>
-                    <li>Google AdMob may process non-sensitive device identifiers (such as IDFA under Apple's App Tracking Transparency framework, or Google Advertising ID on Android), coarse IP location for regional ad delivery, and diagnostic metrics.</li>
-                    <li><strong>Family-Safe Advertising Standards:</strong> In strict alignment with Apple App Store and Google Play Families guidelines, we enforce category-blocking controls within Google AdMob. We actively prohibit and filter out advertisements containing sexually suggestive content, nudity, adult themes, dating services, and gambling to ensure the game remains safe and appropriate for players of all ages. If an advertisement ever bypasses these network filters, players can report it via our support contact for prompt investigation and exclusion.</li>
-                    <li><strong>Ad-Free Option:</strong> Purchasing the Lifetime VIP Pass permanently disables all advertising SDK initializations and removes 100% of ads.</li>
-                    <li>For details on Google's advertising policies, consult the <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google Privacy & Terms for Advertising</a>.</li>
+                    <li><strong>Firebase Analytics:</strong> Collects pseudonymous app instance identifiers and in-game event telemetry, such as completed levels (<code>level_completed</code> with level index and game mode) and hints used (<code>hint_used</code> with hint type). This data helps evaluate puzzle progression and difficulty. Analytics collection is subject to app initialization settings and user consent dialogs upon launch.</li>
+                    <li><strong>Firebase Crashlytics:</strong> Collects diagnostic crash reports, error stack traces, device model specifications, operating system versions, and performance timestamps when an unexpected error or crash occurs, enabling swift bug fixes and technical stability improvements.</li>
+                    <li>For details on Google Firebase's data practices, visit the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a> and <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Data Privacy & Security</a> guide.</li>
                 </ul>
 
-                <h4>5. Children's Privacy (COPPA)</h4>
-                <p>Emoji Riddle is a family-friendly game designed for all ages. We comply with the Children's Online Privacy Protection Act (COPPA) and do not knowingly collect personal data from children under the age of 13.</p>
+                <h4>4. Advertising (Google AdMob)</h4>
+                <p>To support free gameplay in Classic Mode, the App integrates <strong>Google AdMob</strong> (Google Mobile Ads SDK) to serve banner ads, level-completion interstitials, and optional rewarded hints. All advertisements are completely suppressed in Picture Play mode.</p>
+                <ul>
+                    <li><strong>Data Processed:</strong> Google AdMob may process device identifiers (such as the Apple Identifier for Advertisers [IDFA] when permitted under Apple's App Tracking Transparency framework, the Vendor Identifier [IDFV], or the Google Advertising ID on Android), coarse IP location for regional ad delivery, and ad interaction/diagnostic metrics.</li>
+                    <li><strong>Ad Content Filtering:</strong> The in-app advertising SDK request configuration sets the maximum ad content rating to G (General Audiences). Furthermore, sensitive ad categories (such as adult themes, dating services, and gambling) are filtered out via ad network account controls. While these filters are applied at code and network levels, dynamic ad delivery is managed by third-party ad networks; players can report any inappropriate creative via our support contact for immediate review.</li>
+                    <li><strong>Ad-Free Option:</strong> Purchasing the Lifetime VIP Pass permanently disables all advertising displays and ad SDK requests.</li>
+                    <li>For further details, consult the <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google Privacy & Terms for Advertising</a>.</li>
+                </ul>
+
+                <h4>5. In-App Purchases (Apple StoreKit & Google Play)</h4>
+                <p>All in-app purchases (such as the Lifetime VIP Pass) are processed exclusively by Apple via <strong>StoreKit 2</strong> on iOS and Google via <strong>Google Play Billing</strong> on Android. We never receive, process, or store payment card numbers, bank details, or financial credentials.</p>
+
+                <h4>6. Children's Privacy (COPPA)</h4>
+                <p>Emoji Riddle is a family-friendly puzzle game designed for general audiences. We comply with the Children's Online Privacy Protection Act (COPPA) and do not knowingly collect personal information from children under the age of 13.</p>
+
+                <h4>7. Third-Party Privacy Policies & Resources</h4>
+                <p>For more information on the data practices of our third-party service providers, please review their respective privacy statements:</p>
+                <ul>
+                    <li><strong>Google Privacy Policy:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a></li>
+                    <li><strong>Google Advertising Technologies:</strong> <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">https://policies.google.com/technologies/ads</a></li>
+                    <li><strong>Firebase Data Privacy & Security:</strong> <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">https://firebase.google.com/support/privacy</a></li>
+                    <li><strong>Apple Privacy Policy:</strong> <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">https://www.apple.com/legal/privacy/</a></li>
+                </ul>
+
+                <h4>8. Contact Us</h4>
+                <p>If you have any questions or concerns regarding this Privacy Policy, please contact us at: <a href="mailto:rajasaad707+emojiriddle@gmail.com?subject=Emoji%20Riddle%20Privacy%20Inquiry">rajasaad707+emojiriddle@gmail.com</a>.</p>
             </div>
         </section>
 
@@ -1077,7 +1098,7 @@
                 <p>All emoji riddle designs, logic equations, puzzle formulations, graphics, UI assets, and software code are the intellectual property of the developer. You may not reverse engineer, decompile, or redistribute the App without prior written authorization.</p>
 
                 <h4>4. Contact Information</h4>
-                <p>For questions regarding these Terms or the Privacy Policy: <a href="mailto:rajasaad707@gmail.com?subject=Emoji%20Riddle%20Terms%20Inquiry">Contact Legal & Support Team &rarr;</a></p>
+                <p>For questions regarding these Terms or the Privacy Policy, contact: <a href="mailto:rajasaad707+emojiriddle@gmail.com?subject=Emoji%20Riddle%20Terms%20Inquiry">rajasaad707+emojiriddle@gmail.com</a>.</p>
             </div>
         </section>
     </main>
@@ -1230,7 +1251,7 @@
         });
 
         function copyEmojiEmail() {
-            const email = 'rajasaad707@gmail.com';
+            const email = 'rajasaad707+emojiriddle@gmail.com';
             const btn = document.getElementById('copyEmojiEmailBtn');
             navigator.clipboard.writeText(email).then(() => {
                 const orig = btn.innerHTML;
