@@ -833,6 +833,7 @@
                 <li><a href="#features">Features</a></li>
                 <li><a href="#screenshots">Screenshots</a></li>
                 <li><a href="#privacy">Privacy</a></li>
+                <li><a href="terms.html">Terms</a></li>
                 <li><a href="#support">Support</a></li>
                 <li><a href="#download" class="nav-cta">Download</a></li>
             </ul>
@@ -971,27 +972,38 @@
         <!-- Terms of Service Section -->
         <section id="terms">
             <div class="info-card">
-                <h3>Terms of Service</h3>
-                <p><strong>Effective Date:</strong> October 2026</p>
-                <p>Welcome to <strong>DecibelPro</strong>. By downloading, accessing, or using DecibelPro on Apple iOS or Android devices, you agree to be bound by these Terms of Service.</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
+                    <h3 style="margin-bottom: 0;">Terms of Service</h3>
+                    <a href="terms.html" style="font-size: 0.9rem; color: var(--cyan); text-decoration: none;">View Standalone Terms Page &rarr;</a>
+                </div>
+                <p><strong>Effective Date:</strong> October 2026 • <strong>Last Updated:</strong> November 2026</p>
+                <p>
+                    Welcome to <strong>DecibelPro: Sound dB Meter</strong> ("DecibelPro", "the Application"), published by <strong>Hafiz Saad Digital</strong> for Apple iOS (App Store ID: 6820814636) and Android (Google Play: <code>com.saadapps.decibelpro</code>). By downloading or using DecibelPro, you agree to these Terms of Service.
+                </p>
                 
-                <h4 style="color: var(--text); margin-top: 16px; margin-bottom: 6px; font-size: 1.05rem;">1. License Grant & Permitted Use</h4>
-                <p>We grant you a personal, non-exclusive, non-transferable, revocable license to install and use DecibelPro for personal, educational, or professional sound level estimation and tone generation on compatible devices you own or control.</p>
+                <h4 style="color: var(--text); margin-top: 18px; margin-bottom: 6px; font-size: 1.05rem;">1. License Grant & Permitted Use</h4>
+                <p>We grant you a revocable, non-exclusive, non-transferable, limited personal license to install and use DecibelPro on compatible mobile devices you own or control, solely for personal, educational, or informational purposes. Reverse-engineering, decompilation, unauthorized modification, or redistribution is strictly prohibited.</p>
 
-                <h4 style="color: var(--text); margin-top: 16px; margin-bottom: 6px; font-size: 1.05rem;">2. Acoustic Measurement Disclaimer</h4>
-                <p>DecibelPro provides high-precision sound pressure level (SPL) estimates using your device's built-in microphone and digital signal processing. However, consumer hardware microphones are subject to hardware variations, acoustic distortion limits, and operating system automatic gain controls. <strong>DecibelPro is an informational utility and is not a certified Class 1 / Class 2 industrial sound level meter.</strong> It should not be used as the sole measurement source for official OSHA, industrial hygiene compliance, or legal disputes requiring calibrated lab equipment.</p>
+                <h4 style="color: var(--text); margin-top: 18px; margin-bottom: 6px; font-size: 1.05rem;">2. Free Features, In-App Advertising & Rewarded Access</h4>
+                <p>DecibelPro offers real-time sound pressure level estimation (dBA), digital audio waveforms, min/max/average metrics, microphone calibration, and variable sine wave tone generation free of charge. Free access is supported by Google Mobile Ads (AdMob) SDK banner, interstitial, and app-open ads, restricted to family-safe standards (Rating G). Users may voluntarily watch rewarded video ads to unlock temporary access passes (such as a 24-Hour VIP Pass or individual feature unlocks like CSV export or custom themes). Rewarded passes are stored locally on your device and are non-transferable.</p>
 
-                <h4 style="color: var(--text); margin-top: 16px; margin-bottom: 6px; font-size: 1.05rem;">3. Tone Generator & Speaker Cleaner Safe Use</h4>
-                <p>DecibelPro includes a frequency generator and speaker expulsion sound utility. You agree to use these features responsibly at safe listening volumes. Do not hold device speakers directly against your ears while emitting high-frequency sine waves or pulse tones.</p>
+                <h4 style="color: var(--text); margin-top: 18px; margin-bottom: 6px; font-size: 1.05rem;">3. In-App Purchases (Lifetime VIP Pass) & Restoration</h4>
+                <p>An optional Lifetime VIP Pass (<code>com.saadapps.decibelpro.lifetime</code>) is available as a non-consumable in-app purchase to permanently remove all advertisements and unlock all pro features (pro presets, custom visual themes, 165Hz speaker cleaner, unlimited CSV exports). Purchases can be restored on the same platform at any time via "Restore In-App Purchases" in Settings. <strong>Platform Scope:</strong> In-app purchases are managed exclusively through Apple StoreKit (iOS) or Google Play Billing (Android); because these stores operate distinct ecosystems, purchases cannot be transferred across different operating system platforms.</p>
 
-                <h4 style="color: var(--text); margin-top: 16px; margin-bottom: 6px; font-size: 1.05rem;">4. In-App Purchases & Subscriptions</h4>
-                <p>DecibelPro offers optional digital upgrades (such as VIP / Ad-Free access). All financial transactions, billing, subscriptions, and refunds are processed exclusively by Apple Media Services (App Store) or Google Play Billing under their respective store terms.</p>
+                <h4 style="color: var(--text); margin-top: 18px; margin-bottom: 6px; font-size: 1.05rem;">4. Billing, Store Rules & Refund Policy</h4>
+                <p>All payments, billing transactions, and applicable taxes are handled exclusively by Apple Media Services (App Store) or Google Play. The Developer does not collect, receive, or store credit card details or payment credentials. Refund requests are subject to platform policies and must be initiated directly with the store: for iOS via <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener" style="color: var(--cyan);">reportaproblem.apple.com</a>; for Android via Google Play purchase history or support.</p>
 
-                <h4 style="color: var(--text); margin-top: 16px; margin-bottom: 6px; font-size: 1.05rem;">5. Intellectual Property</h4>
-                <p>All software code, graphic designs, audio processing algorithms, trademarks, and documentation associated with DecibelPro remain the exclusive property of Hafiz Saad Digital. You may not reverse-engineer, decompile, or redistribute the application without prior written permission.</p>
+                <h4 style="color: var(--text); margin-top: 18px; margin-bottom: 6px; font-size: 1.05rem;">5. Microphone Audio Handling & Local Storage</h4>
+                <p>Microphone access is used strictly to estimate ambient sound pressure levels in real time. Acoustic data is processed transiently in volatile device memory (RAM) to compute amplitude and waveform metrics. DecibelPro <strong>never records, stores, encodes, or transmits raw audio</strong> off the device. Measurement session summaries (duration, average dB, peak dB) are stored locally in on-device storage. CSV export files are generated on-device and shared only via the user's explicit action through the system share sheet.</p>
 
-                <h4 style="color: var(--text); margin-top: 16px; margin-bottom: 6px; font-size: 1.05rem;">6. Contact & Trader Inquiries</h4>
-                <p>For questions regarding these Terms or trader status inquiries under European Union regulations, contact the developer desk: <a href="mailto:rajasaad707+decibelpro@gmail.com" style="color: var(--cyan); text-decoration: none;">rajasaad707+decibelpro@gmail.com</a>.</p>
+                <h4 style="color: var(--text); margin-top: 18px; margin-bottom: 6px; font-size: 1.05rem;">6. Acoustic Measurement Limitations & Disclaimer</h4>
+                <p>DecibelPro is an informational and educational utility. Software-based sound level estimation relies on consumer mobile device microphones and is affected by hardware variances, phone cases, microphone orientation, dust, and automatic gain controls. <strong>DecibelPro is NOT a certified Class 1, Class 2, Type 1, or Type 2 sound level meter</strong> under IEC 61672 or ANSI S1.4. Readings must not be relied upon for regulatory occupational safety compliance (OSHA/NIOSH standards), industrial noise hazard monitoring, municipal noise enforcement, or formal legal evidence.</p>
+
+                <h4 style="color: var(--text); margin-top: 18px; margin-bottom: 6px; font-size: 1.05rem;">7. Tone Generator Precautions & Speaker Cleaner Limitations</h4>
+                <p>The tone generator synthesizes frequencies from 20 Hz to 20,000 Hz. High-volume or high-frequency sounds can cause hearing fatigue or damage; never play high-amplitude tones directly against ears. The 165Hz speaker cleaner feature produces acoustic vibrations designed to help dislodge surface moisture or light dust from speaker ports. <strong>DecibelPro does NOT guarantee water expulsion, dust removal, hardware repair, or waterproof protection.</strong></p>
+
+                <h4 style="color: var(--text); margin-top: 18px; margin-bottom: 6px; font-size: 1.05rem;">8. Intellectual Property, Changes & Support</h4>
+                <p>All intellectual property rights, trademarks, UI designs, algorithms, and code belong to Hafiz Saad Digital. We reserve the right to modify these Terms; updates will be posted to this page. For questions or support, contact developer support: <a href="mailto:rajasaad707+decibelpro@gmail.com" style="color: var(--cyan); text-decoration: none;">rajasaad707+decibelpro@gmail.com</a>.</p>
             </div>
         </section>
 
