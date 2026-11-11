@@ -377,6 +377,123 @@
             line-height: 1.55;
         }
 
+        /* Widgets Showcase Section */
+        .widgets-section {
+            padding: 30px 0 70px;
+        }
+
+        .widgets-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin-top: 24px;
+            margin-bottom: 32px;
+        }
+
+        @media (max-width: 840px) {
+            .widgets-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .widget-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .widget-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(6, 182, 212, 0.15);
+        }
+
+        .widget-image-container {
+            background: #000000;
+            padding: 24px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            min-height: 280px;
+        }
+
+        .widget-image-container img {
+            max-width: 100%;
+            max-height: 260px;
+            border-radius: 14px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+            display: block;
+            object-fit: contain;
+        }
+
+        .widget-card-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex-grow: 1;
+        }
+
+        .platform-tag {
+            align-self: flex-start;
+            font-size: 0.76rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .platform-tag.ios {
+            background: rgba(16, 185, 129, 0.15);
+            color: #10B981;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .platform-tag.android {
+            background: rgba(6, 182, 212, 0.15);
+            color: #22d3ee;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+
+        .widget-card-content h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .widget-card-content p {
+            color: var(--text-sec);
+            font-size: 0.94rem;
+            line-height: 1.55;
+        }
+
+        .widget-feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 4px 0 0;
+            font-size: 0.88rem;
+            color: var(--text-sec);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .widget-feature-list li {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .widget-feature-list strong {
+            color: var(--text);
+        }
+
         /* Screenshots Carousel */
         .screenshots-section {
             padding: 30px 0 90px;
@@ -940,34 +1057,38 @@
                 <p class="section-desc">Quick-access sound measurement and saved session summaries right from your iOS and Android home screen.</p>
             </div>
 
-            <div class="features-grid" style="margin-bottom: 32px;">
-                <div class="feature-card">
-                    <div class="feature-icon-wrapper" style="background: rgba(6, 182, 212, 0.15); color: #22d3ee; border: 1px solid rgba(6, 182, 212, 0.3);">🎙️</div>
-                    <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px;">
-                        <h3 class="feature-title" style="margin-bottom: 0;">Measure Sound</h3>
-                        <span style="font-size: 0.75rem; font-weight: 700; color: #38bdf8; background: rgba(56, 189, 248, 0.12); padding: 3px 8px; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.25);">Small • 2×2</span>
+            <div class="widgets-grid">
+                <!-- Apple iOS Preview Card -->
+                <div class="widget-card">
+                    <div class="widget-image-container">
+                        <img src="assets/widget-ios-preview.png" alt="DecibelPro iOS Home Screen Widgets Preview" loading="lazy">
                     </div>
-                    <p class="feature-text">
-                        A clean, compact one-tap action widget that opens DecibelPro directly to the live sound meter. Launches instantly into active measurement mode with smart ad suppression so you can monitor ambient noise levels without delay.
-                    </p>
-                    <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--text-sec);">
-                        ✓ <strong>100% Free:</strong> Available to all users with no VIP subscription required.<br>
-                        ✓ <strong>Privacy Safe:</strong> Does not continuously access the microphone or record audio.
+                    <div class="widget-card-content">
+                        <span class="platform-tag ios">iOS & iPadOS</span>
+                        <h3>Native Apple Home Screen Widgets</h3>
+                        <p>Designed for iOS 15 through iOS 18 with high-contrast dark aesthetic and instant launcher interactions.</p>
+                        <ul class="widget-feature-list">
+                            <li><span>🎙️</span> <span><strong>Measure Sound (Small • 2×2):</strong> Instant one-tap shortcut straight into live sound measurement with automatic ad suppression.</span></li>
+                            <li><span>📊</span> <span><strong>Last Session (Medium • 4×2):</strong> At-a-glance summary showing your latest saved session's Average dB, Peak dB, and locale-formatted timestamp.</span></li>
+                            <li><span>⚡</span> <span><strong>Direct History Deep Link:</strong> Tapping the card opens that exact saved record in History; tapping "Measure" starts a fresh session.</span></li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon-wrapper" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3);">📈</div>
-                    <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px;">
-                        <h3 class="feature-title" style="margin-bottom: 0;">Last Session</h3>
-                        <span style="font-size: 0.75rem; font-weight: 700; color: #60a5fa; background: rgba(59, 130, 246, 0.12); padding: 3px 8px; border-radius: 6px; border: 1px solid rgba(59, 130, 246, 0.25);">Medium • 4×2</span>
+                <!-- Android Preview Card -->
+                <div class="widget-card">
+                    <div class="widget-image-container">
+                        <img src="assets/widget-android-preview.png" alt="DecibelPro Android Home Screen Widgets Preview" loading="lazy">
                     </div>
-                    <p class="feature-text">
-                        Displays your latest saved measurement at a glance with Average dB, Peak/Max dB, and the exact measurement timestamp formatted to your locale. Tapping the session card navigates directly to that specific record in History, while tapping the separate "Measure" button starts a new live measurement session.
-                    </p>
-                    <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--text-sec);">
-                        ✓ <strong>Saved Summary:</strong> Reflects saved measurements, not continuous background monitoring.<br>
-                        ✓ <strong>Smart Empty State:</strong> Shows clear "No saved sessions yet" with quick measure action.
+                    <div class="widget-card-content">
+                        <span class="platform-tag android">Android</span>
+                        <h3>Glanceable Android App Widgets</h3>
+                        <p>Battery-friendly Android AppWidgets engineered for modern launchers with zero background mic drain.</p>
+                        <ul class="widget-feature-list">
+                            <li><span>🎙️</span> <span><strong>Measure Sound (Small • 2×2):</strong> Fast, responsive launcher shortcut to launch the decibel meter without delay.</span></li>
+                            <li><span>📈</span> <span><strong>Last Session (Medium • 4×2):</strong> Glanceable Average dB & Max dB metrics with real-time sync whenever sessions are saved or cleared.</span></li>
+                            <li><span>📲</span> <span><strong>1-Tap Home Screen Pinning:</strong> Add directly via your launcher widget picker or use in-app pinning from Settings.</span></li>
+                        </ul>
                     </div>
                 </div>
             </div>
