@@ -229,12 +229,15 @@
             <li><strong>Google Play (Android):</strong> Request refunds through your Google Play account order history or via Google Play customer support in accordance with Google Play's standard refund policies.</li>
         </ul>
 
-        <h2>5. Microphone Audio Handling & Local Storage</h2>
+        <h2>5. Microphone Audio Handling, Local Storage & Home Screen Widgets</h2>
         <p>
             <strong>Microphone Audio Processing:</strong> DecibelPro requires microphone permission solely to measure sound pressure levels (SPL) in real time. Acoustic input is processed transiently in volatile device memory (RAM) to calculate amplitude values and frequency distributions. DecibelPro <strong>does not record, store, encode, or transmit raw audio</strong> to any server or third party.
         </p>
         <p>
             <strong>Session Metadata & CSV Sharing:</strong> Measurement summaries (session timestamp, duration, average dB, peak dB, and minimum dB) are stored exclusively in your device's local storage. CSV file generation occurs locally on-device and is shared only through your deliberate interaction with the operating system share dialog.
+        </p>
+        <p>
+            <strong>Home Screen Widgets Data Sharing:</strong> On supported devices, DecibelPro shares a minimal summary of your most recent saved measurement (session identifier, average dB, peak dB, and timestamp) locally with the home screen widget extension via operating system shared storage (iOS App Group sandbox and Android local SharedPreferences). Widget extensions do not record audio, monitor ambient sound in the background, or transmit measurement summaries off your device. Deleting a measurement session or clearing history automatically updates or purges the shared widget data.
         </p>
         <p>
             For complete details on data handling and advertising SDK disclosures, please review our <a href="index.html#privacy">Privacy Policy</a>.
