@@ -1038,6 +1038,19 @@
                 </div>
 
                 <div class="feature-card">
+                    <div class="feature-icon-wrapper">📱</div>
+                    <h3 class="feature-title">Wide Home Screen Widget</h3>
+                    <p class="feature-text">
+                        Glanceable Medium (4x2) widget on iOS and Android. Displays frozen paused session snapshots with one-tap instant resume, or your latest saved measurement summary.
+                    </p>
+                    <div style="margin-top: 12px;">
+                        <span class="badge-pill" style="font-size: 0.72rem; padding: 2px 8px; margin: 0; background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.4); color: #fbbf24;">
+                            ⏳ Coming in next update
+                        </span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
                     <div class="feature-icon-wrapper">🔒</div>
                     <h3 class="feature-title">100% Private & On-Device</h3>
                     <p class="feature-text">
@@ -1050,55 +1063,64 @@
         <!-- Home Screen Widgets Section -->
         <section id="widgets" style="padding-top: 40px; margin-bottom: 70px;">
             <div style="text-align: center; margin-bottom: 36px;">
-                <div class="badge-pill" style="margin-bottom: 12px; display: inline-flex; background: rgba(6, 182, 212, 0.12); border-color: rgba(6, 182, 212, 0.3); color: var(--cyan);">
-                    <span>⏳</span> Coming in the next update
+                <div class="badge-pill" style="margin-bottom: 12px; display: inline-flex; background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.4); color: #fbbf24;">
+                    <span>⏳</span> Coming in the next update (v1.1.0)
                 </div>
-                <h2 class="section-title">Home Screen Widgets</h2>
-                <p class="section-desc">Quick-access sound measurement and saved session summaries right from your iOS and Android home screen.</p>
+                <h2 class="section-title">Wide Home Screen Widget</h2>
+                <p class="section-desc">One unified, glanceable wide widget designed for real-world acoustic monitoring. No background microphone drain, truthful frozen session snapshots, and one-tap resume.</p>
+            </div>
+
+            <!-- Single Widget Consolidation Explainer Card -->
+            <div class="info-card" style="margin-bottom: 32px; background: rgba(59, 130, 246, 0.05); border-color: rgba(59, 130, 246, 0.25);">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                    <span style="font-size: 1.4rem;">🎯</span>
+                    <h3 style="margin-bottom: 0; font-size: 1.2rem; color: #ffffff;">Streamlined to One Wide Widget</h3>
+                </div>
+                <p style="margin-bottom: 0; font-size: 0.94rem; color: var(--text-sec); line-height: 1.55;">
+                    In our upcoming update, we have consolidated our home screen widgets to keep <strong>only the wide Medium (4x2) widget</strong> on both Apple iOS and Android. The small square launcher shortcut widget has been retired from the widget picker because it only opened the app without showing useful context. The wide widget combines frozen session recovery, latest saved metrics, and quick launching in one clean card.
+                </p>
             </div>
 
             <div class="widgets-grid">
                 <!-- Apple iOS Preview Card -->
                 <div class="widget-card">
                     <div class="widget-image-container">
-                        <img src="assets/widget-ios-preview.png" alt="DecibelPro iOS Home Screen Widgets Preview" loading="lazy">
+                        <img src="assets/widget-ios-preview.png" alt="DecibelPro iOS Wide Home Screen Widget Preview" loading="lazy">
                     </div>
                     <div class="widget-card-content">
                         <span class="platform-tag ios">iOS & iPadOS</span>
-                        <h3>Native Apple Home Screen Widgets</h3>
-                        <p>Designed for iOS 15 through iOS 18 with high-contrast dark aesthetic and instant launcher interactions.</p>
+                        <h3>Native Apple Wide Widget (Medium • 4×2)</h3>
+                        <p>Designed for iOS 15 through iOS 18 with high-contrast dark aesthetic, WidgetKit timeline caching, and instant app deep linking.</p>
                         <ul class="widget-feature-list">
-                            <li><span>🎙️</span> <span><strong>Measure Sound (Small • 2×2):</strong> Instant one-tap shortcut straight into live sound measurement with automatic ad suppression.</span></li>
-                            <li><span>📊</span> <span><strong>Last Session (Medium • 4×2):</strong> Dual-mode widget showing your latest saved session summary (Average dB, Peak dB, and timestamp) or <em>"Measurement paused"</em> with frozen stats and an <em>"Open session"</em> action when backgrounded during an active measurement.</span></li>
-                            <li><span>⚡</span> <span><strong>Direct History Deep Link:</strong> Tapping the card opens that exact record or paused session in the app; tapping "Measure" starts a fresh session.</span></li>
+                            <li><span>⏸️</span> <span><strong>Paused Measurement Snapshot:</strong> When backgrounded while measuring, the widget shows <em>"Measurement paused"</em> with frozen Average & Peak dB stats, static pause timestamp, and an <em>"Open session"</em> action button.</span></li>
+                            <li><span>📊</span> <span><strong>Latest Saved Session:</strong> When no measurement is paused, displays your most recent saved session summary (Average dB, Peak dB, and timestamp) with a direct <em>"Measure"</em> shortcut.</span></li>
+                            <li><span>⚡</span> <span><strong>Clean Ready State:</strong> Before your first measurement or after clearing history, shows a minimal, ready-to-measure card prompting you to launch the sound meter.</span></li>
                         </ul>
-                        <p style="font-size: 0.8rem; color: var(--text-sec); margin-top: 8px; font-style: italic;">* Displayed values (e.g. 54.2 dB Average, 78.9 dB Peak) represent saved example measurements for demonstration.</p>
                     </div>
                 </div>
 
                 <!-- Android Preview Card -->
                 <div class="widget-card">
                     <div class="widget-image-container">
-                        <img src="assets/widget-android-preview.png" alt="DecibelPro Android Home Screen Widgets Preview" loading="lazy">
+                        <img src="assets/widget-android-preview.png" alt="DecibelPro Android Wide AppWidget Preview" loading="lazy">
                     </div>
                     <div class="widget-card-content">
                         <span class="platform-tag android">Android</span>
-                        <h3>Glanceable Android App Widgets</h3>
-                        <p>Battery-friendly Android AppWidgets engineered for modern launchers with balanced typography and zero background mic drain.</p>
+                        <h3>Glanceable Android Wide Widget (4×2)</h3>
+                        <p>Battery-friendly Android AppWidget engineered for modern launchers with balanced typography, Material You integration, and zero background mic drain.</p>
                         <ul class="widget-feature-list">
-                            <li><span>🎙️</span> <span><strong>Measure Sound (Small • 2×2):</strong> Fast, responsive launcher shortcut to launch the decibel meter without delay.</span></li>
-                            <li><span>📈</span> <span><strong>Last Session (Medium • 4×2):</strong> High-visibility Average dB & Max dB metrics. Automatically transitions to <em>"Measurement paused"</em> with frozen stats and <em>"Open session"</em> when backgrounded during measurement.</span></li>
-                            <li><span>📲</span> <span><strong>1-Tap Home Screen Pinning:</strong> Add directly via your launcher widget picker or use in-app pinning from Settings.</span></li>
+                            <li><span>⏸️</span> <span><strong>Dual-Mode State Machine:</strong> Displays frozen <em>"Measurement paused"</em> metrics upon leaving the app, or your latest saved session summary when idle.</span></li>
+                            <li><span>📲</span> <span><strong>1-Tap Home Screen Pinning:</strong> Add directly via your launcher widget picker or use the convenient in-app pin button in DecibelPro Settings.</span></li>
+                            <li><span>⏱️</span> <span><strong>Truthful Expiry Protection:</strong> Automatically expires paused snapshots after 15 minutes if the app process is terminated, gracefully returning to your saved history rather than showing stale claims.</span></li>
                         </ul>
-                        <p style="font-size: 0.8rem; color: var(--text-sec); margin-top: 8px; font-style: italic;">* Displayed values (e.g. 52.4 dB Average, 74.8 dB Max) represent saved example measurements for demonstration.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Installation & Privacy Box -->
+            <!-- Installation Instructions -->
             <div class="info-card" style="margin-bottom: 24px;">
                 <h3 style="display: flex; align-items: center; gap: 10px; font-size: 1.25rem;">
-                    <span>📲</span> How to Add Widgets to Your Home Screen
+                    <span>📲</span> How to Add the Wide Widget to Your Home Screen
                 </h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 18px;">
                     <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); border-radius: 14px; padding: 20px;">
@@ -1109,7 +1131,7 @@
                             <li>Touch and hold any empty area on your Home Screen until the apps jiggle.</li>
                             <li>Tap the <strong>+</strong> button in the top corner to open the Widget Gallery.</li>
                             <li>Search for <strong>DecibelPro</strong> and tap it.</li>
-                            <li>Swipe to choose <strong>Measure Sound</strong> (Small) or <strong>Last Session</strong> (Medium), then tap <strong>Add Widget</strong>.</li>
+                            <li>Select the <strong>Wide Last Session (Medium 4x2)</strong> widget and tap <strong>Add Widget</strong>.</li>
                         </ol>
                     </div>
 
@@ -1119,8 +1141,8 @@
                         </h4>
                         <ol style="padding-left: 20px; color: var(--text-sec); font-size: 0.92rem; line-height: 1.6; margin: 0;">
                             <li>Touch and hold an empty space on your home screen, then tap <strong>Widgets</strong>.</li>
-                            <li>Scroll to <strong>DecibelPro</strong> and drag your preferred widget onto your home screen.</li>
-                            <li><em>Quick Shortcut:</em> You can also open <strong>DecibelPro &rarr; Settings &rarr; Home Screen Widgets</strong> to pin widgets directly on supported launchers.</li>
+                            <li>Scroll to <strong>DecibelPro</strong> and drag the <strong>4x2 Last Session</strong> widget onto your home screen.</li>
+                            <li><em>Quick Shortcut:</em> You can also open <strong>DecibelPro &rarr; Settings &rarr; Home Screen Widgets</strong> and tap <strong>Pin Last Session Widget</strong> to add it instantly on supported launchers.</li>
                         </ol>
                     </div>
                 </div>
@@ -1128,12 +1150,14 @@
                 <!-- Troubleshooting & Important Notes -->
                 <div class="support-cta-box" style="margin-top: 24px;">
                     <p style="font-weight: 700; color: var(--text); font-size: 1rem; margin-bottom: 8px;">
-                        💡 Widget Information & Troubleshooting
+                        💡 Widget Information & Frequently Asked Questions
                     </p>
                     <ul style="padding-left: 20px; color: var(--text-sec); font-size: 0.92rem; line-height: 1.6; margin-bottom: 0;">
-                        <li><strong>Saved & Paused Readings vs. Live Audio:</strong> Displayed decibel readings reflect saved measurements or frozen metrics from a paused session. When you background DecibelPro during measurement, microphone recording stops immediately to conserve battery and eliminate hardware contention. The widget shows <em>"Measurement paused"</em> with frozen stats until you tap <em>"Open session"</em> to resume or save. The widgets do <em>not</em> perform continuous background audio recording.</li>
-                        <li><strong>Missing Widget in Picker:</strong> If you don't see DecibelPro in your widget list immediately after updating, open the DecibelPro app at least once so the operating system registers the widget extension, or perform a quick restart of your launcher.</li>
-                        <li><strong>Empty or Stale Sessions:</strong> If the widget displays <em>"No saved sessions yet,"</em> simply open the app, tap <em>Start Meter</em>, and save a measurement. If you delete a session or clear your history in Settings, the widget automatically updates to reflect the change.</li>
+                        <li><strong>Does the widget record sound in the background?</strong> No, never. In strict adherence to user privacy and battery preservation standards, DecibelPro halts all microphone audio capture whenever the app is backgrounded or minimized. The widget displays only frozen snapshots of your paused session or your latest saved record. No audio is ever captured, analyzed, or recorded in the background.</li>
+                        <li><strong>Why is there only one wide widget format?</strong> We streamlined our widget catalog to remove the small 1x1 launcher shortcut. The 4x2 wide widget delivers full actionable context in one place: paused session snapshots, frozen averages and peaks, pause timestamps, one-tap resume, and your latest saved measurement summary.</li>
+                        <li><strong>What does the "Open session" action do?</strong> When you leave DecibelPro while measuring sound, your active session is safely paused. Tapping <em>Open session</em> on the widget brings you straight back to the meter screen, allowing you to review your ambient noise reading and resume or save the measurement seamlessly.</li>
+                        <li><strong>What happens if the app process is terminated while paused?</strong> If the operating system reclaims memory or closes the app process during a pause, DecibelPro maintains truthful integrity: the paused snapshot automatically expires after 15 minutes, transitioning gracefully back to your latest saved measurement. The widget never displays misleading phantom timers or claims a dead session is running.</li>
+                        <li><strong>Empty or Cleared History:</strong> If the widget displays <em>"No saved sessions yet,"</em> simply open the app, tap <em>Start Meter</em>, and save a measurement. If you delete a session or tap <em>Clear All History</em> in Settings, the widget automatically updates to reflect the clean state.</li>
                     </ul>
                 </div>
             </div>
