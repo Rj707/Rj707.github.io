@@ -1069,8 +1069,8 @@
                         <p>Designed for iOS 15 through iOS 18 with high-contrast dark aesthetic and instant launcher interactions.</p>
                         <ul class="widget-feature-list">
                             <li><span>🎙️</span> <span><strong>Measure Sound (Small • 2×2):</strong> Instant one-tap shortcut straight into live sound measurement with automatic ad suppression.</span></li>
-                            <li><span>📊</span> <span><strong>Last Session (Medium • 4×2):</strong> At-a-glance summary showing your latest saved session's Average dB, Peak dB, and locale-formatted timestamp.</span></li>
-                            <li><span>⚡</span> <span><strong>Direct History Deep Link:</strong> Tapping the card opens that exact saved record in History; tapping "Measure" starts a fresh session.</span></li>
+                            <li><span>📊</span> <span><strong>Last Session (Medium • 4×2):</strong> Dual-mode widget showing your latest saved session summary (Average dB, Peak dB, and timestamp) or <em>"Measurement paused"</em> with frozen stats and an <em>"Open session"</em> action when backgrounded during an active measurement.</span></li>
+                            <li><span>⚡</span> <span><strong>Direct History Deep Link:</strong> Tapping the card opens that exact record or paused session in the app; tapping "Measure" starts a fresh session.</span></li>
                         </ul>
                         <p style="font-size: 0.8rem; color: var(--text-sec); margin-top: 8px; font-style: italic;">* Displayed values (e.g. 54.2 dB Average, 78.9 dB Peak) represent saved example measurements for demonstration.</p>
                     </div>
@@ -1087,7 +1087,7 @@
                         <p>Battery-friendly Android AppWidgets engineered for modern launchers with balanced typography and zero background mic drain.</p>
                         <ul class="widget-feature-list">
                             <li><span>🎙️</span> <span><strong>Measure Sound (Small • 2×2):</strong> Fast, responsive launcher shortcut to launch the decibel meter without delay.</span></li>
-                            <li><span>📈</span> <span><strong>Last Session (Medium • 4×2):</strong> High-visibility Average dB & Max dB metrics with real-time sync whenever sessions are saved or cleared.</span></li>
+                            <li><span>📈</span> <span><strong>Last Session (Medium • 4×2):</strong> High-visibility Average dB & Max dB metrics. Automatically transitions to <em>"Measurement paused"</em> with frozen stats and <em>"Open session"</em> when backgrounded during measurement.</span></li>
                             <li><span>📲</span> <span><strong>1-Tap Home Screen Pinning:</strong> Add directly via your launcher widget picker or use in-app pinning from Settings.</span></li>
                         </ul>
                         <p style="font-size: 0.8rem; color: var(--text-sec); margin-top: 8px; font-style: italic;">* Displayed values (e.g. 52.4 dB Average, 74.8 dB Max) represent saved example measurements for demonstration.</p>
@@ -1131,7 +1131,7 @@
                         💡 Widget Information & Troubleshooting
                     </p>
                     <ul style="padding-left: 20px; color: var(--text-sec); font-size: 0.92rem; line-height: 1.6; margin-bottom: 0;">
-                        <li><strong>Saved Readings vs. Live Audio:</strong> Displayed decibel readings reflect your previously completed and saved measurement records. The widgets do <em>not</em> run continuous background audio recording, perform stealth listening, or drain battery life while your phone is idle.</li>
+                        <li><strong>Saved & Paused Readings vs. Live Audio:</strong> Displayed decibel readings reflect saved measurements or frozen metrics from a paused session. When you background DecibelPro during measurement, microphone recording stops immediately to conserve battery and eliminate hardware contention. The widget shows <em>"Measurement paused"</em> with frozen stats until you tap <em>"Open session"</em> to resume or save. The widgets do <em>not</em> perform continuous background audio recording.</li>
                         <li><strong>Missing Widget in Picker:</strong> If you don't see DecibelPro in your widget list immediately after updating, open the DecibelPro app at least once so the operating system registers the widget extension, or perform a quick restart of your launcher.</li>
                         <li><strong>Empty or Stale Sessions:</strong> If the widget displays <em>"No saved sessions yet,"</em> simply open the app, tap <em>Start Meter</em>, and save a measurement. If you delete a session or clear your history in Settings, the widget automatically updates to reflect the change.</li>
                     </ul>
