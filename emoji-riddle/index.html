@@ -1030,50 +1030,54 @@
         <!-- Privacy Policy Section -->
         <section id="privacy">
             <div class="info-card">
-                <h3>🔒 Privacy Policy <span class="badge-pill-inline">GDPR & CCPA Compliant</span></h3>
+                <h3>🔒 Privacy Policy</h3>
                 <p><strong>Last Updated: November 2026</strong></p>
-                <p>Your privacy is important to us. This Privacy Policy discloses how <strong>Emoji Riddle — Brain Teaser</strong> ("we", "our", or "the App") handles information across iOS and Android platforms.</p>
+                <p>This Privacy Policy explains how <strong>Emoji Riddle — Brain Teaser</strong> ("the App", bundle and package identifier <code>com.saadapps.emojiriddle</code>) manages data across iOS and Android devices, distinguishing between local game progress and data processed by third-party services. A dedicated standalone document is accessible at <a href="privacy.html">privacy.html</a>.</p>
 
-                <h4>1. No Account Required</h4>
-                <p>The developer does not request, collect, transmit, or store personal information such as your name, email address, phone number, physical address, contacts, or photos. You do not need an account, profile, or login credentials to play the game.</p>
-                <p>While we do not collect personal contact or identity details directly, the App integrates third-party software development kits (SDKs) from Google to provide advertising, product analytics, and crash reporting as described below.</p>
+                <h4>1. Account Requirements & Personal Identification</h4>
+                <p>The App does not require account registration, logins, or profile creation. The developer does not maintain a custom remote user database and does not ask you to enter directly identifying personal contact information, such as your legal name, physical address, email address, or telephone number.</p>
+                <p>However, when your device connects to the internet, third-party software development kits (SDKs) integrated into the App process and transmit network and device telemetry as described below.</p>
 
-                <h4>2. On-Device Game Data</h4>
-                <p>All core gameplay progress—including your coin balance, solved puzzles, current streak, theme preferences, and daily VIP hint resets—is stored <strong>locally on your device</strong> via platform storage (UserDefaults on iOS, SharedPreferences on Android). This gameplay state remains on your device and is not synchronized to an external developer server.</p>
+                <h4>2. On-Device Local Game Data</h4>
+                <p>Core gameplay progress is stored <strong>locally on your device</strong> using standard operating system storage frameworks (<code>UserDefaults</code> on iOS, <code>SharedPreferences</code> on Android):</p>
+                <ul>
+                    <li>Solved puzzle level indices across Classic Mode and Junior Mode.</li>
+                    <li>In-game virtual coin balances and hint inventory.</li>
+                    <li>Winning streaks (tracked via the local counter <code>player_streak</code>, representing consecutive riddle solves without skipping).</li>
+                    <li>Appearance preferences (theme selection) and sound effect toggles.</li>
+                    <li>Local timestamp records for daily bonus hint replenishment.</li>
+                </ul>
+                <p>This game progression data is maintained on your physical device. It is not transmitted to a developer-hosted user account server.</p>
 
                 <h4>3. Product Analytics & Diagnostics (Google Firebase)</h4>
-                <p>The App integrates <strong>Google Firebase Analytics</strong> and <strong>Firebase Crashlytics</strong> to help us understand gameplay engagement and resolve app crashes:</p>
+                <p>The App integrates <strong>Google Firebase Analytics</strong> and <strong>Firebase Crashlytics</strong> to monitor technical stability and puzzle balance:</p>
                 <ul>
-                    <li><strong>Firebase Analytics:</strong> Collects pseudonymous app instance identifiers and in-game event telemetry, such as completed levels (<code>level_completed</code> with level index and game mode) and hints used (<code>hint_used</code> with hint type). This data helps evaluate puzzle progression and difficulty. Analytics collection is subject to app initialization settings and user consent dialogs upon launch.</li>
-                    <li><strong>Firebase Crashlytics:</strong> Collects diagnostic crash reports, error stack traces, device model specifications, operating system versions, and performance timestamps when an unexpected error or crash occurs, enabling swift bug fixes and technical stability improvements.</li>
+                    <li><strong>Verified Behavior:</strong> Collects pseudonymous gameplay telemetry, including completed level events (<code>level_completed</code> with level index and game mode) and hint usage events (<code>hint_used</code> with hint type). If an unhandled application crash or exception occurs, Firebase Crashlytics records stack traces, OS version, device hardware specifications, and system timestamps.</li>
+                    <li><strong>Network Transmission:</strong> These events and crash traces are transmitted securely over HTTPS to Google Firebase servers.</li>
                     <li>For details on Google Firebase's data practices, visit the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a> and <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Data Privacy & Security</a> guide.</li>
                 </ul>
 
-                <h4>4. Advertising (Google AdMob)</h4>
-                <p>To support free gameplay in Classic Mode, the App integrates <strong>Google AdMob</strong> (Google Mobile Ads SDK) to serve banner ads, level-completion interstitials, and optional rewarded hints. All advertisements are completely suppressed in Picture Play mode.</p>
+                <h4>4. In-App Advertising (Google AdMob)</h4>
+                <p>To support free gameplay in Classic Mode, the App integrates <strong>Google AdMob</strong> (Google Mobile Ads SDK) to serve banner ads, level-completion interstitials, and optional rewarded hints. In Junior Picture Play mode, ad requests and ad displays are suppressed in code.</p>
                 <ul>
-                    <li><strong>Data Processed:</strong> Google AdMob may process device identifiers (such as the Apple Identifier for Advertisers [IDFA] when permitted under Apple's App Tracking Transparency framework, the Vendor Identifier [IDFV], or the Google Advertising ID on Android), coarse IP location for regional ad delivery, and ad interaction/diagnostic metrics.</li>
-                    <li><strong>Ad Content Filtering:</strong> The in-app advertising SDK request configuration sets the maximum ad content rating to G (General Audiences). Furthermore, sensitive ad categories (such as adult themes, dating services, and gambling) are filtered out via ad network account controls. While these filters are applied at code and network levels, dynamic ad delivery is managed by third-party ad networks; players can report any inappropriate creative via our support contact for immediate review.</li>
-                    <li><strong>Ad-Free Option:</strong> Purchasing the Lifetime VIP Pass permanently disables all advertising displays and ad SDK requests.</li>
+                    <li><strong>Content Rating Configuration:</strong> The in-app advertising SDK request configuration sets the maximum ad content rating to G (General Audiences) at code level (<code>MaxAdContentRating.g</code> on iOS, <code>MAX_AD_CONTENT_RATING_G</code> on Android). Furthermore, sensitive ad categories (such as adult themes, dating services, and gambling) are blocked in AdMob network controls.</li>
+                    <li><strong>Inherent Network Processing:</strong> Serving mobile advertisements requires transmitting device network requests (including device IP addresses) to ad servers. Depending on user consent choices and operating system privacy controls (such as Apple App Tracking Transparency on iOS or Google Play Advertising ID controls on Android), AdMob may process advertising identifiers (IDFA/GAID) or device-generated diagnostic signals.</li>
+                    <li><strong>Ad Delivery & Network Requests:</strong> Ad requests are fulfilled directly by Google AdMob according to the configured content rating parameter (General Audiences). The app does not integrate third-party mediation adapters or external ad exchange SDKs; ad delivery is handled directly through the Google Mobile Ads SDK.</li>
+                    <li><strong>Ad-Free Option:</strong> Purchasing the optional Lifetime VIP Pass permanently disables all advertising displays and terminates in-app ad requests.</li>
                     <li>For further details, consult the <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google Privacy & Terms for Advertising</a>.</li>
                 </ul>
 
-                <h4>5. In-App Purchases (Apple StoreKit & Google Play)</h4>
-                <p>All in-app purchases (such as the Lifetime VIP Pass) are processed exclusively by Apple via <strong>StoreKit 2</strong> on iOS and Google via <strong>Google Play Billing</strong> on Android. We never receive, process, or store payment card numbers, bank details, or financial credentials.</p>
+                <h4>5. In-App Purchases (Apple StoreKit & Google Play Billing)</h4>
+                <p>All in-app purchases (such as the Lifetime VIP Pass) are processed exclusively by Apple via <strong>StoreKit 2</strong> on iOS and Google via <strong>Google Play Billing</strong> on Android. The developer never receives, processes, or stores payment card numbers, bank details, or financial credentials.</p>
 
-                <h4>6. Children's Privacy (COPPA)</h4>
-                <p>Emoji Riddle is a family-friendly puzzle game designed for general audiences. We comply with the Children's Online Privacy Protection Act (COPPA) and do not knowingly collect personal information from children under the age of 13.</p>
+                <h4>6. Children's Privacy</h4>
+                <p>Emoji Riddle is a casual puzzle game designed for general audiences aged 13+. In Junior Mode, visual gameplay and voiceovers are provided for family entertainment. In Junior Picture Play mode, advertising displays are suppressed.</p>
+                <p>Because the App uses standard advertising and analytics libraries on general-audience distribution tracks, parents should note that device telemetry is processed by third-party SDKs over network connections. We do not claim third-party COPPA certification. Families seeking an ad-free environment may utilize device parental controls or activate the Lifetime VIP Pass.</p>
 
-                <h4>7. Third-Party Privacy Policies & Resources</h4>
-                <p>For more information on the data practices of our third-party service providers, please review their respective privacy statements:</p>
-                <ul>
-                    <li><strong>Google Privacy Policy:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a></li>
-                    <li><strong>Google Advertising Technologies:</strong> <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">https://policies.google.com/technologies/ads</a></li>
-                    <li><strong>Firebase Data Privacy & Security:</strong> <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">https://firebase.google.com/support/privacy</a></li>
-                    <li><strong>Apple Privacy Policy:</strong> <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">https://www.apple.com/legal/privacy/</a></li>
-                </ul>
+                <h4>7. Local Data Deletion</h4>
+                <p>Because gameplay progress is stored locally in device preferences, you can reset or delete your local game progress at any time by uninstalling the App or clearing application storage in your device settings.</p>
 
-                <h4>8. Contact Us</h4>
+                <h4>8. Contact Information</h4>
                 <p>If you have any questions or concerns regarding this Privacy Policy, please contact us at: <a href="mailto:rajasaad707+emojiriddle@gmail.com?subject=Emoji%20Riddle%20Privacy%20Inquiry">rajasaad707+emojiriddle@gmail.com</a>.</p>
             </div>
         </section>
@@ -1177,12 +1181,12 @@
                 <li><a href="#features">Features</a></li>
                 <li><a href="#screenshots">Screenshots</a></li>
                 <li><a href="#support">Support</a></li>
-                <li><a href="#privacy">Privacy Policy</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
                 <li><a href="#terms">Terms</a></li>
                 <li><a href="app-ads.txt" target="_blank">app-ads.txt</a></li>
             </ul>
             <p>© 2026 Emoji Riddle — Brain Teaser. All rights reserved.</p>
-            <p style="margin-top: 8px; font-size: 0.8rem; color: var(--text-muted);">Available on Apple App Store & Google Play • COPPA & GDPR Compliant</p>
+            <p style="margin-top: 8px; font-size: 0.8rem; color: var(--text-muted);">Available on Apple App Store & Google Play</p>
         </div>
     </footer>
 

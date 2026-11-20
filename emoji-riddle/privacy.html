@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Emoji Riddle: Word Puzzle Game</title>
+    <meta name="description" content="Privacy Policy for Emoji Riddle: Word Puzzle Game across iOS and Android. Discloses local device storage, Google AdMob, and Firebase telemetry.">
+    <meta property="og:title" content="Privacy Policy — Emoji Riddle">
+    <meta property="og:description" content="Privacy Policy for Emoji Riddle: Word Puzzle Game across iOS and Android.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rj707.github.io/emoji-riddle/privacy.html">
+    <link rel="icon" type="image/png" href="assets/icon.png">
+
+    <style>
+        :root {
+            --bg: #07090e;
+            --surface: #0f131d;
+            --surface-elevated: #151b28;
+            --border: rgba(255, 255, 255, 0.08);
+            --primary: #ff9f0a;
+            --primary-glow: rgba(255, 159, 10, 0.3);
+            --accent: #ff375f;
+            --cyan: #06b6d4;
+            --emerald: #10b981;
+            --text: #f8fafc;
+            --text-sec: #94a3b8;
+            --text-muted: #64748b;
+            --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: var(--font);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header.site-header {
+            background: rgba(15, 19, 29, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .brand-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 159, 10, 0.25);
+        }
+
+        .nav-back {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: opacity 0.2s;
+        }
+
+        .nav-back:hover { opacity: 0.8; }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto 80px;
+            padding: 0 24px;
+        }
+
+        .policy-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .updated-date {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 16px;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 28px 0 12px;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            margin: 18px 0 8px;
+        }
+
+        p {
+            color: var(--text-sec);
+            margin-bottom: 16px;
+            font-size: 1rem;
+            line-height: 1.65;
+        }
+
+        ul {
+            margin: 12px 0 20px 24px;
+            color: var(--text-sec);
+        }
+
+        li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        code {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--cyan);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        }
+
+        .notice-box {
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            color: #bae6fd;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        a:hover { opacity: 0.85; }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 32px 24px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="brand-link">
+                <img src="assets/icon.png" alt="Emoji Riddle Icon" class="brand-icon">
+                <span>Emoji Riddle</span>
+            </a>
+            <a href="index.html" class="nav-back">← Back to Home</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="policy-card">
+            <h1>🔒 Privacy Policy</h1>
+            <p class="updated-date"><strong>Last Updated:</strong> November 2026</p>
+
+            <p>This Privacy Policy explains how <strong>Emoji Riddle — Brain Teaser</strong> ("the App", bundle and package identifier <code>com.saadapps.emojiriddle</code>), distributed on the Apple App Store and Google Play Store, manages data. It distinguishes between game progress stored locally on your device and data transmitted over the internet by integrated third-party services.</p>
+
+            <h2>1. Account Requirements & Personal Identification</h2>
+            <p>The App does not require user account registration, profile creation, or logins. The developer does not maintain a custom remote user database and does not ask you to enter directly identifying personal contact information, such as your legal name, physical address, email address, or telephone number.</p>
+            <p>However, when your device connects to the internet, third-party software development kits (SDKs) integrated into the App process and transmit network and device telemetry as detailed below.</p>
+
+            <h2>2. On-Device Local Game Data</h2>
+            <p>Core gameplay progress is stored <strong>locally on your device</strong> using standard operating system storage frameworks (<code>UserDefaults</code> on iOS and <code>SharedPreferences</code> on Android):</p>
+            <ul>
+                <li>Solved puzzle level indices across Classic Mode and Junior Mode.</li>
+                <li>In-game virtual coin balances and hint inventory.</li>
+                <li>Winning streaks (tracked via the local counter <code>player_streak</code>, representing consecutive riddle solves without skipping).</li>
+                <li>Appearance preferences (theme selection) and sound effect toggles.</li>
+                <li>Local timestamp records for daily bonus hint replenishment.</li>
+            </ul>
+            <p>This game progression data is maintained on your physical device. It is not transmitted to a developer-hosted user account server.</p>
+
+            <h2>3. Third-Party Services & Network Data Transmission</h2>
+            <p>The App integrates third-party SDKs from Google to provide crash diagnostics, gameplay analytics, and in-game advertisements. When your device is connected to the internet, these SDKs transmit technical data to external servers:</p>
+
+            <h3>A. Google Firebase Analytics & Crashlytics</h3>
+            <ul>
+                <li><strong>Verified In-App Behavior:</strong> The App logs pseudonymous gameplay telemetry, including completed level events (<code>level_completed</code> with level index and game mode) and hint usage events (<code>hint_used</code> with hint type). If an unhandled application crash or exception occurs, Firebase Crashlytics records stack traces, OS version, device hardware specifications, and system timestamps.</li>
+                <li><strong>Network Transmission:</strong> These events and crash traces are transmitted securely over HTTPS to Google Firebase servers to monitor stability and level difficulty balance.</li>
+                <li><strong>Vendor Policies:</strong> For details on Google's technical handling, refer to the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a> and the <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy and Security Documentation</a>.</li>
+            </ul>
+
+            <h3>B. Google AdMob (Advertising)</h3>
+            <ul>
+                <li><strong>Verified In-App Behavior:</strong> In Classic Mode and Junior Word Builder, the App displays standard banner advertisements, interstitial transitions, and optional rewarded hint videos. In Junior Picture Play mode, ad requests and ad displays are suppressed in code.</li>
+                <li><strong>Content Rating Configuration:</strong> The App's code explicitly sets the maximum advertising content rating parameter to General Audiences (<code>MaxAdContentRating.g</code> in the iOS Google Mobile Ads SDK and <code>RequestConfiguration.MAX_AD_CONTENT_RATING_G</code> in Android). Sensitive categories (such as gambling, mature content, and dating) are also designated as blocked in AdMob account settings.</li>
+                <li><strong>Inherent Network Processing:</strong> Serving mobile advertisements requires transmitting device network requests (including device IP addresses) to ad servers. Depending on user consent choices and operating system privacy controls (such as Apple App Tracking Transparency on iOS or Google Play Advertising ID controls on Android), AdMob may process advertising identifiers (IDFA/GAID) or device-generated diagnostic signals.</li>
+                <li><strong>Ad Delivery & Network Requests:</strong> Ad requests are fulfilled directly by Google AdMob according to the configured content rating parameter (General Audiences). The app does not integrate third-party mediation adapters or external ad exchange SDKs; ad delivery is handled directly through the Google Mobile Ads SDK.</li>
+                <li><strong>Ad-Free Option:</strong> Players who purchase the optional Lifetime VIP Pass permanently disable banner, interstitial, and rewarded ad displays, terminating in-app ad requests.</li>
+                <li><strong>Vendor Policies:</strong> For further details on advertising data processing, review <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google Advertising Technologies</a>.</li>
+            </ul>
+
+            <h2>4. In-App Purchases & Billing Information</h2>
+            <p>Financial transactions for optional in-app purchases (such as the Lifetime VIP Pass) are handled entirely by platform operators: Apple via <strong>StoreKit 2</strong> on iOS and Google via <strong>Google Play Billing</strong> on Android. The developer does not collect, receive, process, or store credit card numbers, banking details, or financial billing addresses.</p>
+
+            <h2>5. Children's Privacy</h2>
+            <p>Emoji Riddle is categorized as a casual puzzle game intended for general audiences aged 13+. Junior Mode provides visual and English pronunciation content designed for younger family members. In Picture Play mode, advertising displays are suppressed.</p>
+            <p>Because the App uses standard advertising and analytics SDKs on general audience distribution tracks, parents and guardians should note that network-level device telemetry is processed by third-party SDKs when the device is connected to the internet. We do not represent independent third-party COPPA certification. Families seeking an ad-free environment may utilize device parental controls or activate the Lifetime VIP Pass.</p>
+
+            <h2>6. Data Management & Local Deletion</h2>
+            <p>Because gameplay progress is stored locally in device preferences, you can reset or delete your local game progress at any time by uninstalling the application or clearing the application storage in your device settings.</p>
+
+            <h2>7. Contact Information</h2>
+            <p>If you have questions regarding this Privacy Policy or the technical behavior of the game, please contact: <a href="mailto:rajasaad707+emojiriddle@gmail.com?subject=Emoji%20Riddle%20Privacy%20Inquiry">rajasaad707+emojiriddle@gmail.com</a>.</p>
+        </article>
+    </main>
+
+    <footer>
+        <p>© 2026 Emoji Riddle — Brain Teaser. All rights reserved. • <a href="index.html">Home</a> • <a href="privacy.html">Privacy Policy</a> • <a href="index.html#terms">Terms of Service</a></p>
+    </footer>
+
+</body>
+</html>
