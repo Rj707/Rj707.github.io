@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hafiz Saad Digital — Mobile Apps & Digital Innovation Studio</title>
-    <meta name="description" content="Official developer portfolio of Hafiz Saad Digital. Crafting precision mobile utilities, brain puzzle games, and educational experiences for Google Play and the App Store.">
+    <title>Hafiz Saad Digital — Apps &amp; Games Studio</title>
+    <meta name="description" content="Official developer portfolio of Hafiz Saad Digital. High-performance mobile apps, precision acoustic utilities, and brain puzzle games for iOS and Android.">
     <meta name="author" content="Hafiz Saad Digital">
     <link rel="canonical" href="https://rj707.github.io/">
 
@@ -12,7 +12,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rj707.github.io/">
     <meta property="og:title" content="Hafiz Saad Digital — Mobile Developer Studio">
-    <meta property="og:description" content="Explore published mobile apps, acoustic utilities, brain games, and educational tools by Hafiz Saad Digital.">
+    <meta property="og:description" content="Explore verified mobile releases and preview titles by Hafiz Saad Digital, including DecibelPro, Emoji Riddle, and Zen Focus.">
     <meta property="og:site_name" content="Hafiz Saad Digital">
 
     <!-- Twitter -->
@@ -77,10 +77,10 @@
         },
         {
           "@type": "Question",
-          "name": "Are your educational and kids apps COPPA compliant?",
+          "name": "How does Hafiz Saad Digital safeguard user privacy?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Titles such as TinySteps and Numbers 123 adhere strictly to COPPA and Google Play Families policy requirements: zero behavioral profiling, no tracking, and adult-gated parent settings."
+            "text": "Our apps prioritize on-device data processing with zero personal account requirements. Utilities like DecibelPro compute acoustic measurements locally in volatile memory, and advertising is managed with standard user consent platforms (CMP)."
           }
         },
         {
@@ -858,22 +858,181 @@
         }
 
         /* Mobile tweaks */
+        
+        /* Section Scroll Margin for Sticky Navbar Clearance */
+        #apps, section[id] {
+            scroll-margin-top: 88px;
+        }
+
+        /* Catalog Groups */
+        .catalog-group {
+            margin-bottom: 40px;
+        }
+
+        .catalog-group-title {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 22px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .badge-preview {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 999px;
+            background: rgba(139, 92, 246, 0.15);
+            border: 1px solid rgba(139, 92, 246, 0.4);
+            color: #a78bfa;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        /* Featured DecibelPro Card */
+        .app-card.featured-card {
+            border-color: rgba(59, 130, 246, 0.4);
+            background: linear-gradient(145deg, rgba(26, 36, 56, 0.85), rgba(15, 23, 42, 0.95));
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.12);
+        }
+
+        .featured-banner-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #60a5fa;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+        }
+
+        /* Dual Store Action Row - Guaranteed No-Wrap on Mobile */
+        .store-action-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .btn-store {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            padding: 10px 12px;
+            border-radius: 10px;
+            font-size: 0.84rem;
+            font-weight: 600;
+            white-space: nowrap;
+            text-decoration: none;
+            transition: all 0.15s ease;
+            box-sizing: border-box;
+            border: 1px solid transparent;
+        }
+
+        .btn-googleplay {
+            background: rgba(16, 185, 129, 0.15);
+            border-color: rgba(16, 185, 129, 0.4);
+            color: #34d399;
+        }
+        .btn-googleplay:hover {
+            background: rgba(16, 185, 129, 0.25);
+            border-color: #34d399;
+        }
+
+        .btn-appstore {
+            background: rgba(59, 130, 246, 0.15);
+            border-color: rgba(59, 130, 246, 0.4);
+            color: #60a5fa;
+        }
+        .btn-appstore:hover {
+            background: rgba(59, 130, 246, 0.25);
+            border-color: #60a5fa;
+        }
+
+        .store-icon-svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            fill: currentColor;
+        }
+
+        .card-meta-links {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 14px;
+            padding-top: 10px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.08);
+            font-size: 0.82rem;
+            width: 100%;
+        }
+
+        .coming-soon-card {
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(15, 19, 29, 0.6);
+        }
+        .coming-soon-card:hover {
+            border-color: rgba(139, 92, 246, 0.4);
+        }
+
         @media (max-width: 768px) {
+            #apps, section[id] {
+                scroll-margin-top: 80px;
+            }
             .nav-links {
                 display: none;
             }
             .hero {
-                padding: 60px 0 40px;
+                padding: 50px 0 32px;
             }
             .apps-grid {
                 grid-template-columns: 1fr;
+                gap: 18px;
+            }
+            .store-action-row {
+                gap: 8px;
+            }
+            .btn-store {
+                padding: 9px 8px;
+                font-size: 0.8rem;
+                gap: 5px;
+            }
+            .store-icon-svg {
+                width: 14px;
+                height: 14px;
             }
             .trust-section {
-                padding: 32px 20px;
+                padding: 28px 16px;
             }
             .footer-content {
                 flex-direction: column;
                 text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+            .app-card {
+                padding: 20px 16px;
+            }
+            .stat-card {
+                padding: 16px;
+            }
+            .btn-store {
+                font-size: 0.78rem;
+                padding: 8px 6px;
             }
         }
     </style>
@@ -908,9 +1067,9 @@
 
         <!-- Hero -->
         <section class="hero">
-            <div class="verified-badge">
+                        <div class="verified-badge" style="margin-bottom: 16px;">
                 <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                Official Google Play &amp; Apple Developer Studio
+                Official Studio Portfolio • Welcome @snw.digital Visitors
             </div>
             <h1>Crafting High-Performance <br><span>Mobile Apps &amp; Utilities</span></h1>
             <p>
@@ -926,270 +1085,248 @@
             </div>
         </section>
 
-        <!-- Stats Bar -->
+        <!-- Studio Core Highlights -->
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-value">10+</div>
-                <div class="stat-label">Published Applications</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value">100%</div>
-                <div class="stat-label">Zero Personal Data Sold</div>
+                <div class="stat-value">DecibelPro</div>
+                <div class="stat-label">Featured Acoustic Utility</div>
             </div>
             <div class="stat-card">
                 <div class="stat-value">iOS &amp; Android</div>
-                <div class="stat-label">Cross-Platform Standard</div>
+                <div class="stat-label">Verified Production Stores</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value">GDPR / COPPA</div>
-                <div class="stat-label">Compliant by Design</div>
+                <div class="stat-value">On-Device</div>
+                <div class="stat-label">Local Real-Time Processing</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">Zero Login</div>
+                <div class="stat-label">No Account Creation Required</div>
             </div>
         </div>
 
         <!-- Apps Section -->
         <section id="apps">
             <div class="section-header">
-                <div class="section-tag">Catalog</div>
-                <h2 class="section-title">Published Applications</h2>
-                <p class="section-desc">Discover our range of utility meters, creative visualizers, and interactive puzzle titles.</p>
+                <div class="section-tag">Portfolio</div>
+                <h2 class="section-title">Apps &amp; Games</h2>
+                <p class="section-desc">Explore verified public releases on the App Store and Google Play, followed by previews in our production pipeline.</p>
             </div>
 
-            <!-- Filter Buttons -->
-            <div class="filter-tabs">
-                <button class="filter-btn active" onclick="filterApps('all')">All Applications</button>
-                <button class="filter-btn" onclick="filterApps('utility')">Utilities &amp; Audio</button>
-                <button class="filter-btn" onclick="filterApps('puzzle')">Puzzles &amp; Brain</button>
-                <button class="filter-btn" onclick="filterApps('education')">Kids &amp; Learning</button>
+            <!-- Group 1: Available Now (Verified Public Releases) -->
+            <div class="catalog-group">
+                <div class="catalog-group-title">
+                    <span class="badge-live-pulse" style="margin-left:0;"><span class="pulse-dot"></span> Available Now</span>
+                    <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">(Verified Public Store Releases)</span>
+                </div>
+
+                <div class="apps-grid">
+
+                    <!-- 1. DecibelPro (FEATURED • LIVE ON iOS & ANDROID) -->
+                    <article class="app-card featured-card" data-category="utility">
+                        <div class="featured-banner-tag">★ Featured Application • Live on iOS &amp; Android</div>
+                        <div class="app-card-top">
+                            <img src="decibel-pro/assets/icon.png" alt="DecibelPro Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/2563eb/ffffff?text=dB'">
+                            <div class="app-title-group">
+                                <div style="display:flex;align-items:center;flex-wrap:wrap;gap:6px;">
+                                    <h3>DecibelPro</h3>
+                                    <span class="badge-live-pulse"><span class="pulse-dot"></span> v1.1.0 Live</span>
+                                </div>
+                                <span class="app-badge-category">Acoustic Utility &amp; Precision Meter</span>
+                            </div>
+                        </div>
+                        <p class="app-desc">
+                            Professional sound level meter (dBA), real-time acoustic waveform visualizer, precision sine-wave tone generator (20 Hz &ndash; 20,000 Hz), and 165 Hz acoustic pulse speaker cleaner with zero cloud data transmission.
+                        </p>
+                        <div class="app-features">
+                            <span class="feature-chip">dBA Sound Meter</span>
+                            <span class="feature-chip">Tone Generator</span>
+                            <span class="feature-chip">Speaker Cleaner</span>
+                            <span class="feature-chip">Live Graph</span>
+                            <span class="feature-chip">CSV Export</span>
+                        </div>
+                        <div class="app-actions">
+                            <div class="store-action-row">
+                                <a href="https://play.google.com/store/apps/details?id=com.saadapps.decibelpro" target="_blank" rel="noopener" class="btn-store btn-googleplay">
+                                    <svg class="store-icon-svg" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.036 2.036 0 0 1-.61-1.46V3.274c0-.573.228-1.096.609-1.46zm11.235 11.236l2.164 2.165-11.83 6.745 9.666-8.91zm0-2.099L5.178 2.04l11.83 6.746-2.164 2.165zm1.536 1.05l3.528 2.012a1.27 1.27 0 0 1 0 2.203l-3.528 2.012-2.316-2.316 2.316-1.911z"/></svg>
+                                    <span>Google Play</span>
+                                </a>
+                                <a href="https://apps.apple.com/app/id6820814636" target="_blank" rel="noopener" class="btn-store btn-appstore">
+                                    <svg class="store-icon-svg" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.93-2.85-.9.04-1.99.6-2.64 1.35-.58.65-1.09 1.71-.95 2.73 1 .08 2.04-.51 2.66-1.23z"/></svg>
+                                    <span>App Store</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-meta-links">
+                            <a href="decibel-pro/" style="color:var(--text-sec);text-decoration:none;">Product Details &rarr;</a>
+                            <a href="decibel-pro/#privacy" class="link-legal">Privacy Policy</a>
+                        </div>
+                    </article>
+
+                    <!-- 2. Emoji Riddle (LIVE ON iOS) -->
+                    <article class="app-card" data-category="puzzle">
+                        <div class="app-card-top">
+                            <img src="emoji-riddle/assets/icon.png" alt="Emoji Riddle Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/ec4899/ffffff?text=🧩'">
+                            <div class="app-title-group">
+                                <div style="display:flex;align-items:center;flex-wrap:wrap;gap:6px;">
+                                    <h3>Emoji Riddle</h3>
+                                    <span class="badge-live-pulse"><span class="pulse-dot"></span> Live</span>
+                                </div>
+                                <span class="app-badge-category">Brain &amp; Rebus Puzzle</span>
+                            </div>
+                        </div>
+                        <p class="app-desc">
+                            Clever rebus puzzles and visual word riddles. Decipher creative emoji combinations to discover idioms, phrases, and famous titles. Features Junior Mode for family play.
+                        </p>
+                        <div class="app-features">
+                            <span class="feature-chip">500+ Puzzles</span>
+                            <span class="feature-chip">Junior Mode</span>
+                            <span class="feature-chip">Offline Play</span>
+                            <span class="feature-chip">Brain Teasers</span>
+                        </div>
+                        <div class="app-actions">
+                            <div style="width:100%;">
+                                <a href="https://apps.apple.com/app/id6822172363" target="_blank" rel="noopener" class="btn-store btn-appstore" style="width:100%;">
+                                    <svg class="store-icon-svg" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.93-2.85-.9.04-1.99.6-2.64 1.35-.58.65-1.09 1.71-.95 2.73 1 .08 2.04-.51 2.66-1.23z"/></svg>
+                                    <span>Download on App Store</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-meta-links">
+                            <a href="emoji-riddle/" style="color:var(--text-sec);text-decoration:none;">Game Details &rarr;</a>
+                            <a href="emoji-riddle/#privacy" class="link-legal">Privacy Policy</a>
+                        </div>
+                    </article>
+
+                    <!-- 3. Zen Focus (LIVE ON iOS) -->
+                    <article class="app-card" data-category="utility">
+                        <div class="app-card-top">
+                            <img src="zen-focus/assets/icon.png" alt="Zen Focus Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/14b8a6/ffffff?text=🧘'">
+                            <div class="app-title-group">
+                                <div style="display:flex;align-items:center;flex-wrap:wrap;gap:6px;">
+                                    <h3>Zen Focus</h3>
+                                    <span class="badge-live-pulse"><span class="pulse-dot"></span> Live</span>
+                                </div>
+                                <span class="app-badge-category">Productivity &amp; Ambient Calm</span>
+                            </div>
+                        </div>
+                        <p class="app-desc">
+                            Minimalist deep-work timer, soothing ambient soundscapes, and digital calm engine designed to reduce screen fatigue and boost daily productivity.
+                        </p>
+                        <div class="app-features">
+                            <span class="feature-chip">Pomodoro Timer</span>
+                            <span class="feature-chip">White Noise &amp; Rain</span>
+                            <span class="feature-chip">Zero Distraction</span>
+                            <span class="feature-chip">Offline Mode</span>
+                        </div>
+                        <div class="app-actions">
+                            <div style="width:100%;">
+                                <a href="https://apps.apple.com/app/id6827255518" target="_blank" rel="noopener" class="btn-store btn-appstore" style="width:100%;">
+                                    <svg class="store-icon-svg" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.93-2.85-.9.04-1.99.6-2.64 1.35-.58.65-1.09 1.71-.95 2.73 1 .08 2.04-.51 2.66-1.23z"/></svg>
+                                    <span>Download on App Store</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-meta-links">
+                            <a href="zen-focus/" style="color:var(--text-sec);text-decoration:none;">Timer Details &rarr;</a>
+                            <a href="zen-focus/#privacy" class="link-legal">Privacy Policy</a>
+                        </div>
+                    </article>
+
+                </div>
             </div>
 
-                        <div class="apps-grid">
+            <!-- Group 2: Coming Soon (Up to Three Approved Previews) -->
+            <div class="catalog-group" style="margin-top: 50px;">
+                <div class="catalog-group-title">
+                    <span class="badge-preview">Coming Soon</span>
+                    <span>Production Pipeline Previews</span>
+                    <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">(In Active Development)</span>
+                </div>
 
-                <!-- 1. DecibelPro (LIVE) -->
-                <article class="app-card" data-category="utility">
-                    <div class="app-card-top">
-                        <img src="decibel-pro/assets/icon.png" alt="DecibelPro Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/2563eb/ffffff?text=dB'">
-                        <div class="app-title-group">
-                            <div style="display:flex;align-items:center;">
-                                <h3>DecibelPro</h3>
-                                <span class="badge-live-pulse"><span class="pulse-dot"></span> Live</span>
+                <div class="apps-grid">
+
+                    <!-- 1. SketchVia: AR Drawing (PREVIEW) -->
+                    <article class="app-card coming-soon-card">
+                        <div class="app-card-top">
+                            <img src="ar-drawing/assets/icon.png" alt="SketchVia Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/ec4899/ffffff?text=🎨'">
+                            <div class="app-title-group">
+                                <div style="display:flex;align-items:center;flex-wrap:wrap;gap:6px;">
+                                    <h3>SketchVia</h3>
+                                    <span class="badge-preview">In Pipeline</span>
+                                </div>
+                                <span class="app-badge-category">Creative AR &amp; Sketching</span>
                             </div>
-                            <span class="app-badge-category">Audio &amp; Utility</span>
                         </div>
-                    </div>
-                    <p class="app-desc">
-                        Precision sound level meter (dBA), real-time acoustic waveform visualizer, tone generator, and speaker pulse cleaner with zero cloud data storage.
-                    </p>
-                    <div class="app-features">
-                        <span class="feature-chip">dBA Meter</span>
-                        <span class="feature-chip">Tone Generator</span>
-                        <span class="feature-chip">165Hz Cleaner</span>
-                        <span class="feature-chip">Live Graph</span>
-                    </div>
-                    <div class="app-actions">
-                        <a href="https://play.google.com/store/apps/details?id=com.saadapps.decibelpro" target="_blank" class="btn-view" style="background:rgba(16,185,129,0.15);border-color:rgba(16,185,129,0.4);color:#34d399;">Google Play &rarr;</a>
-                        <a href="https://apps.apple.com/us/app/decibelpro-sound-db-meter/id6820814636" target="_blank" class="btn-view">App Store &rarr;</a>
-                        <a href="decibel-pro/#privacy" class="link-legal">Privacy</a>
-                    </div>
-                </article>
+                        <p class="app-desc">
+                            Augmented reality tracing and drawing companion. Project digital outlines onto paper through your mobile camera to learn sketching, lettering, and illustration step-by-step.
+                        </p>
+                        <div class="app-features">
+                            <span class="feature-chip">AR Camera Trace</span>
+                            <span class="feature-chip">Sketch Library</span>
+                            <span class="feature-chip">Step-by-Step Guides</span>
+                        </div>
+                        <div class="card-meta-links" style="margin-top:auto;padding-top:14px;">
+                            <a href="ar-drawing/" style="color:var(--text-sec);text-decoration:none;">Project Overview &rarr;</a>
+                            <a href="ar-drawing/#privacy" class="link-legal">Privacy Policy</a>
+                        </div>
+                    </article>
 
-                <!-- 2. Emoji Riddle (LIVE) -->
-                <article class="app-card" data-category="puzzle">
-                    <div class="app-card-top">
-                        <img src="emoji-riddle/assets/icon.png" alt="Emoji Riddle Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/ec4899/ffffff?text=🧩'">
-                        <div class="app-title-group">
-                            <div style="display:flex;align-items:center;">
-                                <h3>Emoji Riddle</h3>
-                                <span class="badge-live-pulse"><span class="pulse-dot"></span> Live</span>
+                    <!-- 2. Slide Routes: Block Puzzle (PREVIEW) -->
+                    <article class="app-card coming-soon-card">
+                        <div class="app-card-top">
+                            <img src="slide-routes/assets/icon.png" alt="Slide Routes Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/3b82f6/ffffff?text=🛤️'">
+                            <div class="app-title-group">
+                                <div style="display:flex;align-items:center;flex-wrap:wrap;gap:6px;">
+                                    <h3>Slide Routes</h3>
+                                    <span class="badge-preview">In Pipeline</span>
+                                </div>
+                                <span class="app-badge-category">Logic &amp; Strategy Puzzle</span>
                             </div>
-                            <span class="app-badge-category">Brain Puzzle</span>
                         </div>
-                    </div>
-                    <p class="app-desc">
-                        Clever rebus puzzles and visual word riddles. Decipher creative emoji combinations to discover idioms, movie titles, and popular phrases.
-                    </p>
-                    <div class="app-features">
-                        <span class="feature-chip">Word Puzzles</span>
-                        <span class="feature-chip">Offline Play</span>
-                        <span class="feature-chip">500+ Levels</span>
-                        <span class="feature-chip">Family Safe</span>
-                    </div>
-                    <div class="app-actions">
-                        <a href="https://apps.apple.com/us/app/emoji-riddle-brain-teaser/id6822172363" target="_blank" class="btn-view" style="background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.4);color:#60a5fa;">App Store &rarr;</a>
-                        <a href="emoji-riddle/" class="btn-view">Overview</a>
-                        <a href="emoji-riddle/#privacy" class="link-legal">Privacy</a>
-                    </div>
-                </article>
-
-                <!-- 3. Fluid Glow (COMING SOON) -->
-                <article class="app-card coming-soon" data-category="utility">
-                    <div class="ribbon-wrapper"><div class="ribbon-diagonal">Coming Soon</div></div>
-                    <div class="app-card-top">
-                        <img src="fluid-glow/assets/icon.png" alt="Fluid Glow Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/06b6d4/ffffff?text=✨'">
-                        <div class="app-title-group">
-                            <h3>Fluid Glow</h3>
-                            <span class="app-badge-category">Visual Experience</span>
+                        <p class="app-desc">
+                            Strategic pathway puzzle. Slide road tiles, connect routes, avoid roadblocks, and guide transit safely to its destination across handcrafted geometric puzzle stages.
+                        </p>
+                        <div class="app-features">
+                            <span class="feature-chip">Route Logic</span>
+                            <span class="feature-chip">Handcrafted Stages</span>
+                            <span class="feature-chip">Zen Puzzle Flow</span>
                         </div>
-                    </div>
-                    <p class="app-desc">
-                        Interactive particle and fluid dynamic physics sandbox with dynamic neon glow effects for stress relief, creative visualization, and relaxation.
-                    </p>
-                    <div class="app-features">
-                        <span class="feature-chip">Fluid Physics</span>
-                        <span class="feature-chip">Haptic Touch</span>
-                        <span class="feature-chip">Stress Relief</span>
-                    </div>
-                    <div class="app-actions">
-                        <span class="btn-view" style="background:rgba(255,255,255,0.03);color:var(--text-muted);border-color:rgba(255,255,255,0.06);cursor:not-allowed;">🔒 In Development</span>
-                    </div>
-                </article>
-
-                <!-- 4. TinySteps (COMING SOON) -->
-                <article class="app-card coming-soon" data-category="education">
-                    <div class="ribbon-wrapper"><div class="ribbon-diagonal">Coming Soon</div></div>
-                    <div class="app-card-top">
-                        <img src="tinysteps/assets/icon.png" alt="TinySteps Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/10b981/ffffff?text=👶'">
-                        <div class="app-title-group">
-                            <h3>TinySteps</h3>
-                            <span class="app-badge-category">Kids &amp; Learning</span>
+                        <div class="card-meta-links" style="margin-top:auto;padding-top:14px;">
+                            <span style="color:var(--text-muted);font-size:0.8rem;">Planned for iOS &amp; Android</span>
+                            <span style="color:var(--text-muted);font-size:0.8rem;">Release Pending</span>
                         </div>
-                    </div>
-                    <p class="app-desc">
-                        Montessori-inspired handwriting and alphabet tracing app for toddlers and preschoolers. Certified COPPA compliant with zero behavioral tracking.
-                    </p>
-                    <div class="app-features">
-                        <span class="feature-chip">Alphabet Tracing</span>
-                        <span class="feature-chip">Montessori</span>
-                        <span class="feature-chip">Parent Gate</span>
-                        <span class="feature-chip">COPPA Safe</span>
-                    </div>
-                    <div class="app-actions">
-                        <span class="btn-view" style="background:rgba(255,255,255,0.03);color:var(--text-muted);border-color:rgba(255,255,255,0.06);cursor:not-allowed;">🔒 In Development</span>
-                    </div>
-                </article>
+                    </article>
 
-                <!-- 5. Pocket Sort (COMING SOON) -->
-                <article class="app-card coming-soon" data-category="puzzle">
-                    <div class="ribbon-wrapper"><div class="ribbon-diagonal">Coming Soon</div></div>
-                    <div class="app-card-top">
-                        <img src="pocket-sort/assets/icon.png" alt="Pocket Sort Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/f59e0b/ffffff?text=🧪'">
-                        <div class="app-title-group">
-                            <h3>Pocket Sort</h3>
-                            <span class="app-badge-category">Casual Strategy</span>
-                        </div>
-                    </div>
-                    <p class="app-desc">
-                        Satisfying color-sorting puzzle challenge. Plan moves carefully to sort colored liquids and items into their matching vials with relaxing haptic cues.
-                    </p>
-                    <div class="app-features">
-                        <span class="feature-chip">Logic Sorting</span>
-                        <span class="feature-chip">Smooth Haptics</span>
-                        <span class="feature-chip">No Time Pressure</span>
-                    </div>
-                    <div class="app-actions">
-                        <span class="btn-view" style="background:rgba(255,255,255,0.03);color:var(--text-muted);border-color:rgba(255,255,255,0.06);cursor:not-allowed;">🔒 In Development</span>
-                    </div>
-                </article>
-
-                <!-- 6. Reader Lab (COMING SOON) -->
-                <article class="app-card coming-soon" data-category="utility">
-                    <div class="ribbon-wrapper"><div class="ribbon-diagonal">Coming Soon</div></div>
-                    <div class="app-card-top">
-                        <img src="reader-lab/assets/icon.png" alt="Reader Lab Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/6366f1/ffffff?text=📖'">
-                        <div class="app-title-group">
-                            <h3>Reader Lab</h3>
-                            <span class="app-badge-category">Productivity</span>
-                        </div>
-                    </div>
-                    <p class="app-desc">
-                        Smart speed-reading and document intelligence assistant. Enhances reading comprehension and focus using RSVP visual pacing techniques.
-                    </p>
-                    <div class="app-features">
-                        <span class="feature-chip">Speed Reading</span>
-                        <span class="feature-chip">Focus Mode</span>
-                        <span class="feature-chip">Document Reader</span>
-                    </div>
-                    <div class="app-actions">
-                        <span class="btn-view" style="background:rgba(255,255,255,0.03);color:var(--text-muted);border-color:rgba(255,255,255,0.06);cursor:not-allowed;">🔒 In Development</span>
-                    </div>
-                </article>
-
-                <!-- 7. AR Drawing (READY FOR RELEASE) -->
-                <article class="app-card" data-category="education">
-                    <div class="app-card-top">
-                        <img src="ar-drawing/assets/icon.png" alt="AR Drawing Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/ec4899/ffffff?text=🎨'">
-                        <div class="app-title-group">
-                            <div style="display:flex;align-items:center;">
-                                <h3>AR Drawing</h3>
-                                <span class="badge-live-pulse"><span class="pulse-dot"></span> Ready</span>
+                    <!-- 3. Fluid Glow (PREVIEW) -->
+                    <article class="app-card coming-soon-card">
+                        <div class="app-card-top">
+                            <img src="fluid-glow/assets/icon.png" alt="Fluid Glow Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/06b6d4/ffffff?text=✨'">
+                            <div class="app-title-group">
+                                <div style="display:flex;align-items:center;flex-wrap:wrap;gap:6px;">
+                                    <h3>Fluid Glow</h3>
+                                    <span class="badge-preview">In Pipeline</span>
+                                </div>
+                                <span class="app-badge-category">Visual Simulation &amp; Art</span>
                             </div>
-                            <span class="app-badge-category">Creative Art</span>
                         </div>
-                    </div>
-                    <p class="app-desc">
-                        Augmented reality tracing and sketching assistant. Project outlines directly onto paper through your mobile camera to learn drawing easily.
-                    </p>
-                    <div class="app-features">
-                        <span class="feature-chip">AR Camera Trace</span>
-                        <span class="feature-chip">Sketch Library</span>
-                        <span class="feature-chip">Step-by-Step</span>
-                    </div>
-                    <div class="app-actions">
-                        <a href="ar-drawing/" class="btn-view">Overview &rarr;</a>
-                        <a href="ar-drawing/#privacy" class="link-legal">Privacy</a>
-                    </div>
-                </article>
-
-                <!-- 8. Zen Focus (LIVE) -->
-                <article class="app-card" data-category="utility">
-                    <div class="app-card-top">
-                        <img src="zen-focus/assets/icon.png" alt="Zen Focus Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/14b8a6/ffffff?text=🧘'">
-                        <div class="app-title-group">
-                            <div style="display:flex;align-items:center;">
-                                <h3>Zen Focus</h3>
-                                <span class="badge-live-pulse"><span class="pulse-dot"></span> Live</span>
-                            </div>
-                            <span class="app-badge-category">Productivity</span>
+                        <p class="app-desc">
+                            Interactive particle dynamics and luminous fluid simulation engine. Touch, swirl, and create mesmerizing luminous flow patterns designed for visual relaxation.
+                        </p>
+                        <div class="app-features">
+                            <span class="feature-chip">Fluid Physics</span>
+                            <span class="feature-chip">Multi-touch Glow</span>
+                            <span class="feature-chip">Relaxing Ambient</span>
                         </div>
-                    </div>
-                    <p class="app-desc">
-                        Minimalist deep-work timer, ambient soundscapes, and digital calm engine designed to reduce screen fatigue and boost productivity.
-                    </p>
-                    <div class="app-features">
-                        <span class="feature-chip">Pomodoro Timer</span>
-                        <span class="feature-chip">White Noise</span>
-                        <span class="feature-chip">Zero Distraction</span>
-                    </div>
-                    <div class="app-actions">
-                        <a href="https://apps.apple.com/app/zen-focus-ambient-timer/id6827255518" target="_blank" rel="noopener" class="btn-view" style="background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.4);color:#60a5fa;">App Store &rarr;</a>
-                        <a href="zen-focus/" class="btn-view">Overview</a>
-                        <a href="zen-focus/#privacy" class="link-legal">Privacy</a>
-                    </div>
-                </article>
-
-                <!-- 9. Numbers 123 (COMING SOON) -->
-                <article class="app-card coming-soon" data-category="education">
-                    <div class="ribbon-wrapper"><div class="ribbon-diagonal">Coming Soon</div></div>
-                    <div class="app-card-top">
-                        <img src="numbers123/assets/icon.png" alt="Numbers 123 Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/f97316/ffffff?text=123'">
-                        <div class="app-title-group">
-                            <h3>Numbers 123</h3>
-                            <span class="app-badge-category">Early Math</span>
+                        <div class="card-meta-links" style="margin-top:auto;padding-top:14px;">
+                            <span style="color:var(--text-muted);font-size:0.8rem;">Engine In Development</span>
+                            <span style="color:var(--text-muted);font-size:0.8rem;">Interactive Preview</span>
                         </div>
-                    </div>
-                    <p class="app-desc">
-                        Interactive counting, number formation, and foundational math puzzles crafted specifically for early childhood development.
-                    </p>
-                    <div class="app-features">
-                        <span class="feature-chip">Number Tracing</span>
-                        <span class="feature-chip">Counting Games</span>
-                        <span class="feature-chip">Safe for Kids</span>
-                    </div>
-                    <div class="app-actions">
-                        <span class="btn-view" style="background:rgba(255,255,255,0.03);color:var(--text-muted);border-color:rgba(255,255,255,0.06);cursor:not-allowed;">🔒 In Development</span>
-                    </div>
-                </article>
+                    </article>
 
+                </div>
             </div>
+
         </section>
 
         <!-- Trust & Compliance Section -->
@@ -1220,8 +1357,8 @@
                 <div class="trust-item">
                     <div class="trust-icon">👶</div>
                     <div class="trust-text">
-                        <h4>COPPA Compliant Kids Policy</h4>
-                        <p>Our educational apps adhere to strict family safety standards: no behavioral profiling, no tracking, and adult-gated settings.</p>
+                        <h4>Family &amp; Privacy Alignment</h4>
+                        <p>Our applications follow strict privacy standards: on-device calculation, zero behavioural tracking of minors, and explicit consent for ad delivery.</p>
                     </div>
                 </div>
 
@@ -1276,11 +1413,11 @@
 
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
-                        <span>Are educational titles safe for children (COPPA compliant)?</span>
+                        <span>Are your applications family-safe and privacy-aligned?</span>
                         <div class="faq-icon">&#9660;</div>
                     </button>
                     <div class="faq-answer">
-                        <p><strong>Yes.</strong> Apps designed for children (such as TinySteps and Numbers 123) strictly adhere to COPPA (Children's Online Privacy Protection Act) and Google Play Families Policy guidelines. We never collect personal identifiers from children, do not serve interest-based ads, and protect sensitive parent settings behind a parental gate.</p>
+                        <p><strong>Yes.</strong> Our applications are built with privacy-first principles: zero personal account creation, on-device audio measurement, and full compliance with Apple and Google Play family and data safety guidelines.</p>
                     </div>
                 </div>
 
