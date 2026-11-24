@@ -901,18 +901,19 @@
             border-color: rgba(59, 130, 246, 0.4);
             background: linear-gradient(145deg, rgba(26, 36, 56, 0.85), rgba(15, 23, 42, 0.95));
             box-shadow: 0 10px 30px rgba(37, 99, 235, 0.12);
+            padding: 22px 24px;
         }
 
         .featured-banner-tag {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             font-weight: 700;
             color: #60a5fa;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            margin-bottom: 10px;
+            margin-bottom: 6px;
         }
 
         /* Dual Store Action Row - Guaranteed No-Wrap on Mobile */
@@ -928,6 +929,7 @@
             align-items: center;
             justify-content: center;
             gap: 7px;
+            min-height: 44px;
             padding: 10px 12px;
             border-radius: 10px;
             font-size: 0.84rem;
@@ -986,33 +988,53 @@
         }
 
         @media (max-width: 768px) {
+            .nav-content {
+                height: 56px;
+            }
+            nav {
+                padding: 0;
+            }
             #apps, section[id] {
-                scroll-margin-top: 80px;
+                scroll-margin-top: 72px;
             }
             .nav-links {
                 display: none;
             }
             .hero {
-                padding: 50px 0 32px;
+                padding: 40px 0 24px;
+            }
+            .section-header {
+                margin-bottom: 24px;
+            }
+            .section-title {
+                font-size: 1.85rem;
+            }
+            .catalog-group {
+                margin-bottom: 28px;
+            }
+            .catalog-group-title {
+                margin-bottom: 14px;
+                padding-bottom: 8px;
             }
             .apps-grid {
                 grid-template-columns: 1fr;
-                gap: 18px;
+                gap: 16px;
             }
             .store-action-row {
                 gap: 8px;
             }
             .btn-store {
-                padding: 9px 8px;
+                min-height: 44px;
+                padding: 10px 8px;
                 font-size: 0.8rem;
                 gap: 5px;
             }
             .store-icon-svg {
-                width: 14px;
-                height: 14px;
+                width: 15px;
+                height: 15px;
             }
             .trust-section {
-                padding: 28px 16px;
+                padding: 24px 16px;
             }
             .footer-content {
                 flex-direction: column;
@@ -1022,17 +1044,70 @@
 
         @media (max-width: 480px) {
             .container {
-                padding: 0 16px;
+                padding: 0 12px;
+            }
+            .section-header {
+                margin-bottom: 16px;
+            }
+            .section-tag {
+                font-size: 0.72rem;
+                margin-bottom: 4px;
+            }
+            .section-title {
+                font-size: 1.6rem;
+                margin-bottom: 6px;
+            }
+            .section-desc {
+                font-size: 0.82rem;
+                line-height: 1.35;
+            }
+            .catalog-group-title {
+                font-size: 0.95rem;
+                margin-bottom: 12px;
+                padding-bottom: 6px;
             }
             .app-card {
-                padding: 20px 16px;
+                padding: 16px 12px;
+            }
+            .app-card.featured-card {
+                padding: 16px 12px;
+            }
+            .featured-banner-tag {
+                font-size: 0.68rem;
+                margin-bottom: 6px;
+            }
+            .featured-card .app-icon {
+                width: 52px;
+                height: 52px;
+            }
+            .featured-card h3 {
+                font-size: 1.15rem;
+            }
+            .featured-card .app-desc {
+                font-size: 0.84rem;
+                line-height: 1.38;
+                margin-bottom: 10px;
+            }
+            .featured-card .app-features {
+                margin-bottom: 12px;
+                gap: 6px;
+            }
+            .featured-card .feature-chip {
+                font-size: 0.7rem;
+                padding: 3px 8px;
             }
             .stat-card {
-                padding: 16px;
+                padding: 12px;
             }
             .btn-store {
-                font-size: 0.78rem;
-                padding: 8px 6px;
+                min-height: 44px;
+                font-size: 0.76rem;
+                padding: 10px 5px;
+                gap: 4px;
+            }
+            .store-icon-svg {
+                width: 14px;
+                height: 14px;
             }
         }
     </style>
@@ -1110,7 +1185,7 @@
             <div class="section-header">
                 <div class="section-tag">Portfolio</div>
                 <h2 class="section-title">Apps &amp; Games</h2>
-                <p class="section-desc">Explore verified public releases on the App Store and Google Play, followed by previews in our production pipeline.</p>
+                <p class="section-desc">Maintained by <strong>Hafiz Saad Digital</strong> for visitors from <strong>@snw.digital</strong>.<br><span style="font-size: 0.85em; color: var(--text-muted);">(Published on Google Play as <em>Saad Apps</em> and the App Store as <em>Hafiz Muhammad Saad</em>)</span></p>
             </div>
 
             <!-- Group 1: Available Now (Verified Public Releases) -->
@@ -1124,26 +1199,24 @@
 
                     <!-- 1. DecibelPro (FEATURED • LIVE ON iOS & ANDROID) -->
                     <article class="app-card featured-card" data-category="utility">
-                        <div class="featured-banner-tag">★ Featured Application • Live on iOS &amp; Android</div>
+                        <div class="featured-banner-tag">★ Featured • Live on iOS &amp; Android</div>
                         <div class="app-card-top">
                             <img src="decibel-pro/assets/icon.png" alt="DecibelPro Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/72/2563eb/ffffff?text=dB'">
                             <div class="app-title-group">
                                 <div style="display:flex;align-items:center;flex-wrap:wrap;gap:6px;">
                                     <h3>DecibelPro</h3>
-                                    <span class="badge-live-pulse"><span class="pulse-dot"></span> v1.1.0 Live</span>
+                                    <span class="badge-live-pulse"><span class="pulse-dot"></span> Live</span>
                                 </div>
-                                <span class="app-badge-category">Acoustic Utility &amp; Precision Meter</span>
+                                <span class="app-badge-category">Sound dB Meter &amp; Tone</span>
                             </div>
                         </div>
                         <p class="app-desc">
-                            Professional sound level meter (dBA), real-time acoustic waveform visualizer, precision sine-wave tone generator (20 Hz &ndash; 20,000 Hz), and 165 Hz acoustic pulse speaker cleaner with zero cloud data transmission.
+                            Estimate everyday sound levels, save readings, and review your measurement history.
                         </p>
                         <div class="app-features">
                             <span class="feature-chip">dBA Sound Meter</span>
                             <span class="feature-chip">Tone Generator</span>
-                            <span class="feature-chip">Speaker Cleaner</span>
-                            <span class="feature-chip">Live Graph</span>
-                            <span class="feature-chip">CSV Export</span>
+                            <span class="feature-chip">History &amp; Export</span>
                         </div>
                         <div class="app-actions">
                             <div class="store-action-row">
@@ -1320,7 +1393,7 @@
                         </div>
                         <div class="card-meta-links" style="margin-top:auto;padding-top:14px;">
                             <span style="color:var(--text-muted);font-size:0.8rem;">Engine In Development</span>
-                            <span style="color:var(--text-muted);font-size:0.8rem;">Interactive Preview</span>
+                            <span style="color:var(--text-muted);font-size:0.8rem;">Release Pending</span>
                         </div>
                     </article>
 
@@ -1329,44 +1402,44 @@
 
         </section>
 
-        <!-- Trust & Compliance Section -->
+        <!-- Data Practices & Privacy Section -->
         <section id="compliance" class="trust-section">
             <div class="section-header" style="margin-bottom: 24px;">
-                <div class="section-tag">Standards &amp; Trust</div>
-                <h2 class="section-title">Developer Safety &amp; Privacy Pledge</h2>
-                <p class="section-desc">Hafiz Saad Digital operates with strict compliance towards Google Play and App Store developer requirements.</p>
+                <div class="section-tag">Privacy &amp; Data</div>
+                <h2 class="section-title">Data Handling &amp; Privacy Practices</h2>
+                <p class="section-desc">Clear information on local microphone processing, non-audio analytics, and advertising consent across our mobile applications.</p>
             </div>
 
             <div class="trust-grid">
                 <div class="trust-item">
                     <div class="trust-icon">🔒</div>
                     <div class="trust-text">
-                        <h4>On-Device Processing</h4>
-                        <p>Utilities such as DecibelPro compute real-time audio measurements entirely on the device. No audio samples are ever recorded or uploaded.</p>
+                        <h4>Local Microphone Processing</h4>
+                        <p>DecibelPro processes live microphone audio samples entirely on-device to compute decibel readings. Microphone audio is never recorded, saved, or uploaded off your phone.</p>
                     </div>
                 </div>
 
                 <div class="trust-item">
                     <div class="trust-icon">🛡️</div>
                     <div class="trust-text">
-                        <h4>GDPR &amp; UMP Compliance</h4>
-                        <p>All ad-supported applications utilize Google-certified Consent Management Platforms (CMP) respecting user consent across the EEA and UK.</p>
+                        <h4>Standard User Consent (CMP)</h4>
+                        <p>Ad-supported apps implement standard Google User Messaging Platform (UMP) consent flows, allowing users to manage personalized advertising preferences.</p>
                     </div>
                 </div>
 
                 <div class="trust-item">
                     <div class="trust-icon">👶</div>
                     <div class="trust-text">
-                        <h4>Family &amp; Privacy Alignment</h4>
-                        <p>Our applications follow strict privacy standards: on-device calculation, zero behavioural tracking of minors, and explicit consent for ad delivery.</p>
+                        <h4>Family &amp; Safety Guidelines</h4>
+                        <p>Our applications respect Google Play and Apple family guidelines: zero personal account creation, on-device utility calculation, and family-safe ad settings.</p>
                     </div>
                 </div>
 
                 <div class="trust-item">
                     <div class="trust-icon">📋</div>
                     <div class="trust-text">
-                        <h4>Authorized Ads (app-ads.txt)</h4>
-                        <p>We maintain an officially verified <a href="app-ads.txt" style="color:#60a5fa;text-decoration:none;">app-ads.txt</a> file ensuring brand protection and transparent ad serving.</p>
+                        <h4>Authorized Digital Ads (app-ads.txt)</h4>
+                        <p>We maintain an officially published <a href="app-ads.txt" style="color:#60a5fa;text-decoration:none;">app-ads.txt</a> file ensuring verified ad inventory and publisher transparency.</p>
                     </div>
                 </div>
             </div>
@@ -1383,21 +1456,21 @@
             <div class="faq-container">
                 <div class="faq-item active">
                     <button class="faq-question" onclick="toggleFaq(this)">
-                        <span>Does DecibelPro record, save, or transmit my audio?</span>
+                        <span>Does DecibelPro record, save, or transmit my microphone audio?</span>
                         <div class="faq-icon">&#9660;</div>
                     </button>
                     <div class="faq-answer">
-                        <p><strong>No.</strong> DecibelPro computes sound pressure levels (dBA) in real time entirely on your device using transient memory buffers. Audio samples are never written to disk, never recorded, and never uploaded to any remote server or cloud system.</p>
+                        <p><strong>No.</strong> DecibelPro processes microphone audio samples transiently in local volatile device memory solely to compute real-time decibel sound levels (dBA). Raw microphone audio is never recorded, never saved to disk, and never transmitted to any cloud or remote server. (Standard non-audio technical diagnostics and advertising identifiers operate separately in accordance with platform consent frameworks.)</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
-                        <span>How can I request data or account deletion?</span>
+                        <span>How can I request data or support correspondence deletion?</span>
                         <div class="faq-icon">&#9660;</div>
                     </button>
                     <div class="faq-answer">
-                        <p>Our applications are designed with privacy-first principles and do not require user account registration. As such, we do not store personal account profiles. If you have contacted support or submitted telemetry and want all associated correspondence permanently deleted, email <a href="mailto:rajasaad707@gmail.com?subject=Data%20Deletion%20Request" style="color:#60a5fa;text-decoration:none;">rajasaad707@gmail.com</a> with the subject <em>"Data Deletion Request"</em> and your request will be honored within 48 hours.</p>
+                        <p>Our applications do not require user account registration, so we do not host personal profile databases. On-device session history stays on your phone and can be cleared at any time by clearing app data or uninstalling. If you have contacted customer support and wish to have your email correspondence deleted, email <a href="mailto:rajasaad707@gmail.com?subject=Data%20Deletion%20Request" style="color:#60a5fa;text-decoration:none;">rajasaad707@gmail.com</a> with the subject <em>"Data Deletion Request"</em>, and your support thread will be permanently deleted upon confirmation.</p>
                     </div>
                 </div>
 
@@ -1417,7 +1490,7 @@
                         <div class="faq-icon">&#9660;</div>
                     </button>
                     <div class="faq-answer">
-                        <p><strong>Yes.</strong> Our applications are built with privacy-first principles: zero personal account creation, on-device audio measurement, and full compliance with Apple and Google Play family and data safety guidelines.</p>
+                        <p><strong>Yes.</strong> Our applications are built with privacy-conscious defaults: zero personal account creation, local microphone processing for utilities, and advertising settings configured to General Audience (G-rating) aligned with Google Play Families Policies and Apple App Store Review Guidelines.</p>
                     </div>
                 </div>
 
@@ -1443,7 +1516,7 @@
                 ✉️ rajasaad707@gmail.com
             </a>
             <div style="margin-top: 18px; font-size: 0.88rem; color: var(--text-muted);">
-                Typical response time: Within 24-48 business hours
+                Support inquiries are typically reviewed during standard business hours.
             </div>
         </section>
 
